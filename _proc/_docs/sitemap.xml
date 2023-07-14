@@ -2,10 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bthek1.github.io/newAI/quartosetup.html</loc>
-    <lastmod>2023-07-14T09:29:34.526Z</lastmod>
+    <lastmod>2023-07-14T09:50:15.181Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/core.html</loc>
     <lastmod>2023-07-14T08:57:59.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/nbdevsetup.html</loc>
+    <lastmod>2023-07-14T09:50:10.679Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/index.html</loc>
+    <lastmod>2023-07-14T09:49:22.992Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/Untitled.html</loc>
+    <lastmod>2023-07-14T09:45:44.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/pytorchsetup.html</loc>
+    <lastmod>2023-07-14T09:50:12.799Z</lastmod>
   </url>
 </urlset>

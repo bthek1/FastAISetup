@@ -4,7 +4,7 @@
     "href": "quartosetup.html",
     "title": "Quarto Setup",
     "section": "",
-    "text": "Downlaod quarto : quarto-1.3.433-win"
+    "text": "Downlaod quarto : quarto-1.3.433-win\n\n\n\nRemember to restart the computer"
   },
   {
     "objectID": "quartosetup.html#installs",
@@ -25,6 +25,41 @@
     "href": "quartosetup.html#download",
     "title": "Quarto Setup",
     "section": "",
-    "text": "Downlaod quarto : quarto-1.3.433-win"
+    "text": "Downlaod quarto : quarto-1.3.433-win\n\n\n\nRemember to restart the computer"
+  },
+  {
+    "objectID": "nbdevsetup.html",
+    "href": "nbdevsetup.html",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "Installation\n\nPython\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\nTo get Jupyter labs\npip install jupyterlab\n\n\nTo launch jupyter labs\njupyter lab\nInstall nbdev"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "newAI",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "newAI",
+    "section": "Install",
+    "text": "Install\npip install newAI"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "newAI",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  },
+  {
+    "objectID": "pytorchsetup.html",
+    "href": "pytorchsetup.html",
+    "title": "Pytorch Setup",
+    "section": "",
+    "text": "1+1\n\n2"
   }
 ]

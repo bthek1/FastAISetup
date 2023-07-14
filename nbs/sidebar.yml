@@ -2,4 +2,6 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - 00_quartoSetUp.ipynb
+      - 01_quartoSetup.ipynb
+      - 02_nbdevSetup.ipynb
+      - 03_pytorchSetup.ipynb

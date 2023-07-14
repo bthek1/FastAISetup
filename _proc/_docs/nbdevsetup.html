@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="newAi">
+<meta name="description" content="Details on setting up nbdev Setup">
 
-<title>newAI</title>
+<title>newAI - Nbdev Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,11 +97,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="newAI">
-<meta property="og:description" content="newAi">
+<meta property="og:title" content="newAI - Nbdev Setup">
+<meta property="og:description" content="Details on setting up nbdev Setup">
 <meta property="og:site-name" content="newAI">
-<meta name="twitter:title" content="newAI">
-<meta name="twitter:description" content="newAi">
+<meta name="twitter:title" content="newAI - Nbdev Setup">
+<meta name="twitter:description" content="Details on setting up nbdev Setup">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -126,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">newAI</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nbdevsetup.html">Nbdev Setup</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -140,13 +140,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">newAI</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nbdevsetup.html" class="sidebar-item-text sidebar-link">
+  <a href="./quartosetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nbdevsetup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Nbdev Setup</span></a>
   </div>
 </li>
@@ -154,12 +160,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./pytorchsetup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pytorch Setup</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./quartosetup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto Setup</span></a>
   </div>
 </li>
     </ul>
@@ -172,8 +172,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install" id="toc-install" class="nav-link active" data-scroll-target="#install">Install</a></li>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a>
+  <ul class="collapse">
+  <li><a href="#to-get-jupyter-labs" id="toc-to-get-jupyter-labs" class="nav-link" data-scroll-target="#to-get-jupyter-labs">To get Jupyter labs</a></li>
+  <li><a href="#to-launch-jupyter-labs" id="toc-to-launch-jupyter-labs" class="nav-link" data-scroll-target="#to-launch-jupyter-labs">To launch jupyter labs</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -182,12 +185,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">newAI</h1>
+<h1 class="title">Nbdev Setup</h1>
 </div>
 
 <div>
   <div class="description">
-    newAi
+    Details on setting up nbdev Setup
   </div>
 </div>
 
@@ -203,22 +206,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This file will become your README and also the index of your documentation.</p>
-<section id="install" class="level2">
-<h2 class="anchored" data-anchor-id="install">Install</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install newAI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="installation" class="level1">
+<h1>Installation</h1>
+<ul>
+<li>Python</li>
+<li>A Python package manager: we recommend conda or pip - download anaconda</li>
+<li>Jupyter Notebook - see below</li>
+<li>nbdev - see below</li>
+<li>Quarto - see quarto setup</li>
+</ul>
+<section id="to-get-jupyter-labs" class="level3">
+<h3 class="anchored" data-anchor-id="to-get-jupyter-labs">To get Jupyter labs</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="how-to-use" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use">How to use</h2>
-<p>Fill me in please! Don’t forget code examples:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>2</code></pre>
-</div>
-</div>
+<section id="to-launch-jupyter-labs" class="level3">
+<h3 class="anchored" data-anchor-id="to-launch-jupyter-labs">To launch jupyter labs</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Install nbdev</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
