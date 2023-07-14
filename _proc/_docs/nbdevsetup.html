@@ -175,8 +175,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
   <li><a href="#to-get-jupyter-labs" id="toc-to-get-jupyter-labs" class="nav-link" data-scroll-target="#to-get-jupyter-labs">To get Jupyter labs</a></li>
-  <li><a href="#to-launch-jupyter-labs" id="toc-to-launch-jupyter-labs" class="nav-link" data-scroll-target="#to-launch-jupyter-labs">To launch jupyter labs</a></li>
+  <li><a href="#create-an-empty-github-repo" id="toc-create-an-empty-github-repo" class="nav-link" data-scroll-target="#create-an-empty-github-repo">Create an empty GitHub repo</a></li>
+  <li><a href="#run-nbdev" id="toc-run-nbdev" class="nav-link" data-scroll-target="#run-nbdev">RUN Nbdev</a></li>
   </ul></li>
+  <li><a href="#useful-commands" id="toc-useful-commands" class="nav-link" data-scroll-target="#useful-commands">Useful commands</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -218,14 +220,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="to-get-jupyter-labs" class="level3">
 <h3 class="anchored" data-anchor-id="to-get-jupyter-labs">To get Jupyter labs</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="to-launch-jupyter-labs" class="level3">
-<h3 class="anchored" data-anchor-id="to-launch-jupyter-labs">To launch jupyter labs</h3>
+<p>To launch jupyter labs</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Install nbdev</p>
-
-
+<p>To install nbdev</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>conda doesn’t work for windows</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>get instructin for quarto with</p>
+</blockquote>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_install_quarto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Install the extension by entering:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab-quarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="create-an-empty-github-repo" class="level2">
+<h2 class="anchored" data-anchor-id="create-an-empty-github-repo">Create an empty GitHub repo</h2>
+<ul>
+<li><p>make it public</p></li>
+<li><p>add a gitignore file</p></li>
+<li><p>clone it into project location</p></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/PROEJECT_NAME.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="run-nbdev" class="level2">
+<h2 class="anchored" data-anchor-id="run-nbdev">RUN Nbdev</h2>
+<p>Initialise your nbdev repo by entering:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_new</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It may ask you to enter information that it couldn’t infer from git or GitHub.</p>
+<ul>
+<li>Do a git push to make sure everything is working</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span><span class="st">'Initial commit'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Go to settings on Github, go to pages, Change Branch to gh-pages</p>
+</blockquote>
+<ul>
+<li>Then check on Actions</li>
+</ul>
+</section>
+</section>
+<section id="useful-commands" class="level1">
+<h1>Useful commands</h1>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -32,7 +32,7 @@
     "href": "nbdevsetup.html",
     "title": "Nbdev Setup",
     "section": "",
-    "text": "Installation\n\nPython\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\nTo get Jupyter labs\npip install jupyterlab\n\n\nTo launch jupyter labs\njupyter lab\nInstall nbdev"
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\n\nconda doesn’t work for windows\n\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto\n\n\n\n\nmake it public\nadd a gitignore file\nclone it into project location\n\ngit clone https://github.com/PROEJECT_NAME.git\n\n\n\nInitialise your nbdev repo by entering:\nnbdev_new\nIt may ask you to enter information that it couldn’t infer from git or GitHub.\n\nDo a git push to make sure everything is working\n\ngit add .\ngit commit -m'Initial commit'\ngit push\n\nGo to settings on Github, go to pages, Change Branch to gh-pages\n\n\nThen check on Actions"
   },
   {
     "objectID": "index.html",
@@ -61,5 +61,33 @@
     "title": "Pytorch Setup",
     "section": "",
     "text": "1+1\n\n2"
+  },
+  {
+    "objectID": "nbdevsetup.html#to-get-jupyter-labs",
+    "href": "nbdevsetup.html#to-get-jupyter-labs",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "pip install jupyterlab"
+  },
+  {
+    "objectID": "nbdevsetup.html#to-launch-jupyter-labs",
+    "href": "nbdevsetup.html#to-launch-jupyter-labs",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "jupyter lab\nInstall nbdev"
+  },
+  {
+    "objectID": "nbdevsetup.html#create-an-empty-github-repo",
+    "href": "nbdevsetup.html#create-an-empty-github-repo",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "make it public\nadd a gitignore file\nclone it into project location\n\ngit clone https://github.com/PROEJECT_NAME.git"
+  },
+  {
+    "objectID": "nbdevsetup.html#run-nbdev",
+    "href": "nbdevsetup.html#run-nbdev",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "Initialise your nbdev repo by entering:\nnbdev_new\nIt may ask you to enter information that it couldn’t infer from git or GitHub.\n\nDo a git push to make sure everything is working\n\ngit add .\ngit commit -m'Initial commit'\ngit push\n\nGo to settings on Github, go to pages, Change Branch to gh-pages\n\n\nThen check on Actions"
   }
 ]
