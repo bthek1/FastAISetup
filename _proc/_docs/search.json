@@ -60,7 +60,7 @@
     "href": "pytorchsetup.html",
     "title": "Pytorch Setup",
     "section": "",
-    "text": "Uninstall Onedrive\nInstall:\n\nMatlab\n\n\nGit\n\n\nvscode\n\n\ndocker\n\n\nanaconda\n\n\nnvidia\n\ntoolit\ncuda\ncudnn"
+    "text": "Uninstall\n\nOnedrive\n\nInstall:\n\nMatlab\nGit\nvscode\ndocker\nanaconda\nnvidia:\n\ntoolit\ncuda\ncudnn"
   },
   {
     "objectID": "nbdevsetup.html#to-get-jupyter-labs",
@@ -130,13 +130,27 @@
     "href": "pytorchsetup.html#computer-setup",
     "title": "Pytorch Setup",
     "section": "",
-    "text": "Uninstall Onedrive\nInstall:\n\nMatlab\n\n\nGit\n\n\nvscode\n\n\ndocker\n\n\nanaconda\n\n\nnvidia\n\ntoolit\ncuda\ncudnn"
+    "text": "Uninstall\n\nOnedrive\n\nInstall:\n\nMatlab\nGit\nvscode\ndocker\nanaconda\nnvidia:\n\ntoolit\ncuda\ncudnn"
   },
   {
     "objectID": "pytorchsetup.html#program-setup",
     "href": "pytorchsetup.html#program-setup",
     "title": "Pytorch Setup",
     "section": "Program Setup",
-    "text": "Program Setup\n\nnbdev - see nbdev page\nquarto - see quarto page\njupyter lab - see nbdev page\nOptional installs &gt; - vim\n\n - conda install -c conda-forge vim\n\ngrep\n\n - conda install -c conda-forge grep"
+    "text": "Program Setup\n\nnbdev - see nbdev page\nquarto - see quarto page\njupyter lab - see nbdev page\nOptional installs\n\nvim\n\nconda install -c conda-forge vim\n\ngrep\n\nconda install -c conda-forge grep"
+  },
+  {
+    "objectID": "pytorchsetup.html#prerequisites-for-pytorch",
+    "href": "pytorchsetup.html#prerequisites-for-pytorch",
+    "title": "Pytorch Setup",
+    "section": "Prerequisites for pytorch",
+    "text": "Prerequisites for pytorch\n\nInstall Anaconda\nInstall CUDA, if your machine has a CUDA-enabled GPU.\nIf you want to build on Windows, Visual Studio with MSVC toolset, and NVTX are also needed. The exact requirements of those dependencies could be found out here.\nFollow the steps described here: https://github.com/pytorch/pytorch#from-source"
+  },
+  {
+    "objectID": "index.html#step-for-git-push",
+    "href": "index.html#step-for-git-push",
+    "title": "newAI",
+    "section": "Step for git push",
+    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
   }
 ]

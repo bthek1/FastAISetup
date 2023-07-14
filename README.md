@@ -5,6 +5,22 @@
 This file will become your README and also the index of your
 documentation.
 
+## Step for git push
+
+- nbdev_prepare
+
+``` sh
+nbdev_prepare
+```
+
+- Git stuff
+
+``` sh
+git add .
+git commit -m "update"
+git push
+```
+
 ## Install
 
 ``` sh
