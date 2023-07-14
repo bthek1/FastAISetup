@@ -5,4 +5,5 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://bthek1.github.io',
                 'git_url': 'https://github.com/bthek1/newAI',
                 'lib_path': 'newAI'},
-  'syms': {'newAI.core': {'newAI.core.foo': ('quartosetup.html#foo', 'newAI/core.py')}}}
+  'syms': { 'newAI.core': {'newAI.core.foo': ('quartosetup.html#foo', 'newAI/core.py')},
+            'newAI.nbdev': {'newAI.nbdev.say_hello': ('nbdevsetup.html#say_hello', 'newAI/nbdev.py')}}}

@@ -32,7 +32,7 @@
     "href": "nbdevsetup.html",
     "title": "Nbdev Setup",
     "section": "",
-    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\n\nconda doesn’t work for windows\n\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto\n\n\n\n\nmake it public\nadd a gitignore file\nclone it into project location\n\ngit clone https://github.com/PROEJECT_NAME.git\n\n\n\nInitialise your nbdev repo by entering:\nnbdev_new\nIt may ask you to enter information that it couldn’t infer from git or GitHub.\n\nDo a git push to make sure everything is working\n\ngit add .\ngit commit -m'Initial commit'\ngit push\n\nGo to settings on Github, go to pages, Change Branch to gh-pages\n\n\nThen check on Actions"
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\n\nconda doesn’t work for windows\n\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto"
   },
   {
     "objectID": "index.html",
@@ -80,14 +80,42 @@
     "objectID": "nbdevsetup.html#create-an-empty-github-repo",
     "href": "nbdevsetup.html#create-an-empty-github-repo",
     "title": "Nbdev Setup",
-    "section": "",
-    "text": "make it public\nadd a gitignore file\nclone it into project location\n\ngit clone https://github.com/PROEJECT_NAME.git"
+    "section": "Create an empty GitHub repo",
+    "text": "Create an empty GitHub repo\n\nmake it public\nadd a gitignore file\nclone it into project location\n\ngit clone https://github.com/PROEJECT_NAME.git"
   },
   {
     "objectID": "nbdevsetup.html#run-nbdev",
     "href": "nbdevsetup.html#run-nbdev",
     "title": "Nbdev Setup",
+    "section": "RUN Nbdev",
+    "text": "RUN Nbdev\nInitialise your nbdev repo by entering:\nnbdev_new\nIt may ask you to enter information that it couldn’t infer from git or GitHub.\n\nDo a git push to make sure everything is working\n\ngit add .\ngit commit -m'Initial commit'\ngit push\n\nGo to settings on Github, go to pages, Change Branch to gh-pages\n\n\nThen check on Actions"
+  },
+  {
+    "objectID": "nbdevsetup.html#directives-for-documentation",
+    "href": "nbdevsetup.html#directives-for-documentation",
+    "title": "Nbdev Setup",
+    "section": "Directives for documentation:",
+    "text": "Directives for documentation:\n#|hide\n\nHide cell input and output.\n\n#|echo: &lt;true|false&gt;\n\nToggle the visibility of code-cell inputs.\n\n#|output: &lt;true|false|asis&gt;\n\nSetting this to false hides the output of a cell. Setting this to asis renders the output as raw markdown.\n\n#|hide_line\n\nHide a specific line of code in an input cell.\n\n#|code-fold: &lt;show|true&gt;\n\nThe #|code-fold directive allows you to collapse code cells. When set to true, the element is collapsed by default, when set to show show the element is shown by default.\n\n\nExports\n#|default_exp &lt;name&gt;\n\nNames the module where cells with the #|export directive will be exported to by default.\n\n#|export\n\nExports the items in the cell into the generated module and documentation.\n\n#|exports\n\nA source export. Like #|export but in addition to showing docs via showdoc.show_doc, it also shows the source code.\n\n#|exec_doc\n\nEnsures that a cell is executed each time before generating docs. When a cell does not have this annotation, it is run according to the default rules described here.\n\n#|eval: &lt;true|false&gt;\n\nWhen set to false, the cell is ignored during testing."
+  },
+  {
+    "objectID": "nbdevsetup.html#testing",
+    "href": "nbdevsetup.html#testing",
+    "title": "Nbdev Setup",
+    "section": "Testing",
+    "text": "Testing\n\n\nCode\ndef say_hello(to):\n    \"Say hello to somebody\"\n    return f'Hello {to}!'\n\n\n\n\nsay_hello\n\n say_hello (to)\n\nSay hello to somebody\n\nsay_hello(\"Isaac\")\n\n'Hello Isaac!'\n\n\nThis is a test too! When you run nbdev_test it will execute this cell (and all other test cells) and fail if they raise any exceptions.\nFor tests, it’s preferred to use more explicit asserts:\n\nassert say_hello(\"Hamel\") == \"Hello Hamel!\"\n\n\nfrom fastcore.test import *\n\n\ntest_eq(say_hello(\"Hamel\"), \"Hello Hamel!\")\n\nUsing\n$$\\sum_{i=1}^{k+1}i$$\nWhich is rendered as: \\[\\sum_{i=1}^{k+1}i\\]\nThis version is displayed inline: $\\sum_{i=1}^{k+1}i$ . You can include text before and after.\n\nBecomes: This version is displayed inline: \\(\\sum_{i=1}^{k+1}i\\) . You can include text before and after."
+  },
+  {
+    "objectID": "nbdevsetup.html#installation",
+    "href": "nbdevsetup.html#installation",
+    "title": "Nbdev Setup",
     "section": "",
-    "text": "Initialise your nbdev repo by entering:\nnbdev_new\nIt may ask you to enter information that it couldn’t infer from git or GitHub.\n\nDo a git push to make sure everything is working\n\ngit add .\ngit commit -m'Initial commit'\ngit push\n\nGo to settings on Github, go to pages, Change Branch to gh-pages\n\n\nThen check on Actions"
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\n\nconda doesn’t work for windows\n\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto"
+  },
+  {
+    "objectID": "nbdevsetup.html#useful-commands",
+    "href": "nbdevsetup.html#useful-commands",
+    "title": "Nbdev Setup",
+    "section": "Useful commands",
+    "text": "Useful commands\nThe next step is to install your package by entering this into your terminal:\npip install -e '.[dev]'\nThis is the recommended way to make a Python package importable from anywhere in your current environment:\n\n-e – short for “editable”, lets you immediately use changes made to your package without having to reinstall, which is convenient for development.\n. – refers to the current directory.\n[dev] – includes “development” requirements: other packages that your notebooks use solely for documentation or testing.\n\nStart the preview by entering this into your terminal:\nnbdev_preview\nBefore every git push, run :\nnbdev_prepare\nWhich is the combination of:\n\nnbdev_export: Builds the .py modules from Jupyter notebooks\nnbdev_test: Tests your notebooks\nnbdev_clean: Cleans your notebooks to get rid of extreanous output for git\nnbdev_readme: Updates your repo’s README.md file from your index notebook."
   }
 ]
