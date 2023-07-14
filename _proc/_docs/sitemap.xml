@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bthek1.github.io/newAI/quartosetup.html</loc>
-    <lastmod>2023-07-14T15:10:43.166Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bthek1.github.io/newAI/core.html</loc>
-    <lastmod>2023-07-14T08:57:59.289Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bthek1.github.io/newAI/nbdevsetup.html</loc>
-    <lastmod>2023-07-14T15:10:47.342Z</lastmod>
-  </url>
-  <url>
     <loc>https://bthek1.github.io/newAI/index.html</loc>
-    <lastmod>2023-07-14T15:10:49.013Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bthek1.github.io/newAI/Untitled.html</loc>
-    <lastmod>2023-07-14T09:45:44.053Z</lastmod>
+    <lastmod>2023-07-14T15:48:07.757Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/pytorchsetup.html</loc>
-    <lastmod>2023-07-14T15:15:33.497Z</lastmod>
+    <lastmod>2023-07-14T15:48:06.768Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/quartosetup.html</loc>
+    <lastmod>2023-07-14T15:48:05.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/nbdevsetup.html</loc>
+    <lastmod>2023-07-14T15:48:06.219Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/fastaisetup.html</loc>
-    <lastmod>2023-07-14T15:10:49.731Z</lastmod>
+    <lastmod>2023-07-14T15:48:11.668Z</lastmod>
   </url>
 </urlset>

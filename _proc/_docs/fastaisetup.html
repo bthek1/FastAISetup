@@ -211,6 +211,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installs" class="level2">
 <h2 class="anchored" data-anchor-id="installs">Installs</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> nvidia fastai anaconda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For installing fastai</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">!pip</span> list <span class="kw">|</span> <span class="ex">findstr</span> <span class="st">"fastai"</span> <span class="kw">||</span> <span class="ex">pip</span> install fastai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip <span class="bu">list</span> <span class="op">|</span> findstr <span class="st">"fastai"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fastai                   2.7.12</code></pre>
+</div>
+</div>
+<p>For installing duckduckgo which is needed for downloading images</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> list <span class="kw">|</span> <span class="ex">findstr</span> <span class="st">"duckduckgo"</span> <span class="kw">||</span> <span class="ex">pip</span> install <span class="at">-U</span> duckduckgo_search</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-tags="[]" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip <span class="bu">list</span> <span class="op">|</span> findstr <span class="st">"duckduckgo"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>duckduckgo-search        3.8.3</code></pre>
+</div>
+</div>
+<p>For installing fastbook</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> list <span class="kw">|</span> <span class="ex">findstr</span> <span class="st">"fastbook"</span> <span class="kw">||</span> <span class="ex">pip</span> install <span class="at">-U</span> fastbook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-tags="[]">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip <span class="bu">list</span> <span class="op">|</span> findstr <span class="st">"fastbook"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
