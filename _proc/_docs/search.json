@@ -60,7 +60,7 @@
     "href": "pytorchsetup.html",
     "title": "Pytorch Setup",
     "section": "",
-    "text": "1+1\n\n2"
+    "text": "Uninstall Onedrive\nInstall:\n\nMatlab\n\n\nGit\n\n\nvscode\n\n\ndocker\n\n\nanaconda\n\n\nnvidia\n\ntoolit\ncuda\ncudnn"
   },
   {
     "objectID": "nbdevsetup.html#to-get-jupyter-labs",
@@ -102,7 +102,7 @@
     "href": "nbdevsetup.html#testing",
     "title": "Nbdev Setup",
     "section": "Testing",
-    "text": "Testing\n\n\nCode\ndef say_hello(to):\n    \"Say hello to somebody\"\n    return f'Hello {to}!'\n\n\n\n\nsay_hello\n\n say_hello (to)\n\nSay hello to somebody\n\nsay_hello(\"Isaac\")\n\n'Hello Isaac!'\n\n\nThis is a test too! When you run nbdev_test it will execute this cell (and all other test cells) and fail if they raise any exceptions.\nFor tests, it’s preferred to use more explicit asserts:\n\nassert say_hello(\"Hamel\") == \"Hello Hamel!\"\n\n\nfrom fastcore.test import *\n\n\ntest_eq(say_hello(\"Hamel\"), \"Hello Hamel!\")\n\nUsing\n$$\\sum_{i=1}^{k+1}i$$\nWhich is rendered as: \\[\\sum_{i=1}^{k+1}i\\]\nThis version is displayed inline: $\\sum_{i=1}^{k+1}i$ . You can include text before and after.\n\nBecomes: This version is displayed inline: \\(\\sum_{i=1}^{k+1}i\\) . You can include text before and after."
+    "text": "Testing\n\n\nCode\ndef say_hello(to):\n    \"Say hello to somebody\"\n    return f'Hello {to}!'\n\n\n\nsource\n\nsay_hello\n\n say_hello (to)\n\nSay hello to somebody\n\nsay_hello(\"Isaac\")\n\n'Hello Isaac!'\n\n\nThis is a test too! When you run nbdev_test it will execute this cell (and all other test cells) and fail if they raise any exceptions.\nFor tests, it’s preferred to use more explicit asserts:\n\nassert say_hello(\"Hamel\") == \"Hello Hamel!\"\n\n\nfrom fastcore.test import *\n\n\ntest_eq(say_hello(\"Hamel\"), \"Hello Hamel!\")\n\nUsing\n$$\\sum_{i=1}^{k+1}i$$\nWhich is rendered as: \\[\\sum_{i=1}^{k+1}i\\]\nThis version is displayed inline: $\\sum_{i=1}^{k+1}i$ . You can include text before and after.\n\nBecomes: This version is displayed inline: \\(\\sum_{i=1}^{k+1}i\\) . You can include text before and after."
   },
   {
     "objectID": "nbdevsetup.html#installation",
@@ -117,5 +117,26 @@
     "title": "Nbdev Setup",
     "section": "Useful commands",
     "text": "Useful commands\nThe next step is to install your package by entering this into your terminal:\npip install -e '.[dev]'\nThis is the recommended way to make a Python package importable from anywhere in your current environment:\n\n-e – short for “editable”, lets you immediately use changes made to your package without having to reinstall, which is convenient for development.\n. – refers to the current directory.\n[dev] – includes “development” requirements: other packages that your notebooks use solely for documentation or testing.\n\nStart the preview by entering this into your terminal:\nnbdev_preview\nBefore every git push, run :\nnbdev_prepare\nWhich is the combination of:\n\nnbdev_export: Builds the .py modules from Jupyter notebooks\nnbdev_test: Tests your notebooks\nnbdev_clean: Cleans your notebooks to get rid of extreanous output for git\nnbdev_readme: Updates your repo’s README.md file from your index notebook."
+  },
+  {
+    "objectID": "fastaisetup.html",
+    "href": "fastaisetup.html",
+    "title": "FastAI Setup",
+    "section": "",
+    "text": "1+1\n\n2"
+  },
+  {
+    "objectID": "pytorchsetup.html#computer-setup",
+    "href": "pytorchsetup.html#computer-setup",
+    "title": "Pytorch Setup",
+    "section": "",
+    "text": "Uninstall Onedrive\nInstall:\n\nMatlab\n\n\nGit\n\n\nvscode\n\n\ndocker\n\n\nanaconda\n\n\nnvidia\n\ntoolit\ncuda\ncudnn"
+  },
+  {
+    "objectID": "pytorchsetup.html#program-setup",
+    "href": "pytorchsetup.html#program-setup",
+    "title": "Pytorch Setup",
+    "section": "Program Setup",
+    "text": "Program Setup\n\nnbdev - see nbdev page\nquarto - see quarto page\njupyter lab - see nbdev page\nOptional installs &gt; - vim\n\n - conda install -c conda-forge vim\n\ngrep\n\n - conda install -c conda-forge grep"
   }
 ]
