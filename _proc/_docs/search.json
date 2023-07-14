@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "quartosetup.html",
+    "href": "quartosetup.html",
+    "title": "Quarto Setup",
+    "section": "",
+    "text": "Downlaod quarto : quarto-1.3.433-win"
+  },
+  {
+    "objectID": "quartosetup.html#installs",
+    "href": "quartosetup.html#installs",
+    "title": "Quarto Setup",
+    "section": "Installs",
+    "text": "Installs\npip install jupyter jupyterlab\npip install matplotlib plotly"
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "foo\n\n foo ()"
+  },
+  {
+    "objectID": "quartosetup.html#download",
+    "href": "quartosetup.html#download",
+    "title": "Quarto Setup",
+    "section": "",
+    "text": "Downlaod quarto : quarto-1.3.433-win"
+  }
+]
