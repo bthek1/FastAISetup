@@ -130,13 +130,13 @@
     "href": "fastaisetup.html",
     "title": "FastAI Setup",
     "section": "",
-    "text": "conda install -c nvidia fastai anaconda\nFor installing fastai\n!pip list | findstr \"fastai\" || pip install fastai\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\nFor installing duckduckgo which is needed for downloading images\npip list | findstr \"duckduckgo\" || pip install -U duckduckgo_search\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\nFor installing fastbook\npip list | findstr \"fastbook\" || pip install -U fastbook\n\n!pip list | findstr \"fastbook\""
+    "text": "conda install -c nvidia fastai anaconda\nFor installing fastai\n!pip list | findstr \"fastai\" || pip install -U fastai\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\nFor installing duckduckgo which is needed for downloading images\npip list | findstr \"duckduckgo\" || pip install -U duckduckgo_search\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\nFor installing fastbook\npip list | findstr \"fastbook\" || pip install -U fastbook\n\n!pip list | findstr \"fastbook\""
   },
   {
     "objectID": "fastaisetup.html#installs",
     "href": "fastaisetup.html#installs",
     "title": "FastAI Setup",
     "section": "",
-    "text": "conda install -c nvidia fastai anaconda\nFor installing fastai\n!pip list | findstr \"fastai\" || pip install fastai\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\nFor installing duckduckgo which is needed for downloading images\npip list | findstr \"duckduckgo\" || pip install -U duckduckgo_search\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\nFor installing fastbook\npip list | findstr \"fastbook\" || pip install -U fastbook\n\n!pip list | findstr \"fastbook\""
+    "text": "conda install -c nvidia fastai anaconda\nFor installing fastai\n!pip list | findstr \"fastai\" || pip install -U fastai\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\nFor installing duckduckgo which is needed for downloading images\npip list | findstr \"duckduckgo\" || pip install -U duckduckgo_search\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\nFor installing fastbook\npip list | findstr \"fastbook\" || pip install -U fastbook\n\n!pip list | findstr \"fastbook\""
   }
 ]
