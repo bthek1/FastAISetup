@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['say_hello']
 
-# %% ../nbs/02_nbdevSetup.ipynb 31
+# %% ../nbs/02_nbdevSetup.ipynb 35
 #|code-fold: <true>
 def say_hello(to):
     "Say hello to somebody"
