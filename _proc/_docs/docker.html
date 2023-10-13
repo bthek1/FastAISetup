@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Details on setting up Pytorch Setup">
+<meta name="description" content="Fast AI in Docker Container">
 
-<title>newAI - Pytorch Setup</title>
+<title>FastAI - Docker</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,11 +99,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="newAI - Pytorch Setup">
-<meta property="og:description" content="Details on setting up Pytorch Setup">
-<meta property="og:site-name" content="newAI">
-<meta name="twitter:title" content="newAI - Pytorch Setup">
-<meta name="twitter:description" content="Details on setting up Pytorch Setup">
+<meta property="og:title" content="FastAI - Docker">
+<meta property="og:description" content="Fast AI in Docker Container">
+<meta property="og:site-name" content="FastAI">
+<meta name="twitter:title" content="FastAI - Docker">
+<meta name="twitter:description" content="Fast AI in Docker Container">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">newAI</span>
+    <span class="navbar-title">FastAI</span>
     </a>
   </div>
         <div class="quarto-navbar-tools ms-auto">
@@ -129,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pytorchsetup.html">Pytorch Setup</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./docker.html">Docker</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pytorchsetup.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pytorchsetup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pytorch Setup</span></a>
   </div>
 </li>
@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docker.html" class="sidebar-item-text sidebar-link">
+  <a href="./docker.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Docker</span></a>
   </div>
 </li>
@@ -217,23 +217,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#computer-setup" id="toc-computer-setup" class="nav-link active" data-scroll-target="#computer-setup">Computer Setup</a></li>
-  <li><a href="#program-setup" id="toc-program-setup" class="nav-link" data-scroll-target="#program-setup">Program Setup</a></li>
-  <li><a href="#prerequisites-for-pytorch" id="toc-prerequisites-for-pytorch" class="nav-link" data-scroll-target="#prerequisites-for-pytorch">Prerequisites for pytorch</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link active" data-scroll-target="#definitions">Definitions</a></li>
+  <li><a href="#view-docker-images" id="toc-view-docker-images" class="nav-link" data-scroll-target="#view-docker-images">View Docker Images</a></li>
+  <li><a href="#view-dockers-containers-running" id="toc-view-dockers-containers-running" class="nav-link" data-scroll-target="#view-dockers-containers-running">View Dockers Containers Running</a></li>
+  <li><a href="#docker-file" id="toc-docker-file" class="nav-link" data-scroll-target="#docker-file">Docker File</a></li>
+  <li><a href="#dockerignore" id="toc-dockerignore" class="nav-link" data-scroll-target="#dockerignore">.dockerignore</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bthek1/FastAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pytorch Setup</h1>
-</div>
+<h1 class="title">Docker</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">c1</div>
+    <div class="quarto-category">c2</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Details on setting up Pytorch Setup
+    Fast AI in Docker Container
   </div>
 </div>
 
@@ -249,131 +255,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<section id="computer-setup" class="level2">
-<h2 class="anchored" data-anchor-id="computer-setup">Computer Setup</h2>
-<ol type="1">
-<li>Uninstall
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
 <ul>
-<li>Onedrive</li>
+<li>Dockerfile
+<ul>
+<li>Blueprint for building a docker image</li>
 </ul></li>
-<li>Download and Install:
+<li>Image
 <ul>
-<li>Matlab</li>
-<li>Git</li>
-<li>vscode</li>
-<li>docker</li>
-<li>anaconda</li>
-<li>nvidia:
-<ul>
-<li>cuda toolkit</li>
+<li>Template for running a docker containers</li>
 </ul></li>
+<li>Container
+<ul>
+<li>Running process</li>
 </ul></li>
-</ol>
-</section>
-<section id="program-setup" class="level2">
-<h2 class="anchored" data-anchor-id="program-setup">Program Setup</h2>
-<ul>
-<li><p>nbdev - see nbdev page</p></li>
-<li><p>quarto - see quarto page</p></li>
-<li><p>jupyter lab - see nbdev page</p></li>
-<li><p>Optional installs</p>
-<ul>
-<li>vim</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge vim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>grep</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge grep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="prerequisites-for-pytorch" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites-for-pytorch">Prerequisites for pytorch</h2>
-<ol type="1">
-<li>Install Anaconda</li>
-<li>Install CUDA, if your machine has a CUDA-enabled GPU.</li>
-<li>If you want to build on Windows, Visual Studio with MSVC toolset, and NVTX are also needed. The exact requirements of those dependencies could be found out here.</li>
-<li>Follow the steps described here: https://github.com/pytorch/pytorch#from-source</li>
-</ol>
-<p>For installing pytorch</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install pytorch torchvision torchaudio pytorch-cuda=11.8 <span class="at">-c</span> pytorch <span class="at">-c</span> nvidia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.rand(<span class="dv">5</span>,<span class="dv">3</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>tensor([[0.2660, 0.4521, 0.4839],
-        [0.3866, 0.7680, 0.5556],
-        [0.5569, 0.1658, 0.6612],
-        [0.3277, 0.3298, 0.3026],
-        [0.5482, 0.6883, 0.8854]])</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>torch.cuda.is_available()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>True</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>torch.cuda.device_count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>1</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>nvcc <span class="op">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>/bin/bash: line 1: nvcc: command not found</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>nvidia<span class="op">-</span>smi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Thu Jul 27 01:53:39 2023       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 520.61.03    Driver Version: 522.06       CUDA Version: 11.8     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0  On |                  N/A |
-| N/A   42C    P8     4W /  N/A |    150MiB /  6144MiB |      2%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A        23      G   /Xwayland                       N/A      |
-+-----------------------------------------------------------------------------+</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>which python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>/home/ben/mambaforge/envs/fast/bin/python</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.executable)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>/home/ben/mambaforge/envs/fast/bin/python3.11
-3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]</code></pre>
-</div>
-</div>
+<section id="view-docker-images" class="level2">
+<h2 class="anchored" data-anchor-id="view-docker-images">View Docker Images</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> images</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="view-dockers-containers-running" class="level2">
+<h2 class="anchored" data-anchor-id="view-dockers-containers-running">View Dockers Containers Running</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="docker-file" class="level2">
+<h2 class="anchored" data-anchor-id="docker-file">Docker File</h2>
+<p>FILE <em>image</em> - base image ex. ubuntu, node:12</p>
+<p>WORKDIR <em>filename</em> - like when you cd into a directory</p>
+<p><strong><em>every step from now is considered layes</em></strong></p>
+<p>COPY <em>filename</em> <em>location</em> - ex. COPY package*.json ./</p>
+<p>RUN <em>npm install</em> - exec commands</p>
+<p>COPY . . - copy all the file in directory into the container</p>
+</section>
+<section id="dockerignore" class="level2">
+<h2 class="anchored" data-anchor-id="dockerignore">.dockerignore</h2>
+<blockquote class="blockquote">
+<p>just like a git ignore file</p>
+</blockquote>
 
 
 </section>

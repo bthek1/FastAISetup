@@ -2,8 +2,13 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - 01_quartoSetup.ipynb
+      - 00_computerSetup.ipynb
+      - 01_condaSetup.ipynb
       - 02_nbdevSetup.ipynb
-      - 03_pytorchSetup.ipynb
-      - 04_fastAISetup.ipynb
-      - 05_fastAIExample.ipynb
+      - 03_quartoSetup.ipynb
+      - 04_pytorchSetup.ipynb
+      - 05_fastAISetup.ipynb
+      - 06_fastAIExample.ipynb
+      - 07_JupyterGuide.ipynb
+      - 08_TODO.ipynb
+      - 09_Docker.ipynb

@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "newAI"
-  site-url: "https://bthek1.github.io/newAI"
-  description: "newAi"
+  title: "FastAI"
+  site-url: "https://bthek1.github.io/FastAI"
+  description: "FastAI"
   repo-branch: main
-  repo-url: "https://github.com/bthek1/newAI"
+  repo-url: "https://github.com/bthek1/FastAI"

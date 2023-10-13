@@ -1,9 +1,0 @@
-website:
-  sidebar:
-    contents:
-      - index.ipynb
-      - 01_quartoSetup.ipynb
-      - 02_nbdevSetup.ipynb
-      - 03_pytorchSetup.ipynb
-      - 04_fastAISetup.ipynb
-      - 05_fastAIExample.ipynb

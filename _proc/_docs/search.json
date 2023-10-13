@@ -1,54 +1,5 @@
 [
   {
-    "objectID": "fastaiexample.html",
-    "href": "fastaiexample.html",
-    "title": "FastAI Example",
-    "section": "",
-    "text": "!conda list | findstr \"pytorch\"\n\npytorch                   2.0.1           py3.11_cuda11.8_cudnn8_0    pytorch\npytorch-cuda              11.8                 h24eeafa_5    pytorch\npytorch-mutex             1.0                        cuda    pytorch\n\n\n\n!nvcc --version\n\nnvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2022 NVIDIA Corporation\nBuilt on Wed_Sep_21_10:41:10_Pacific_Daylight_Time_2022\nCuda compilation tools, release 11.8, V11.8.89\nBuild cuda_11.8.r11.8/compiler.31833905_0\n\n\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\n\n!pip list | findstr \"fastbook\"\n\nfastbook                 0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
-  },
-  {
-    "objectID": "fastaiexample.html#check-for-all-installs-and-versions",
-    "href": "fastaiexample.html#check-for-all-installs-and-versions",
-    "title": "FastAI Example",
-    "section": "",
-    "text": "!conda list | findstr \"pytorch\"\n\npytorch                   2.0.1           py3.11_cuda11.8_cudnn8_0    pytorch\npytorch-cuda              11.8                 h24eeafa_5    pytorch\npytorch-mutex             1.0                        cuda    pytorch\n\n\n\n!nvcc --version\n\nnvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2022 NVIDIA Corporation\nBuilt on Wed_Sep_21_10:41:10_Pacific_Daylight_Time_2022\nCuda compilation tools, release 11.8, V11.8.89\nBuild cuda_11.8.r11.8/compiler.31833905_0\n\n\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\n\n!pip list | findstr \"fastbook\"\n\nfastbook                 0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
-  },
-  {
-    "objectID": "fastaiexample.html#generate-data-images",
-    "href": "fastaiexample.html#generate-data-images",
-    "title": "FastAI Example",
-    "section": "Generate Data Images",
-    "text": "Generate Data Images\n\nfrom fastbook import search_images_ddg\nfrom fastdownload import download_url\nfrom fastai.vision.all import *\n\n\ndownload_url(search_images_ddg('elephant', max_images=2)[1], 'elephant.jpg', show_progress=False)\n\nim = Image.open('elephant.jpg')\nim.to_thumb(256,256)\n\n\n\n\n\ndownload_url(search_images_ddg('tiger', max_images=1)[0], 'tiger.jpg', show_progress=False)\nImage.open('tiger.jpg').to_thumb(256,256)\n\n\n\n\n\ndownload_url(search_images_ddg('panda', max_images=1)[0], 'panda.jpg', show_progress=False)\nImage.open('panda.jpg').to_thumb(256,256)\n\n\n\n\n\nimport os\n\n\n\nCode\ndef animals_folder_create(folder_path, animals):\n    for i in animals:\n        dest = (folder_path/i)\n        dest.mkdir(exist_ok=True, parents=True)\n\n\n\nsource\n\nanimals_folder_create\n\n animals_folder_create (folder_path, animals)\n\n\n\nCode\ndef download_animal_images(folder_path, animals):\n    for j in animals:\n        print(\"downloading images for:\", j)\n        download_images(\n            folder_path/j,\n            urls=search_images_ddg(f'{j} photo',200),\n            n_workers=32\n        )\n\n\n\nsource\n\n\ndownload_animal_images\n\n download_animal_images (folder_path, animals)\n\n\n\nCode\ndef verify_pics(folder_path):\n    failed = verify_images(get_image_files(folder_path))\n    failed.map(Path.unlink)\n    print(\"Number of images failed\", len(failed))\n\n\n\nsource\n\n\nverify_pics\n\n verify_pics (folder_path)\n\n\n\nCode\ndef resize_pics(folder_path, animals):\n    for k in animals:\n        resize_images(\n            folder_path/k,\n            max_size=400,\n            dest=folder_path/k,\n            max_workers=8\n        )\n        print(\"resizing images for:\", k)\n\n\n\nsource\n\n\nresize_pics\n\n resize_pics (folder_path, animals)\n\n\n\nCode\ndef data_folder(folder_path):\n    if os.path.exists(folder_path):\n        print(\"Folder already exists:\", folder_path)\n    else:\n        \n        animals = ('chimpanzee', 'elephant', 'giraffe',\n                    'kangaroo','lion','panda','rabbit',\n                    'rhino', 'tiger', 'wolf')    \n        \n        animals_folder_create(folder_path, animals)\n        download_animal_images(folder_path, animals)\n        verify_pics(folder_path)\n        resize_pics(folder_path, animals)\n        print(\"Folder created:\", folder_path)\n\n\n\nsource\n\n\ndata_folder\n\n data_folder (folder_path)\n\n\n\nCode\npath = Path('animal_pics') #Replace with folder path\n\ndata_folder(path)\n\n\nFolder already exists: animal_pics"
-  },
-  {
-    "objectID": "fastaiexample.html#step-2-train-our-model",
-    "href": "fastaiexample.html#step-2-train-our-model",
-    "title": "FastAI Example",
-    "section": "Step 2: Train our model",
-    "text": "Step 2: Train our model\n\nfrom fastai.metrics import accuracy, error_rate\n\ndls = DataBlock(\n    blocks=(ImageBlock, CategoryBlock), \n    get_items=get_image_files, \n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=[Resize(192, method='squish')]\n).dataloaders(path)\n\ndls.show_batch(max_n=6)\n\n\n\n\n\n# Define your metrics\nmetrics = [accuracy, error_rate]\n\n\nlearn11 = vision_learner(dls, resnet18, metrics=metrics)\nlearn11.fine_tune(5)\n\nC:\\Users\\bthek\\anaconda3\\envs\\newAI\\Lib\\site-packages\\torchvision\\models\\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n  warnings.warn(\nC:\\Users\\bthek\\anaconda3\\envs\\newAI\\Lib\\site-packages\\torchvision\\models\\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\nDownloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to C:\\Users\\bthek/.cache\\torch\\hub\\checkpoints\\resnet18-f37072fd.pth\n100%|█████████████████████████████████████████████████████████████████████████████| 44.7M/44.7M [00:30&lt;00:00, 1.55MB/s]\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\nerror_rate\ntime\n\n\n\n\n0\n1.813433\n0.185478\n0.947170\n0.052830\n00:13\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\nerror_rate\ntime\n\n\n\n\n0\n0.156443\n0.108523\n0.958491\n0.041509\n00:07\n\n\n1\n0.100498\n0.103690\n0.966038\n0.033962\n00:06\n\n\n2\n0.068827\n0.082883\n0.973585\n0.026415\n00:06\n\n\n3\n0.046787\n0.090902\n0.977359\n0.022642\n00:06\n\n\n4\n0.034539\n0.091264\n0.977359\n0.022642\n00:06"
-  },
-  {
-    "objectID": "fastaiexample.html#step-3-display-results-confusion-matrix",
-    "href": "fastaiexample.html#step-3-display-results-confusion-matrix",
-    "title": "FastAI Example",
-    "section": "Step 3: Display Results: Confusion Matrix",
-    "text": "Step 3: Display Results: Confusion Matrix\n\ninterp11 = ClassificationInterpretation.from_learner(learn11)\ninterp11.plot_confusion_matrix()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ninterp11.plot_top_losses(5,nrows = 2, figsize=(17,4))"
-  },
-  {
-    "objectID": "fastaiexample.html#step-4-display-results-t-sne",
-    "href": "fastaiexample.html#step-4-display-results-t-sne",
-    "title": "FastAI Example",
-    "section": "Step 4: Display Results: t-SNE",
-    "text": "Step 4: Display Results: t-SNE\n\nfrom fastai.vision.all import *\nfrom sklearn.manifold import TSNE\nimport matplotlib.pyplot as plt\nfrom sklearn.manifold import TSNE\n\n\nfeatures, labels = learn11.get_preds(dl=dls.valid)\n\n# Replace 'val_features' with your extracted features\ntsne = TSNE(n_components=2)\nreduced_features = tsne.fit_transform(features)\n\n# Replace 'labels' with your image labels if available\nplt.scatter(reduced_features[:, 0], reduced_features[:, 1])\nplt.xlabel('t-SNE Dimension 1')\nplt.ylabel('t-SNE Dimension 2')\nplt.title('t-SNE Visualization')\nplt.show()"
-  },
-  {
-    "objectID": "fastaiexample.html#step-5-use-our-model",
-    "href": "fastaiexample.html#step-5-use-our-model",
-    "title": "FastAI Example",
-    "section": "Step 5: Use our model",
-    "text": "Step 5: Use our model\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nimage= 'elephant.jpg'\n\n\nis_real,_,probs = learn11.predict(PILImage.create(image))\nmax_value, max_index = torch.max(probs, dim=0)\nprint(f\"This is a: {animal_list[max_index]} with probability: {max_value}.\")\n\nImage.open(image).to_thumb(256,256)\n\n\n\n\n\n\n\n\nThis is a: elephant with probability: 0.9999245405197144.\n\n\n\n\n\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nfor index, value in enumerate(animal_list):\n    np.set_printoptions(suppress=True, precision=4)\n    print(f\"Probability of {value} is :{numpy_array[index].round(4)}.\")\n\nProbability of chimpanzee is :0.0.\nProbability of elephant is :0.0.\nProbability of giraffe is :0.0.\nProbability of kangaroo is :0.0.\nProbability of lion is :0.0.\nProbability of panda is :99.99970245361328.\nProbability of rabbit is :0.00019999999494757503.\nProbability of rhino is :0.0.\nProbability of tiger is :0.0.\nProbability of wolf is :0.0."
-  },
-  {
     "objectID": "pytorchsetup.html",
     "href": "pytorchsetup.html",
     "title": "Pytorch Setup",
@@ -74,7 +25,56 @@
     "href": "pytorchsetup.html#prerequisites-for-pytorch",
     "title": "Pytorch Setup",
     "section": "Prerequisites for pytorch",
-    "text": "Prerequisites for pytorch\n\nInstall Anaconda\nInstall CUDA, if your machine has a CUDA-enabled GPU.\nIf you want to build on Windows, Visual Studio with MSVC toolset, and NVTX are also needed. The exact requirements of those dependencies could be found out here.\nFollow the steps described here: https://github.com/pytorch/pytorch#from-source\n\nFor installing pytorch\nconda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia\n\n\nCode\nimport torch\n\n\n\nx = torch.rand(5,3)\nprint(x)\n\ntensor([[0.6660, 0.8828, 0.8786],\n        [0.1932, 0.2143, 0.1244],\n        [0.7643, 0.7395, 0.5036],\n        [0.1526, 0.3148, 0.5178],\n        [0.9121, 0.2890, 0.9676]])\n\n\n\ntorch.cuda.is_available()\n\nTrue\n\n\n\ntorch.cuda.device_count()\n\n1\n\n\n\n!nvcc --version\n\nnvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2022 NVIDIA Corporation\nBuilt on Wed_Sep_21_10:41:10_Pacific_Daylight_Time_2022\nCuda compilation tools, release 11.8, V11.8.89\nBuild cuda_11.8.r11.8/compiler.31833905_0\n\n\n\n!nvidia-smi\n\nSat Jul 15 01:11:16 2023       \n+-----------------------------------------------------------------------------+\n| NVIDIA-SMI 522.06       Driver Version: 522.06       CUDA Version: 11.8     |\n|-------------------------------+----------------------+----------------------+\n| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |\n|                               |                      |               MIG M. |\n|===============================+======================+======================|\n|   0  NVIDIA GeForce ... WDDM  | 00000000:01:00.0  On |                  N/A |\n| N/A   43C    P8     3W /  N/A |    337MiB /  6144MiB |      3%      Default |\n|                               |                      |                  N/A |\n+-------------------------------+----------------------+----------------------+\n                                                                               \n+-----------------------------------------------------------------------------+\n| Processes:                                                                  |\n|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |\n|        ID   ID                                                   Usage      |\n|=============================================================================|\n+-----------------------------------------------------------------------------+"
+    "text": "Prerequisites for pytorch\n\nInstall Anaconda\nInstall CUDA, if your machine has a CUDA-enabled GPU.\nIf you want to build on Windows, Visual Studio with MSVC toolset, and NVTX are also needed. The exact requirements of those dependencies could be found out here.\nFollow the steps described here: https://github.com/pytorch/pytorch#from-source\n\nFor installing pytorch\nmamba install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia\n\n\nCode\nimport torch\n\n\n\nx = torch.rand(5,3)\nprint(x)\n\ntensor([[0.2660, 0.4521, 0.4839],\n        [0.3866, 0.7680, 0.5556],\n        [0.5569, 0.1658, 0.6612],\n        [0.3277, 0.3298, 0.3026],\n        [0.5482, 0.6883, 0.8854]])\n\n\n\ntorch.cuda.is_available()\n\nTrue\n\n\n\ntorch.cuda.device_count()\n\n1\n\n\n\n!nvcc --version\n\n/bin/bash: line 1: nvcc: command not found\n\n\n\n!nvidia-smi\n\nThu Jul 27 01:53:39 2023       \n+-----------------------------------------------------------------------------+\n| NVIDIA-SMI 520.61.03    Driver Version: 522.06       CUDA Version: 11.8     |\n|-------------------------------+----------------------+----------------------+\n| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |\n|                               |                      |               MIG M. |\n|===============================+======================+======================|\n|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0  On |                  N/A |\n| N/A   42C    P8     4W /  N/A |    150MiB /  6144MiB |      2%      Default |\n|                               |                      |                  N/A |\n+-------------------------------+----------------------+----------------------+\n                                                                               \n+-----------------------------------------------------------------------------+\n| Processes:                                                                  |\n|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |\n|        ID   ID                                                   Usage      |\n|=============================================================================|\n|    0   N/A  N/A        23      G   /Xwayland                       N/A      |\n+-----------------------------------------------------------------------------+\n\n\n\n!which python\n\n/home/ben/mambaforge/envs/fast/bin/python\n\n\n\nimport sys\n\n\nprint(sys.executable)\nprint(sys.version)\n\n/home/ben/mambaforge/envs/fast/bin/python3.11\n3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]"
+  },
+  {
+    "objectID": "condasetup.html",
+    "href": "condasetup.html",
+    "title": "Conda Setup",
+    "section": "",
+    "text": "to list conda envs"
+  },
+  {
+    "objectID": "condasetup.html#to-create-basic-conda-env",
+    "href": "condasetup.html#to-create-basic-conda-env",
+    "title": "Conda Setup",
+    "section": "To create basic conda env",
+    "text": "To create basic conda env\nAfter running ./setup-conda.sh, create conda environment\nconda create -n &lt;name&gt; python"
+  },
+  {
+    "objectID": "condasetup.html#to-remove-conda-env",
+    "href": "condasetup.html#to-remove-conda-env",
+    "title": "Conda Setup",
+    "section": "To remove conda env",
+    "text": "To remove conda env\nconda remove --name myenv --all"
+  },
+  {
+    "objectID": "condasetup.html#to-build-conda-env-with-environment-file",
+    "href": "condasetup.html#to-build-conda-env-with-environment-file",
+    "title": "Conda Setup",
+    "section": "To build conda env with environment file",
+    "text": "To build conda env with environment file\nconda env create -n &lt;name&gt; -f environment.yml\n\nfor creating environment files\n\nconda env export &gt; environment.yml"
+  },
+  {
+    "objectID": "condasetup.html#to-clone-an-env",
+    "href": "condasetup.html#to-clone-an-env",
+    "title": "Conda Setup",
+    "section": "To clone an env",
+    "text": "To clone an env\nconda create --name &lt;clone name&gt; --clone &lt;env name&gt;"
+  },
+  {
+    "objectID": "condasetup.html#to-create-a-spec-list-file",
+    "href": "condasetup.html#to-create-a-spec-list-file",
+    "title": "Conda Setup",
+    "section": "To create a spec list file",
+    "text": "To create a spec list file\nconda list --explicit &gt; spec-file.txt\nTo use the spec file to install its listed packages into an existing environment:\nconda install --name myenv --file spec-file.txt"
+  },
+  {
+    "objectID": "condasetup.html#to-clean-mamba-cache",
+    "href": "condasetup.html#to-clean-mamba-cache",
+    "title": "Conda Setup",
+    "section": "To clean Mamba cache",
+    "text": "To clean Mamba cache\nmamba clean --yes --all"
   },
   {
     "objectID": "quartosetup.html",
@@ -98,18 +98,270 @@
     "text": "Installs\npip install jupyter jupyterlab\npip install matplotlib plotly"
   },
   {
+    "objectID": "jupyterguide.html",
+    "href": "jupyterguide.html",
+    "title": "Jupyter Guide",
+    "section": "",
+    "text": "1+1\n\n2\n3/2\n\n1.5"
+  },
+  {
+    "objectID": "jupyterguide.html#other-important-considerations",
+    "href": "jupyterguide.html#other-important-considerations",
+    "title": "Jupyter Guide",
+    "section": "Other Important Considerations",
+    "text": "Other Important Considerations\nThere are a couple of shortcuts you must know about which we use all the time (always in Command Mode). These are:\n\nShift+Enter: Run the code or markdown on a cell\nUp Arrow / Down Arrow: Toggle across cells\nb: Create new cell underneath this one\n0+0: Reset Kernel\n\nYou can find more shortcuts by typing h (for help).\nYou may need to use shell commands, like ls or cat in a Jupyter Notebook environment. That is very easy to do: just type ! before you shell command, like so:\n\nls -hidden\n\nls: invalid option -- 'e'\nTry 'ls --help' for more information."
+  },
+  {
+    "objectID": "jupyterguide.html#markdown-formatting",
+    "href": "jupyterguide.html#markdown-formatting",
+    "title": "Jupyter Guide",
+    "section": "Markdown Formatting",
+    "text": "Markdown Formatting\n\nImages\n![title](panda.jpg)\n\n\n\ntitle\n\n\n\n\nItalics, Bold, Strikethrough, Inline, Blockquotes and Links\nThe five most important concepts to format your code appropriately when using Markdown are:\n\nItalics:: Surround your text with _ or *.\nBold:: Surround your text with __ or **.\ninline:: Surround your text with `.\nblockquote:: Place &gt; before your text.\nsuperscript2 / subscript2\nLinks:: Surround the text you want to link with [] and place the link adjacent to the text, surrounded with ().\n\n\n\nHeadings\n(# is level one, ## is level two, ### is level three and #### is level four)\n\n\nLists\nThere are three types of lists in markdown.\nOrdered list:\n\nStep 1\n\nStep 1B\n\nStep 3\n\nUnordered list\n\nlearning rate\ncycle length\nweight decay\n\nTask list\n\nLearn Jupyter Notebooks\n\nWriting\nModes\nOther Considerations\n\nChange the world\n\nIn the notebook, double click on them to see how they are built!"
+  },
+  {
+    "objectID": "jupyterguide.html#tables",
+    "href": "jupyterguide.html#tables",
+    "title": "Jupyter Guide",
+    "section": "Tables",
+    "text": "Tables\n\n\nTable 1: Main Caption\n\n\n\n\n(a) First Table\n\n\nCol1\nCol2\nCol3\n\n\n\n\nA\nB\nC\n\n\nE\nF\nG\n\n\nA\nG\nG\n\n\n\n\n\n\n(b) Second Table\n\n\nCol1\nCol2\nCol3\n\n\n\n\nA\nB\nC\n\n\nE\nF\nG\n\n\nA\nG\nG\n\n\n\n\n\n\n\nSample grid table.\n\n\n\n\n\n\n\nFruit\nPrice\nAdvantages\n\n\n\n\nBananas\n$1.34\n\nbuilt-in wrapper\nbright color\n\n\n\nOranges\n$2.10\n\ncures scurvy\ntasty\n\n\n\n\n\n\n\nRight\nLeft\nDefault\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\nFruit prices\n\n\n\n\n\n\nfruit\nprice\n\n\n\n\napple\n2.05\n\n\npear\n1.37\n\n\norange\n3.09"
+  },
+  {
+    "objectID": "jupyterguide.html#diagrams",
+    "href": "jupyterguide.html#diagrams",
+    "title": "Jupyter Guide",
+    "section": "Diagrams",
+    "text": "Diagrams\n\n\n\n\n\n   \n\nA\n\n A   \n\nB\n\n B   \n\nA-&gt;B\n\n    \n\nC\n\n C   \n\nA-&gt;C\n\n    \n\nD\n\n D   \n\nB-&gt;D\n\n    \n\nC-&gt;D\n\n   \n\n\n\n\n\nimport graphviz dot_data = ’’’ digraph { A -&gt; B; A -&gt; C; B -&gt; D; C -&gt; D; } ’’’ graph = graphviz.Source(dot_data) graph\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\n\n\n\n\n\nsequenceDiagram\n  participant Alice\n  participant Bob\n  Alice-&gt;&gt;John: Hello John, how are you?\n  loop Healthcheck\n    John-&gt;&gt;John: Fight against hypochondria\n  end\n  Note right of John: Rational thoughts &lt;br/&gt;prevail!\n  John--&gt;&gt;Alice: Great!\n  John-&gt;&gt;Bob: How about you?\n  Bob--&gt;&gt;John: Jolly good!\n\n\n\n\n\n\n\n\n\n---\ntitle: Animal example\n---\nclassDiagram\n    note \"From Duck till Zebra\"\n    Animal &lt;|-- Duck\n    note for Duck \"can fly\\ncan swim\\ncan dive\\ncan help in debugging\"\n    Animal &lt;|-- Fish\n    Animal &lt;|-- Zebra\n    Animal : +int age\n    Animal : +String gender\n    Animal: +isMammal()\n    Animal: +mate()\n    class Duck{\n        +String beakColor\n        +swim()\n        +quack()\n    }\n    class Fish{\n        -int sizeInFeet\n        -canEat()\n    }\n    class Zebra{\n        +bool is_wild\n        +run()\n    }\n\n\n\n\n\n\n\n\n\nstateDiagram\n    [*] --&gt; Still\n    Still --&gt; [*]\n\n    Still --&gt; Moving\n    Moving --&gt; Still\n    Moving --&gt; Crash\n    Crash --&gt; [*]\n\n\n\n\n\n\n\n\n\n\n---\ntitle: Order example\n---\nerDiagram\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--|{ LINE-ITEM : contains\n    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses\n\n\n\n\n\n\n\n\n\n\njourney\n    title My working day\n    section Go to work\n      Make tea: 5: Me\n      Go upstairs: 3: Me\n      Do work: 1: Me, Cat\n    section Go home\n      Go downstairs: 5: Me\n      Sit down: 5: Me\n\n\n\n\n\n\n\n\n\ngantt\n    dateFormat HH:mm\n    axisFormat %H:%M\n    Initial milestone : milestone, m1, 17:49, 2m\n    Task A : 10m\n    Task B : 5m\n    Final milestone : milestone, m2, 18:08, 4m\n\n\n\n\n\n\n\n\n\npie title Pets adopted by volunteers\n    \"Dogs\" : 386\n    \"Cats\" : 85\n    \"Rats\" : 15\n\n\n\n\n\n\n\n\n\n---\ntitle: Example Git diagram\n---\ngitGraph\n   commit\n   commit\n   branch develop\n   checkout develop\n   commit\n   commit\n   checkout main\n   merge develop\n   commit\n   commit\n\n\n\n\n\n\n\n\n\ntimeline\n        title History of Social Media Platform\n          2002 : LinkedIn\n          2004 : Facebook : Google\n          2005 : Youtube\n          2006 : Twitter"
+  },
+  {
+    "objectID": "jupyterguide.html#callouts",
+    "href": "jupyterguide.html#callouts",
+    "title": "Jupyter Guide",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip with Title\n\n\n\nThis is an example of a callout with a title.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+  },
+  {
+    "objectID": "jupyterguide.html#videos",
+    "href": "jupyterguide.html#videos",
+    "title": "Jupyter Guide",
+    "section": "Videos",
+    "text": "Videos"
+  },
+  {
+    "objectID": "jupyterguide.html#code-capabilities",
+    "href": "jupyterguide.html#code-capabilities",
+    "title": "Jupyter Guide",
+    "section": "Code Capabilities",
+    "text": "Code Capabilities\n\na = 1\nb = a + 1\nc = b + a + 1\nd = c + b + a + 1\na, b, c ,d\n\n(1, 2, 4, 8)\n\n\n\nimport matplotlib.pyplot as plt\n\nplt.plot([a,b,c,d])\nplt.show()"
+  },
+  {
+    "objectID": "jupyterguide.html#shortcuts-and-tricks",
+    "href": "jupyterguide.html#shortcuts-and-tricks",
+    "title": "Jupyter Guide",
+    "section": "Shortcuts and Tricks",
+    "text": "Shortcuts and Tricks\n\nCommand Mode Shortcuts\nThere are a couple of useful keyboard shortcuts in Command Mode that you can leverage to make Jupyter Notebook faster to use. Remember that you can switch back and forth between Command Mode and Edit Mode with Esc and Enter.\n\nm:: Convert cell to Markdown\ny:: Convert cell to Code\nd+d:: Delete cell\no:: Toggle between hide or show output\nShift+Arrow up/Arrow down:: Select multiple cells. Once you have selected them you can operate on them like a batch (run, copy, paste etc).\nShift+M:: Merge selected cells\n\n\n\nCell Tricks\nThere are also some tricks that you can code into a cell:\n\n?function-name:: Shows the definition and docstring for that function\n??function-name:: Shows the source code for that function\ndoc(function-name):: Shows the definition, docstring and links to the documentation of the function (only works with fastai library imported)\nShift+Tab (press once):: See which parameters to pass to a function\nShift+Tab (press three times):: Get additional information on the method\n\nHere’s an example of using ? to learn about Python’s print() function:\n\nprint(\"asd\")\n\nasd\n\n\n\n\nLine Magics\nLine magics are functions that you can run on cells. They should be at the beginning of a line and take as an argument the rest of the line from where they are called. You call them by placing a ‘%’ sign before the command. The most useful ones are:\n\n%matplotlib inline:: Ensures that all matplotlib plots will be plotted in the output cell within the notebook and will be kept in the notebook when saved.\n\nThis command is always called together at the beginning of every notebook of the fast.ai course.\n%matplotlib inline\n\n%timeit:: Runs a line ten thousand times and displays the average time it took to run.\n\n\n\n\n22.1 µs ± 461 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)\n\n\n%debug: Inspects a function which is showing an error using the Python debugger. If you type this in a cell just after an error, you will be directed to a console where you can inspect the values of all the variables."
+  },
+  {
+    "objectID": "fastaisetup.html",
+    "href": "fastaisetup.html",
+    "title": "FastAI Setup",
+    "section": "",
+    "text": "For installing fastai\n!mamba install -c nvidia fastai\n!pip list | grep \"fastai\" || pip install -U fastai\nconda install -c nvidia fastai anaconda\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.12\n\n\nFor installing fastbook\npip list | grep \"fastbook\" || pip install -U fastbook\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
+  },
+  {
+    "objectID": "fastaisetup.html#installs",
+    "href": "fastaisetup.html#installs",
+    "title": "FastAI Setup",
+    "section": "",
+    "text": "For installing fastai\n!mamba install -c nvidia fastai\n!pip list | grep \"fastai\" || pip install -U fastai\nconda install -c nvidia fastai anaconda\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.12\n\n\nFor installing fastbook\npip list | grep \"fastbook\" || pip install -U fastbook\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FastAI",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#step-for-git-push",
+    "href": "index.html#step-for-git-push",
+    "title": "FastAI",
+    "section": "Step for git push",
+    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
+  },
+  {
+    "objectID": "index.html#after-changing-dependencies",
+    "href": "index.html#after-changing-dependencies",
+    "title": "FastAI",
+    "section": "After changing dependencies",
+    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'"
+  },
+  {
+    "objectID": "fastaiexample.html",
+    "href": "fastaiexample.html",
+    "title": "FastAI Example",
+    "section": "",
+    "text": "!conda list | grep \"pytorch\"\n\n\n!nvcc --version\n\n/bin/bash: line 1: nvcc: command not found\n\n\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.12\n\n\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
+  },
+  {
+    "objectID": "fastaiexample.html#check-for-all-installs-and-versions",
+    "href": "fastaiexample.html#check-for-all-installs-and-versions",
+    "title": "FastAI Example",
+    "section": "",
+    "text": "!conda list | grep \"pytorch\"\n\n\n!nvcc --version\n\n/bin/bash: line 1: nvcc: command not found\n\n\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.12\n\n\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
+  },
+  {
+    "objectID": "fastaiexample.html#generate-data-images",
+    "href": "fastaiexample.html#generate-data-images",
+    "title": "FastAI Example",
+    "section": "Generate Data Images",
+    "text": "Generate Data Images\n\nfrom fastbook import search_images_ddg\nfrom fastdownload import download_url\nfrom fastai.vision.all import *\n\n\ndownload_url(search_images_ddg('elephant', max_images=2)[1], 'elephant.jpg', show_progress=False)\n\nim = Image.open('elephant.jpg')\nim.to_thumb(256,256)\n\n\n\n\n\ndownload_url(search_images_ddg('tiger', max_images=1)[0], 'tiger.jpg', show_progress=False)\nImage.open('tiger.jpg').to_thumb(256,256)\n\n\n\n\n\ndownload_url(search_images_ddg('panda', max_images=1)[0], 'panda.jpg', show_progress=False)\nImage.open('panda.jpg').to_thumb(256,256)\n\n\n\n\n\nimport os\n\n\n\nCode\ndef animals_folder_create(folder_path, animals):\n    for i in animals:\n        dest = (folder_path/i)\n        dest.mkdir(exist_ok=True, parents=True)\n\n\n\nsource\n\nanimals_folder_create\n\n animals_folder_create (folder_path, animals)\n\n\n\nCode\ndef download_animal_images(folder_path, animals):\n    for j in animals:\n        print(\"downloading images for:\", j)\n        download_images(\n            folder_path/j,\n            urls=search_images_ddg(f'{j} photo',200),\n            n_workers=32\n        )\n\n\n\nsource\n\n\ndownload_animal_images\n\n download_animal_images (folder_path, animals)\n\n\n\nCode\ndef verify_pics(folder_path):\n    failed = verify_images(get_image_files(folder_path))\n    failed.map(Path.unlink)\n    print(\"Number of images failed\", len(failed))\n\n\n\nsource\n\n\nverify_pics\n\n verify_pics (folder_path)\n\n\n\nCode\ndef resize_pics(folder_path, animals):\n    for k in animals:\n        resize_images(\n            folder_path/k,\n            max_size=400,\n            dest=folder_path/k,\n            max_workers=8\n        )\n        print(\"resizing images for:\", k)\n\n\n\nsource\n\n\nresize_pics\n\n resize_pics (folder_path, animals)\n\n\n\nCode\ndef data_folder(folder_path):\n    if os.path.exists(folder_path):\n        print(\"Folder already exists:\", folder_path)\n    else:\n        \n        animals = ('chimpanzee', 'elephant', 'giraffe',\n                    'kangaroo','lion','panda','rabbit',\n                    'rhino', 'tiger', 'wolf')    \n        \n        animals_folder_create(folder_path, animals)\n        download_animal_images(folder_path, animals)\n        verify_pics(folder_path)\n        resize_pics(folder_path, animals)\n        print(\"Folder created:\", folder_path)\n\n\n\nsource\n\n\ndata_folder\n\n data_folder (folder_path)\n\n\n\nCode\npath = Path('animal_pics') #Replace with folder path\n\ndata_folder(path)\n\n\nFolder already exists: animal_pics"
+  },
+  {
+    "objectID": "fastaiexample.html#step-2-train-our-model",
+    "href": "fastaiexample.html#step-2-train-our-model",
+    "title": "FastAI Example",
+    "section": "Step 2: Train our model",
+    "text": "Step 2: Train our model\n\nfrom fastai.metrics import accuracy, error_rate\n\ndls = DataBlock(\n    blocks=(ImageBlock, CategoryBlock), \n    get_items=get_image_files, \n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=[Resize(192, method='squish')]\n).dataloaders(path)\n\ndls.show_batch(max_n=6)\n\n\n\n\n\n# Define your metrics\nmetrics = [accuracy, error_rate]\n\n\nlearn11 = vision_learner(dls, resnet18, metrics=metrics)\nlearn11.fine_tune(5)\n\n/home/ben/mambaforge/envs/fast/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n  warnings.warn(\n/home/ben/mambaforge/envs/fast/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\n/home/ben/mambaforge/envs/fast/lib/python3.11/site-packages/torch/nn/modules/conv.py:459: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at /opt/conda/conda-bld/pytorch_1682343995622/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)\n  return F.conv2d(input, weight, bias, self.stride,\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\nerror_rate\ntime\n\n\n\n\n0\n1.728724\n0.094741\n0.966038\n0.033962\n00:09\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\nerror_rate\ntime\n\n\n\n\n0\n0.196964\n0.089447\n0.977359\n0.022642\n00:05\n\n\n1\n0.119885\n0.091119\n0.958491\n0.041509\n00:05\n\n\n2\n0.074123\n0.069285\n0.984906\n0.015094\n00:05\n\n\n3\n0.050384\n0.062856\n0.984906\n0.015094\n00:05\n\n\n4\n0.034542\n0.067132\n0.984906\n0.015094\n00:06"
+  },
+  {
+    "objectID": "fastaiexample.html#step-3-display-results-confusion-matrix",
+    "href": "fastaiexample.html#step-3-display-results-confusion-matrix",
+    "title": "FastAI Example",
+    "section": "Step 3: Display Results: Confusion Matrix",
+    "text": "Step 3: Display Results: Confusion Matrix\n\ninterp11 = ClassificationInterpretation.from_learner(learn11)\ninterp11.plot_confusion_matrix()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ninterp11.plot_top_losses(5,nrows = 2, figsize=(17,4))"
+  },
+  {
+    "objectID": "fastaiexample.html#step-4-display-results-t-sne",
+    "href": "fastaiexample.html#step-4-display-results-t-sne",
+    "title": "FastAI Example",
+    "section": "Step 4: Display Results: t-SNE",
+    "text": "Step 4: Display Results: t-SNE\n\nfrom fastai.vision.all import *\nfrom sklearn.manifold import TSNE\nimport matplotlib.pyplot as plt\nfrom sklearn.manifold import TSNE\n\n\nfeatures, labels = learn11.get_preds(dl=dls.valid)\n\n# Replace 'val_features' with your extracted features\ntsne = TSNE(n_components=2)\nreduced_features = tsne.fit_transform(features)\n\n# Replace 'labels' with your image labels if available\nplt.scatter(reduced_features[:, 0], reduced_features[:, 1])\nplt.xlabel('t-SNE Dimension 1')\nplt.ylabel('t-SNE Dimension 2')\nplt.title('t-SNE Visualization')\nplt.show()"
+  },
+  {
+    "objectID": "fastaiexample.html#step-5-use-our-model",
+    "href": "fastaiexample.html#step-5-use-our-model",
+    "title": "FastAI Example",
+    "section": "Step 5: Use our model",
+    "text": "Step 5: Use our model\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nimage= 'elephant.jpg'\n\n\nis_real,_,probs = learn11.predict(PILImage.create(image))\nmax_value, max_index = torch.max(probs, dim=0)\nprint(f\"This is a: {animal_list[max_index]} with probability: {max_value}.\")\n\nImage.open(image).to_thumb(256,256)\n\n\n\n\n\n\n\n\nThis is a: elephant with probability: 0.9999998807907104.\n\n\n\n\n\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nfor index, value in enumerate(animal_list):\n    np.set_printoptions(suppress=True, precision=4)\n    print(f\"Probability of {value} is :{probs[index]:4f}.\")\n\nProbability of chimpanzee is :0.000000.\nProbability of elephant is :1.000000.\nProbability of giraffe is :0.000000.\nProbability of kangaroo is :0.000000.\nProbability of lion is :0.000000.\nProbability of panda is :0.000000.\nProbability of rabbit is :0.000000.\nProbability of rhino is :0.000000.\nProbability of tiger is :0.000000.\nProbability of wolf is :0.000000."
+  },
+  {
+    "objectID": "computersetup.html",
+    "href": "computersetup.html",
+    "title": "Computer Setup",
+    "section": "",
+    "text": "OneDrive"
+  },
+  {
+    "objectID": "computersetup.html#uninstalls",
+    "href": "computersetup.html#uninstalls",
+    "title": "Computer Setup",
+    "section": "",
+    "text": "OneDrive"
+  },
+  {
+    "objectID": "computersetup.html#installs",
+    "href": "computersetup.html#installs",
+    "title": "Computer Setup",
+    "section": "Installs",
+    "text": "Installs\n\nGit\nVscode\nDocker\nAnaconda\nWSL\nUbuntu"
+  },
+  {
+    "objectID": "computersetup.html#run-cuda-11.8",
+    "href": "computersetup.html#run-cuda-11.8",
+    "title": "Computer Setup",
+    "section": "Run Cuda 11.8",
+    "text": "Run Cuda 11.8\n\nIt has to be cuda 11.8"
+  },
+  {
+    "objectID": "computersetup.html#download-wsl---linux-environment-for-windows",
+    "href": "computersetup.html#download-wsl---linux-environment-for-windows",
+    "title": "Computer Setup",
+    "section": "Download WSL - Linux environment for Windows",
+    "text": "Download WSL - Linux environment for Windows\n\ngoto powershell\n\nwsl --install\n\no see a list of available Linux distributions available for download through the online store\n\nwsl -l -o\n\nto download a Linux distribution\n\nwsl --install -d &lt;Distribution Name&gt;"
+  },
+  {
+    "objectID": "computersetup.html#run-fastsetup-in-linux-file",
+    "href": "computersetup.html#run-fastsetup-in-linux-file",
+    "title": "Computer Setup",
+    "section": "Run Fastsetup in linux file",
+    "text": "Run Fastsetup in linux file\ngh repo clone fastai/fastsetup\n\nRead README.txt\n\ncd fastsetup\ngive files permission to run\nchmod +x *\nsudo ./ubuntu-wsl.sh\n./setup-conda.sh\n. ~/.bashrc\nconda install -yq mamba"
+  },
+  {
+    "objectID": "todo.html",
+    "href": "todo.html",
+    "title": "To Do:",
+    "section": "",
+    "text": "The Forge\nFASTAI Course\nMATLAB Course\nCSSE - ML topics\nFAST pages\nWEBSITE DEVELOPMENT\nVISION APP - 3D\n3D Assignment\nDOCKER\n\nMATH2001 - 8h\nLAWS1100 - 3 weeks\nECON1011 - 8 weeks\nFINM1418 - 2 weeks ACCT1101 - 2 weeks\nELEC3100 - 9h\nELEC4620 - 3 weeks\nmatlab: 61-2-8669-4700\nsmym - THEKKEL02\nsolar service-1234567890 solar user-12346578\n29/08/2023 To do: - FASTAI Course - Matlab Course - CSSE ML topics\n\nDocker for fastAI\nFast Pages\noracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&ab_channel=CloudTech\nappen - job\nforage virtual intern\nVision App - 3d reconstruction/ assignment"
+  },
+  {
+    "objectID": "todo.html#to-do",
+    "href": "todo.html#to-do",
+    "title": "To Do:",
+    "section": "",
+    "text": "The Forge\nFASTAI Course\nMATLAB Course\nCSSE - ML topics\nFAST pages\nWEBSITE DEVELOPMENT\nVISION APP - 3D\n3D Assignment\nDOCKER\n\nMATH2001 - 8h\nLAWS1100 - 3 weeks\nECON1011 - 8 weeks\nFINM1418 - 2 weeks ACCT1101 - 2 weeks\nELEC3100 - 9h\nELEC4620 - 3 weeks\nmatlab: 61-2-8669-4700\nsmym - THEKKEL02\nsolar service-1234567890 solar user-12346578\n29/08/2023 To do: - FASTAI Course - Matlab Course - CSSE ML topics\n\nDocker for fastAI\nFast Pages\noracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&ab_channel=CloudTech\nappen - job\nforage virtual intern\nVision App - 3d reconstruction/ assignment"
+  },
+  {
+    "objectID": "todo.html#plans",
+    "href": "todo.html#plans",
+    "title": "To Do:",
+    "section": "Plans",
+    "text": "Plans\n\nBuild drone\n\nArduino nano ble sense\ntwo way communication\nuse better sensor\nbuck regulator 5v\ndraw.io\n\n\n\nJob\n\nresearch project\nIT support\nData entry\nmilitary\nformlabs company\n\n\n\nTrading bot (in processes)\n\npredict cycles - FFT\nmachine learning\nsend messages\nTesterStatistics()\ndraw.io\n\n\n\nDistance tracking app\n\nnew phone\nusing focus\nmachine learning\nspeed tracking\ndraw.io\n\n\n\nintegrated marketing\n\nfacebook\ninsta\n\nKnowledge skillshare masterclass brillant curiosity stream\n\n\nFuture plans\n\ndecentralised cloud\nkeyboard website\ncustom car\nbuy house\necommerise business\nbenedictine\nsolar farm\ndiamond mining\ngold shop\nshesha\nmathgame - wizard 101\nVR with speed tracking app and hand recognition\nimage net - A.I competition\ndrone business\nelectro and magnetic motor\nnano motor (muscle)\nuni electronics store\n3d metal printer\naquarium monitor/ blood test\ncooling cup\nsmart seat\n3D mapping space\nbusiness tv series\nmagnitron - electron mapping\ncommand line gpt\nresearch papers to website\n\nlevel 1 - paper to website\nlink knowledge\n\nLaser project\n\nABN\nwebsite\nProducts\n\nSource materials\nMarket\n\nAmazon, facebook marketplace\nScale"
+  },
+  {
+    "objectID": "docker.html",
+    "href": "docker.html",
+    "title": "Docker",
+    "section": "",
+    "text": "Dockerfile\n\nBlueprint for building a docker image\n\nImage\n\nTemplate for running a docker containers\n\nContainer\n\nRunning process"
+  },
+  {
+    "objectID": "docker.html#definitions",
+    "href": "docker.html#definitions",
+    "title": "Docker",
+    "section": "",
+    "text": "Dockerfile\n\nBlueprint for building a docker image\n\nImage\n\nTemplate for running a docker containers\n\nContainer\n\nRunning process"
+  },
+  {
+    "objectID": "docker.html#view-docker-images",
+    "href": "docker.html#view-docker-images",
+    "title": "Docker",
+    "section": "View Docker Images",
+    "text": "View Docker Images\ndocker images"
+  },
+  {
+    "objectID": "docker.html#view-dockers-containers-running",
+    "href": "docker.html#view-dockers-containers-running",
+    "title": "Docker",
+    "section": "View Dockers Containers Running",
+    "text": "View Dockers Containers Running\ndocker ps"
+  },
+  {
+    "objectID": "docker.html#docker-file",
+    "href": "docker.html#docker-file",
+    "title": "Docker",
+    "section": "Docker File",
+    "text": "Docker File\nFILE image - base image ex. ubuntu, node:12\nWORKDIR filename - like when you cd into a directory\nevery step from now is considered layes\nCOPY filename location - ex. COPY package*.json ./\nRUN npm install - exec commands\nCOPY . . - copy all the file in directory into the container"
+  },
+  {
+    "objectID": "docker.html#dockerignore",
+    "href": "docker.html#dockerignore",
+    "title": "Docker",
+    "section": ".dockerignore",
+    "text": ".dockerignore\n\njust like a git ignore file"
+  },
+  {
     "objectID": "nbdevsetup.html",
     "href": "nbdevsetup.html",
     "title": "Nbdev Setup",
     "section": "",
-    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\n\nconda doesn’t work for windows\n\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto"
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nmamba install -c conda-forge jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\nmamba install -c fastai nbdev\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto"
   },
   {
     "objectID": "nbdevsetup.html#installation",
     "href": "nbdevsetup.html#installation",
     "title": "Nbdev Setup",
     "section": "",
-    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\n\nconda doesn’t work for windows\n\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto"
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nmamba install -c conda-forge jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\nmamba install -c fastai nbdev\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto"
   },
   {
     "objectID": "nbdevsetup.html#create-an-empty-github-repo",
@@ -145,47 +397,5 @@
     "title": "Nbdev Setup",
     "section": "Testing",
     "text": "Testing\n\n\nCode\ndef say_hello(to):\n    \"Say hello to somebody\"\n    return f'Hello {to}!'\n\n\n\nsource\n\nsay_hello\n\n say_hello (to)\n\nSay hello to somebody\n\nsay_hello(\"Isaac\")\n\n'Hello Isaac!'\n\n\nThis is a test too! When you run nbdev_test it will execute this cell (and all other test cells) and fail if they raise any exceptions.\nFor tests, it’s preferred to use more explicit asserts:\n\nassert say_hello(\"Hamel\") == \"Hello Hamel!\"\n\n\nfrom fastcore.test import *\n\n\ntest_eq(say_hello(\"Hamel\"), \"Hello Hamel!\")\n\nUsing\n$$\\sum_{i=1}^{k+1}i$$\nWhich is rendered as: \\[\\sum_{i=1}^{k+1}i\\]\nThis version is displayed inline: $\\sum_{i=1}^{k+1}i$ . You can include text before and after.\n\nBecomes: This version is displayed inline: \\(\\sum_{i=1}^{k+1}i\\) . You can include text before and after."
-  },
-  {
-    "objectID": "fastaisetup.html",
-    "href": "fastaisetup.html",
-    "title": "FastAI Setup",
-    "section": "",
-    "text": "conda install -c nvidia fastai anaconda\nFor installing fastai\n!pip list | findstr \"fastai\" || pip install -U fastai\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\nFor installing duckduckgo which is needed for downloading images\npip list | findstr \"duckduckgo\" || pip install -U duckduckgo_search\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\nFor installing fastbook\npip list | findstr \"fastbook\" || pip install -U fastbook\n\n!pip list | findstr \"fastbook\""
-  },
-  {
-    "objectID": "fastaisetup.html#installs",
-    "href": "fastaisetup.html#installs",
-    "title": "FastAI Setup",
-    "section": "",
-    "text": "conda install -c nvidia fastai anaconda\nFor installing fastai\n!pip list | findstr \"fastai\" || pip install -U fastai\n\n!pip list | findstr \"fastai\"\n\nfastai                   2.7.12\n\n\nFor installing duckduckgo which is needed for downloading images\npip list | findstr \"duckduckgo\" || pip install -U duckduckgo_search\n\n!pip list | findstr \"duckduckgo\"\n\nduckduckgo-search        3.8.3\n\n\nFor installing fastbook\npip list | findstr \"fastbook\" || pip install -U fastbook\n\n!pip list | findstr \"fastbook\""
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "newAI",
-    "section": "",
-    "text": "This file will become your README and also the index of your documentation."
-  },
-  {
-    "objectID": "index.html#step-for-git-push",
-    "href": "index.html#step-for-git-push",
-    "title": "newAI",
-    "section": "Step for git push",
-    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
-  },
-  {
-    "objectID": "index.html#after-changing-dependencies",
-    "href": "index.html#after-changing-dependencies",
-    "title": "newAI",
-    "section": "After changing dependencies",
-    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'"
-  },
-  {
-    "objectID": "index.html#how-to-use",
-    "href": "index.html#how-to-use",
-    "title": "newAI",
-    "section": "How to use",
-    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
   }
 ]
