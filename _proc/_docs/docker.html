@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="FastAI setting up and development guide">
+<meta name="description" content="Fast AI in Docker Container">
 
-<title>newAI - FastAI</title>
+<title>newAI - Docker</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,11 +99,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="newAI - FastAI">
-<meta property="og:description" content="FastAI setting up and development guide">
+<meta property="og:title" content="newAI - Docker">
+<meta property="og:description" content="Fast AI in Docker Container">
 <meta property="og:site-name" content="newAI">
-<meta name="twitter:title" content="newAI - FastAI">
-<meta name="twitter:description" content="FastAI setting up and development guide">
+<meta name="twitter:title" content="newAI - Docker">
+<meta name="twitter:description" content="Fast AI in Docker Container">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -129,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">FastAI</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./docker.html">Docker</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FastAI</span></a>
   </div>
 </li>
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docker.html" class="sidebar-item-text sidebar-link">
+  <a href="./docker.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Docker</span></a>
   </div>
 </li>
@@ -229,8 +229,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-for-git-push" id="toc-step-for-git-push" class="nav-link active" data-scroll-target="#step-for-git-push">Step for git push</a></li>
-  <li><a href="#after-changing-dependencies" id="toc-after-changing-dependencies" class="nav-link" data-scroll-target="#after-changing-dependencies">After changing dependencies</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link active" data-scroll-target="#definitions">Definitions</a></li>
+  <li><a href="#docker-file" id="toc-docker-file" class="nav-link" data-scroll-target="#docker-file">Docker File</a></li>
+  <li><a href="#dockerignore" id="toc-dockerignore" class="nav-link" data-scroll-target="#dockerignore">.dockerignore</a></li>
+  <li><a href="#building-docker-image" id="toc-building-docker-image" class="nav-link" data-scroll-target="#building-docker-image">Building Docker image</a></li>
+  <li><a href="#view-docker-images" id="toc-view-docker-images" class="nav-link" data-scroll-target="#view-docker-images">View Docker Images</a></li>
+  <li><a href="#delete-image" id="toc-delete-image" class="nav-link" data-scroll-target="#delete-image">Delete Image</a></li>
+  <li><a href="#running-docker-image-as-container" id="toc-running-docker-image-as-container" class="nav-link" data-scroll-target="#running-docker-image-as-container">Running Docker image as Container</a></li>
+  <li><a href="#view-dockers-containers-running" id="toc-view-dockers-containers-running" class="nav-link" data-scroll-target="#view-dockers-containers-running">View Dockers Containers Running</a></li>
+  <li><a href="#deleting-docker-containers" id="toc-deleting-docker-containers" class="nav-link" data-scroll-target="#deleting-docker-containers">Deleting Docker Containers</a></li>
+  <li><a href="#stop-docker-running" id="toc-stop-docker-running" class="nav-link" data-scroll-target="#stop-docker-running">Stop Docker Running</a></li>
+  <li><a href="#volumes" id="toc-volumes" class="nav-link" data-scroll-target="#volumes">Volumes</a>
+  <ul class="collapse">
+  <li><a href="#using-volumes-in-container" id="toc-using-volumes-in-container" class="nav-link" data-scroll-target="#using-volumes-in-container">Using volumes in container</a></li>
+  </ul></li>
+  <li><a href="#docker-debugging" id="toc-docker-debugging" class="nav-link" data-scroll-target="#docker-debugging">Docker Debugging</a></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">TIPs</a></li>
+  <li><a href="#docker-compose.yml" id="toc-docker-compose.yml" class="nav-link" data-scroll-target="#docker-compose.yml">docker-compose.yml</a>
+  <ul class="collapse">
+  <li><a href="#running-docker-compose" id="toc-running-docker-compose" class="nav-link" data-scroll-target="#running-docker-compose">Running Docker Compose</a></li>
+  <li><a href="#stopping-docker-compose" id="toc-stopping-docker-compose" class="nav-link" data-scroll-target="#stopping-docker-compose">Stopping Docker Compose</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -239,12 +258,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">FastAI</h1>
-</div>
+<h1 class="title">Docker</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">c1</div>
+    <div class="quarto-category">c2</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    FastAI setting up and development guide
+    Fast AI in Docker Container
   </div>
 </div>
 
@@ -260,26 +283,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This file will become your README and also the index of your documentation.</p>
-<section id="step-for-git-push" class="level2">
-<h2 class="anchored" data-anchor-id="step-for-git-push">Step for git push</h2>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
 <ul>
-<li>nbdev_prepare</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_prepare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li>Dockerfile
 <ul>
-<li>Git stuff</li>
+<li>Blueprint for building a docker image</li>
+</ul></li>
+<li>Image
+<ul>
+<li>Template for running a docker containers</li>
+</ul></li>
+<li>Container
+<ul>
+<li>Running process</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"update"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="after-changing-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="after-changing-dependencies">After changing dependencies</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install newAI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">'.[dev]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="docker-file" class="level2">
+<h2 class="anchored" data-anchor-id="docker-file">Docker File</h2>
+<p><code>FILE _image_</code> - base image ex. ubuntu, node:12</p>
+<p><code>WORKDIR _filename_</code>- like when you cd into a directory</p>
+<p><strong><em>every step from now is considered layes</em></strong></p>
+<p><code>COPY _filename_ _location_</code>- ex. COPY package*.json ./</p>
+<p><code>RUN _npm install_</code> - exec commands - shell form</p>
+<p><code>COPY . .</code> - copy all the file in directory into the container</p>
+<p><code>ENV _PORT=8080_</code> -</p>
+<p><code>EXPOSE _port_</code> - exposed port ex. 8080</p>
+<p><code>CMD ["npm" "start"]</code> - only one of these in the file. exec form</p>
+</section>
+<section id="dockerignore" class="level2">
+<h2 class="anchored" data-anchor-id="dockerignore">.dockerignore</h2>
+<blockquote class="blockquote">
+<p>just like a git ignore file</p>
+</blockquote>
+</section>
+<section id="building-docker-image" class="level2">
+<h2 class="anchored" data-anchor-id="building-docker-image">Building Docker image</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> _name_ _path_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ex.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> test:taggedv0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>-t : tag</p>
+</section>
+<section id="view-docker-images" class="level2">
+<h2 class="anchored" data-anchor-id="view-docker-images">View Docker Images</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> images</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="delete-image" class="level2">
+<h2 class="anchored" data-anchor-id="delete-image">Delete Image</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> rmi _Image_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="running-docker-image-as-container" class="level2">
+<h2 class="anchored" data-anchor-id="running-docker-image-as-container">Running Docker image as Container</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docke</span> run <span class="at">-p</span> 5000:8080 _name_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8888:8888 <span class="at">-td</span> <span class="at">--gpus</span><span class="op">=</span>all <span class="at">--name</span> testcontainer test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="view-dockers-containers-running" class="level2">
+<h2 class="anchored" data-anchor-id="view-dockers-containers-running">View Dockers Containers Running</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps <span class="at">-a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="deleting-docker-containers" class="level2">
+<h2 class="anchored" data-anchor-id="deleting-docker-containers">Deleting Docker Containers</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> rm _image_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="stop-docker-running" class="level2">
+<h2 class="anchored" data-anchor-id="stop-docker-running">Stop Docker Running</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> stop <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-aq</span><span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="volumes" class="level2">
+<h2 class="anchored" data-anchor-id="volumes">Volumes</h2>
+<blockquote class="blockquote">
+<p>Folder which multiple containers can access</p>
+</blockquote>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume create _name_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-volumes-in-container" class="level3">
+<h3 class="anchored" data-anchor-id="using-volumes-in-container">Using volumes in container</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--mount</span> source=_volumename_, target = _location_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="docker-debugging" class="level2">
+<h2 class="anchored" data-anchor-id="docker-debugging">Docker Debugging</h2>
+<ul>
+<li><p>Inspect logs in docker desktop</p></li>
+<li><p>docker exec</p></li>
+</ul>
+</section>
+<section id="tips" class="level2">
+<h2 class="anchored" data-anchor-id="tips">TIPs</h2>
+<ul>
+<li><p>each docker should only do one task</p></li>
+<li><p>Done through docker-compose.yml</p></li>
+</ul>
+</section>
+<section id="docker-compose.yml" class="level2">
+<h2 class="anchored" data-anchor-id="docker-compose.yml">docker-compose.yml</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">version:</span> <span class="st">'3'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">services:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">web:</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">build:</span> .</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="ex">ports:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="ex">-</span> <span class="st">"8080:8080"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">db:</span> </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">image:</span> <span class="st">"mysql"</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">environment:</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="ex">MYSQL_ROOT_PASSWORD:</span> password</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="ex">volumes:</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="ex">-</span> db-data:/foo</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ex">volumes:</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">db-data:</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>            </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="running-docker-compose" class="level3">
+<h3 class="anchored" data-anchor-id="running-docker-compose">Running Docker Compose</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="stopping-docker-compose" class="level3">
+<h3 class="anchored" data-anchor-id="stopping-docker-compose">Stopping Docker Compose</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> down</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

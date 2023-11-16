@@ -10,5 +10,7 @@ website:
       - 05_fastAISetup.ipynb
       - 06_fastAIExample.ipynb
       - 07_JupyterGuide.ipynb
-      - 08_TODO.ipynb
       - 09_Docker.ipynb
+      - 10_Pypi.ipynb
+      - 11_Connections.ipynb
+      - 90_TODO.ipynb
