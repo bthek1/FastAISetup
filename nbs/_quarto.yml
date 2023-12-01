@@ -10,9 +10,9 @@ format:
     toc: true
 
 website:
-  title: "Benedict's Blog"
-  image: "bird.jpg"
-  favicon: "bird.jpg"
+  title: "Fast AI Setup"
+  image: "tiger.jpg"
+  favicon: "tiger.jpg"
   reader-mode: true
   back-to-top-navigation: true
   page-navigation: true
@@ -25,9 +25,10 @@ website:
 
   navbar:
     background: dark
-    logo: "bird.jpg"
+    logo: "tiger.jpg"
     logo-alt: "Quarto logo."
     collapse-below: lg
+    title: false
     left:
       - text: "Blog"
         href: https://bthek1.github.io/benedicts_blog/
