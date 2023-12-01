@@ -10,9 +10,9 @@ format:
     toc: true
 
 website:
-  title: "Fast AI Setup"
-  image: "tiger.jpg"
-  favicon: "tiger.jpg"
+  title: "Benedict's Blog"
+  image: "bird.jpg"
+  favicon: "bird.jpg"
   reader-mode: true
   back-to-top-navigation: true
   page-navigation: true
@@ -24,12 +24,13 @@ website:
     type: overlay
 
   navbar:
-    background: light
-    logo: "tiger.jpg"
+    background: dark
+    logo: "bird.jpg"
     logo-alt: "Quarto logo."
     collapse-below: lg
-    title: False
     left:
+      - text: "Blog"
+        href: https://bthek1.github.io/benedicts_blog/
       - text: "AI"
         menu:
         - text: "Fast AI Setup"
@@ -79,13 +80,13 @@ website:
   page-footer:
     center:
       - text: "About"
-        href: "Index.ipynb"
+        href: "index.ipynb"
       - text: "FAQ"
         href: "https://github.com/bthek1/benedicts_blog/wiki"    
       - text: "License"
         href: "https://bthek1.github.io/benedicts_blog/Index.html"
       - text: "Trademark"
-        href: "Index.ipynb"
+        href: "index.ipynb"
         
         
     right:
@@ -99,5 +100,6 @@ website:
   comments: 
     utterances:
       repo: quarto-dev/quarto-web
+        
 
 metadata-files: [nbdev.yml, sidebar.yml]
