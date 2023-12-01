@@ -224,6 +224,27 @@
     "text": "For installing fastai\n!mamba install -c nvidia fastai\n!pip list | grep \"fastai\" || pip install -U fastai\nconda install -c nvidia fastai anaconda\n\n!pip list | grep \"fastai\"\n\nfastai                        2.7.12\n\n\nFor installing fastbook\npip list | grep \"fastbook\" || pip install -U fastbook\n\n!pip list | grep \"fastbook\"\n\nfastbook                      0.0.28\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FastAI",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#step-for-git-push",
+    "href": "index.html#step-for-git-push",
+    "title": "FastAI",
+    "section": "Step for git push",
+    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
+  },
+  {
+    "objectID": "index.html#after-changing-dependencies",
+    "href": "index.html#after-changing-dependencies",
+    "title": "FastAI",
+    "section": "After changing dependencies",
+    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'"
+  },
+  {
     "objectID": "fastaiexample.html",
     "href": "fastaiexample.html",
     "title": "FastAI Example",
@@ -516,26 +537,5 @@
     "title": "Nbdev Setup",
     "section": "Testing",
     "text": "Testing\n\n\nCode\ndef say_hello(to):\n    \"Say hello to somebody\"\n    return f'Hello {to}!'\n\n\n\n\nsay_hello\n\n say_hello (to)\n\nSay hello to somebody\n\nsay_hello(\"Isaac\")\n\n'Hello Isaac!'\n\n\nThis is a test too! When you run nbdev_test it will execute this cell (and all other test cells) and fail if they raise any exceptions.\nFor tests, it’s preferred to use more explicit asserts:\n\nassert say_hello(\"Hamel\") == \"Hello Hamel!\"\n\n\nfrom fastcore.test import *\n\n\ntest_eq(say_hello(\"Hamel\"), \"Hello Hamel!\")\n\nUsing\n$$\\sum_{i=1}^{k+1}i$$\nWhich is rendered as: \\[\\sum_{i=1}^{k+1}i\\]\nThis version is displayed inline: $\\sum_{i=1}^{k+1}i$ . You can include text before and after.\n\nBecomes: This version is displayed inline: \\(\\sum_{i=1}^{k+1}i\\) . You can include text before and after."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "FastAI",
-    "section": "",
-    "text": "This file will become your README and also the index of your documentation."
-  },
-  {
-    "objectID": "index.html#step-for-git-push",
-    "href": "index.html#step-for-git-push",
-    "title": "FastAI",
-    "section": "Step for git push",
-    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
-  },
-  {
-    "objectID": "index.html#after-changing-dependencies",
-    "href": "index.html#after-changing-dependencies",
-    "title": "FastAI",
-    "section": "After changing dependencies",
-    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'"
   }
 ]
