@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="FastAI setting up and development guide">
+<meta name="description" content="Details on setting up Computer Setup">
 
-<title>Fast AI Setup - FastAI</title>
+<title>Fast AI Setup - Computer Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./computersetup.html" rel="next">
+<link href="./condasetup.html" rel="next">
+<link href="./index.html" rel="prev">
 <link href="./tiger.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,11 +102,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Fast AI Setup - FastAI">
-<meta property="og:description" content="FastAI setting up and development guide">
+<meta property="og:title" content="Fast AI Setup - Computer Setup">
+<meta property="og:description" content="Details on setting up Computer Setup">
 <meta property="og:site-name" content="Fast AI Setup">
-<meta name="twitter:title" content="Fast AI Setup - FastAI">
-<meta name="twitter:description" content="FastAI setting up and development guide">
+<meta name="twitter:title" content="Fast AI Setup - Computer Setup">
+<meta name="twitter:description" content="Details on setting up Computer Setup">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -223,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./computersetup.html">Computer Setup</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -237,13 +238,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computersetup.html" class="sidebar-item-text sidebar-link">
+  <a href="./computersetup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Computer Setup</span></a>
   </div>
 </li>
@@ -323,22 +324,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-for-git-push" id="toc-step-for-git-push" class="nav-link active" data-scroll-target="#step-for-git-push">Step for git push</a></li>
-  <li><a href="#after-changing-dependencies" id="toc-after-changing-dependencies" class="nav-link" data-scroll-target="#after-changing-dependencies">After changing dependencies</a></li>
+  <li><a href="#uninstalls" id="toc-uninstalls" class="nav-link active" data-scroll-target="#uninstalls">Uninstalls</a></li>
+  <li><a href="#installs" id="toc-installs" class="nav-link" data-scroll-target="#installs">Installs</a></li>
+  <li><a href="#download-wsl---linux-environment-for-windows" id="toc-download-wsl---linux-environment-for-windows" class="nav-link" data-scroll-target="#download-wsl---linux-environment-for-windows">Download WSL - Linux environment for Windows</a></li>
+  <li><a href="#run-fastsetup-in-linux-file" id="toc-run-fastsetup-in-linux-file" class="nav-link" data-scroll-target="#run-fastsetup-in-linux-file">Run Fastsetup in linux file</a></li>
+  <li><a href="#run-cuda-11.8" id="toc-run-cuda-11.8" class="nav-link" data-scroll-target="#run-cuda-11.8">Run Cuda 11.8</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bthek1/newAI/blob/main/index.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bthek1/newAI/blob/main/00_computerSetup.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></h1>
+<h1 class="title">Computer Setup</h1>
 </div>
 
 <div>
   <div class="description">
-    FastAI setting up and development guide
+    Details on setting up Computer Setup
   </div>
 </div>
 
@@ -354,24 +358,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This file will become your README and also the index of your documentation.</p>
-<section id="step-for-git-push" class="level2">
-<h2 class="anchored" data-anchor-id="step-for-git-push">Step for git push</h2>
+<section id="uninstalls" class="level2">
+<h2 class="anchored" data-anchor-id="uninstalls">Uninstalls</h2>
 <ul>
-<li>nbdev_prepare</li>
+<li>OneDrive</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_prepare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Git stuff</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"update"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="after-changing-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="after-changing-dependencies">After changing dependencies</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install newAI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">'.[dev]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="installs" class="level2">
+<h2 class="anchored" data-anchor-id="installs">Installs</h2>
+<ul>
+<li>Git</li>
+<li>Vscode</li>
+<li>Docker</li>
+<li>Anaconda</li>
+<li>WSL</li>
+<li>Ubuntu</li>
+</ul>
+</section>
+<section id="download-wsl---linux-environment-for-windows" class="level2">
+<h2 class="anchored" data-anchor-id="download-wsl---linux-environment-for-windows">Download WSL - Linux environment for Windows</h2>
+<ul>
+<li>goto powershell</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>o see a list of available Linux distributions available for download through the online store</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">-l</span> <span class="at">-o</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>to download a Linux distribution</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span> <span class="at">-d</span> <span class="op">&lt;</span>Distribution Name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="run-fastsetup-in-linux-file" class="level2">
+<h2 class="anchored" data-anchor-id="run-fastsetup-in-linux-file">Run Fastsetup in linux file</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo clone fastai/fastsetup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Read README.txt</p>
+</blockquote>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> fastsetup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>give files permission to run</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ./ubuntu-wsl.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup-conda.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-yq</span> mamba</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="run-cuda-11.8" class="level2">
+<h2 class="anchored" data-anchor-id="run-cuda-11.8">Run Cuda 11.8</h2>
+<blockquote class="blockquote">
+<p>It has to be cuda 11.8</p>
+</blockquote>
 
 
 </section>
@@ -729,10 +766,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./computersetup.html" class="pagination-link">
-        <span class="nav-page-text">Computer Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./condasetup.html" class="pagination-link">
+        <span class="nav-page-text">Conda Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

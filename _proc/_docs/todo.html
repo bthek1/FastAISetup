@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="FastAI setting up and development guide">
+<meta name="description" content="To Do list">
 
-<title>Fast AI Setup - FastAI</title>
+<title>newAI - To Do:</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,7 +31,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./computersetup.html" rel="next">
+<link href="./connections.html" rel="prev">
 <link href="./tiger.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,11 +67,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Fast AI Setup - FastAI">
-<meta property="og:description" content="FastAI setting up and development guide">
-<meta property="og:site-name" content="Fast AI Setup">
-<meta name="twitter:title" content="Fast AI Setup - FastAI">
-<meta name="twitter:description" content="FastAI setting up and development guide">
+<meta property="og:title" content="newAI - To Do:">
+<meta property="og:description" content="To Do list">
+<meta property="og:site-name" content="newAI">
+<meta name="twitter:title" content="newAI - To Do:">
+<meta name="twitter:description" content="To Do list">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -117,7 +83,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./tiger.jpg" alt="Quarto logo." class="navbar-logo">
+    <img src="./bird.jpg" alt="Quarto logo." class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Benedict’s Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -223,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./todo.html">To Do:</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -237,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></span></a>
   </div>
 </li>
@@ -309,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./todo.html" class="sidebar-item-text sidebar-link">
+  <a href="./todo.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">To Do:</span></a>
   </div>
 </li>
@@ -323,22 +292,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-for-git-push" id="toc-step-for-git-push" class="nav-link active" data-scroll-target="#step-for-git-push">Step for git push</a></li>
-  <li><a href="#after-changing-dependencies" id="toc-after-changing-dependencies" class="nav-link" data-scroll-target="#after-changing-dependencies">After changing dependencies</a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link active" data-scroll-target="#to-do">To do</a></li>
+  <li><a href="#plans" id="toc-plans" class="nav-link" data-scroll-target="#plans">Plans</a>
+  <ul class="collapse">
+  <li><a href="#build-drone" id="toc-build-drone" class="nav-link" data-scroll-target="#build-drone">Build drone</a></li>
+  <li><a href="#job" id="toc-job" class="nav-link" data-scroll-target="#job">Job</a></li>
+  <li><a href="#trading-bot-in-processes" id="toc-trading-bot-in-processes" class="nav-link" data-scroll-target="#trading-bot-in-processes">Trading bot (in processes)</a></li>
+  <li><a href="#distance-tracking-app" id="toc-distance-tracking-app" class="nav-link" data-scroll-target="#distance-tracking-app">Distance tracking app</a></li>
+  <li><a href="#integrated-marketing" id="toc-integrated-marketing" class="nav-link" data-scroll-target="#integrated-marketing">integrated marketing</a></li>
+  <li><a href="#future-plans" id="toc-future-plans" class="nav-link" data-scroll-target="#future-plans">Future plans</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bthek1/newAI/blob/main/index.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bthek1/newAI/blob/main/90_TODO.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></h1>
-</div>
+<h1 class="title">To Do:</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">c1</div>
+    <div class="quarto-category">c2</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    FastAI setting up and development guide
+    To Do list
   </div>
 </div>
 
@@ -354,26 +335,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This file will become your README and also the index of your documentation.</p>
-<section id="step-for-git-push" class="level2">
-<h2 class="anchored" data-anchor-id="step-for-git-push">Step for git push</h2>
-<ul>
-<li>nbdev_prepare</li>
+<section id="to-do" class="level2">
+<h2 class="anchored" data-anchor-id="to-do">To do</h2>
+<ul class="task-list">
+<li><input type="checkbox">The Forge</li>
+<li><input type="checkbox">FASTAI Course</li>
+<li><input type="checkbox">MATLAB Course</li>
+<li><input type="checkbox">CSSE - ML topics</li>
+<li><input type="checkbox">FAST pages</li>
+<li><input type="checkbox">WEBSITE DEVELOPMENT</li>
+<li><input type="checkbox">VISION APP - 3D</li>
+<li><input type="checkbox">3D Assignment</li>
+<li><input type="checkbox">DOCKER</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_prepare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>MATH2001 - 8h</p>
+<p>LAWS1100 - 3 weeks</p>
+<p>ECON1011 - 8 weeks</p>
+<p>FINM1418 - 2 weeks ACCT1101 - 2 weeks</p>
+<p>ELEC3100 - 9h<br>
+ELEC4620 - 3 weeks</p>
+<p>matlab: 61-2-8669-4700</p>
+<p>smym - THEKKEL02</p>
+<p>solar service-1234567890 solar user-12346578</p>
+<p>29/08/2023 To do: - FASTAI Course - Matlab Course - CSSE ML topics</p>
 <ul>
-<li>Git stuff</li>
+<li><p>Docker for fastAI</p></li>
+<li><p>Fast Pages</p></li>
+<li><p>oracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&amp;ab_channel=CloudTech</p></li>
+<li><p>appen - job</p></li>
+<li><p>forage virtual intern</p></li>
+<li><p>Vision App - 3d reconstruction/ assignment</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"update"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="after-changing-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="after-changing-dependencies">After changing dependencies</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install newAI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">'.[dev]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="plans" class="level2">
+<h2 class="anchored" data-anchor-id="plans">Plans</h2>
+<section id="build-drone" class="level3">
+<h3 class="anchored" data-anchor-id="build-drone">Build drone</h3>
+<ul>
+<li>Arduino nano ble sense</li>
+<li>two way communication</li>
+<li>use better sensor</li>
+<li>buck regulator 5v</li>
+<li>draw.io</li>
+</ul>
+</section>
+<section id="job" class="level3">
+<h3 class="anchored" data-anchor-id="job">Job</h3>
+<ul>
+<li>research project</li>
+<li>IT support</li>
+<li>Data entry</li>
+<li>military</li>
+<li>formlabs company</li>
+</ul>
+</section>
+<section id="trading-bot-in-processes" class="level3">
+<h3 class="anchored" data-anchor-id="trading-bot-in-processes">Trading bot (in processes)</h3>
+<ul>
+<li>predict cycles - FFT</li>
+<li>machine learning</li>
+<li>send messages</li>
+<li>TesterStatistics()</li>
+<li>draw.io</li>
+</ul>
+</section>
+<section id="distance-tracking-app" class="level3">
+<h3 class="anchored" data-anchor-id="distance-tracking-app">Distance tracking app</h3>
+<ul>
+<li>new phone</li>
+<li>using focus</li>
+<li>machine learning</li>
+<li>speed tracking</li>
+<li>draw.io</li>
+</ul>
+</section>
+<section id="integrated-marketing" class="level3">
+<h3 class="anchored" data-anchor-id="integrated-marketing">integrated marketing</h3>
+<ul>
+<li>facebook</li>
+<li>insta</li>
+</ul>
+<p>Knowledge skillshare masterclass brillant curiosity stream</p>
+</section>
+<section id="future-plans" class="level3">
+<h3 class="anchored" data-anchor-id="future-plans">Future plans</h3>
+<ul>
+<li>decentralised cloud</li>
+<li>keyboard website</li>
+<li>custom car</li>
+<li>buy house</li>
+<li>ecommerise business</li>
+<li>benedictine</li>
+<li>solar farm</li>
+<li>diamond mining</li>
+<li>gold shop</li>
+<li>shesha</li>
+<li>mathgame - wizard 101</li>
+<li>VR with speed tracking app and hand recognition</li>
+<li>image net - A.I competition</li>
+<li>drone business</li>
+<li>electro and magnetic motor</li>
+<li>nano motor (muscle)</li>
+<li>uni electronics store</li>
+<li>3d metal printer</li>
+<li>aquarium monitor/ blood test</li>
+<li>cooling cup</li>
+<li>smart seat</li>
+<li>3D mapping space</li>
+<li>business tv series</li>
+<li>magnitron - electron mapping</li>
+<li>command line gpt</li>
+<li>research papers to website
+<ul>
+<li>level 1 - paper to website</li>
+<li>link knowledge</li>
+</ul></li>
+<li>Laser project
+<ul>
+<li>ABN</li>
+<li>website</li>
+<li>Products
+<ul>
+<li>Source materials</li>
+<li>Market</li>
+</ul></li>
+<li>Amazon, facebook marketplace</li>
+<li>Scale</li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -729,11 +821,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./connections.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SSH and VNC</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./computersetup.html" class="pagination-link">
-        <span class="nav-page-text">Computer Setup</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

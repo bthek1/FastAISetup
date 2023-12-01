@@ -1,0 +1,16 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_computerSetup.ipynb
+      - 01_condaSetup.ipynb
+      - 02_nbdevSetup.ipynb
+      - 03_quartoSetup.ipynb
+      - 04_pytorchSetup.ipynb
+      - 05_fastAISetup.ipynb
+      - 06_fastAIExample.ipynb
+      - 07_JupyterGuide.ipynb
+      - 09_Docker.ipynb
+      - 10_Pypi.ipynb
+      - 11_Connections.ipynb
+      - 90_TODO.ipynb
