@@ -91,25 +91,11 @@
     "text": "To clean Mamba cache\nmamba clean --yes --all"
   },
   {
-    "objectID": "todo.html",
-    "href": "todo.html",
-    "title": "To Do:",
+    "objectID": "90_TODO.html",
+    "href": "90_TODO.html",
+    "title": "newAI",
     "section": "",
-    "text": "The Forge\nFASTAI Course\nMATLAB Course\nCSSE - ML topics\nFAST pages\nWEBSITE DEVELOPMENT\nVISION APP - 3D\n3D Assignment\nDOCKER\n\nMATH2001 - 8h\nLAWS1100 - 3 weeks\nECON1011 - 8 weeks\nFINM1418 - 2 weeks ACCT1101 - 2 weeks\nELEC3100 - 9h\nELEC4620 - 3 weeks\nmatlab: 61-2-8669-4700\nsmym - THEKKEL02\nsolar service-1234567890 solar user-12346578\n29/08/2023 To do: - FASTAI Course - Matlab Course - CSSE ML topics\n\nDocker for fastAI\nFast Pages\noracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&ab_channel=CloudTech\nappen - job\nforage virtual intern\nVision App - 3d reconstruction/ assignment"
-  },
-  {
-    "objectID": "todo.html#to-do",
-    "href": "todo.html#to-do",
-    "title": "To Do:",
-    "section": "",
-    "text": "The Forge\nFASTAI Course\nMATLAB Course\nCSSE - ML topics\nFAST pages\nWEBSITE DEVELOPMENT\nVISION APP - 3D\n3D Assignment\nDOCKER\n\nMATH2001 - 8h\nLAWS1100 - 3 weeks\nECON1011 - 8 weeks\nFINM1418 - 2 weeks ACCT1101 - 2 weeks\nELEC3100 - 9h\nELEC4620 - 3 weeks\nmatlab: 61-2-8669-4700\nsmym - THEKKEL02\nsolar service-1234567890 solar user-12346578\n29/08/2023 To do: - FASTAI Course - Matlab Course - CSSE ML topics\n\nDocker for fastAI\nFast Pages\noracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&ab_channel=CloudTech\nappen - job\nforage virtual intern\nVision App - 3d reconstruction/ assignment"
-  },
-  {
-    "objectID": "todo.html#plans",
-    "href": "todo.html#plans",
-    "title": "To Do:",
-    "section": "Plans",
-    "text": "Plans\n\nBuild drone\n\nArduino nano ble sense\ntwo way communication\nuse better sensor\nbuck regulator 5v\ndraw.io\n\n\n\nJob\n\nresearch project\nIT support\nData entry\nmilitary\nformlabs company\n\n\n\nTrading bot (in processes)\n\npredict cycles - FFT\nmachine learning\nsend messages\nTesterStatistics()\ndraw.io\n\n\n\nDistance tracking app\n\nnew phone\nusing focus\nmachine learning\nspeed tracking\ndraw.io\n\n\n\nintegrated marketing\n\nfacebook\ninsta\n\nKnowledge skillshare masterclass brillant curiosity stream\n\n\nFuture plans\n\ndecentralised cloud\nkeyboard website\ncustom car\nbuy house\necommerise business\nbenedictine\nsolar farm\ndiamond mining\ngold shop\nshesha\nmathgame - wizard 101\nVR with speed tracking app and hand recognition\nimage net - A.I competition\ndrone business\nelectro and magnetic motor\nnano motor (muscle)\nuni electronics store\n3d metal printer\naquarium monitor/ blood test\ncooling cup\nsmart seat\n3D mapping space\nbusiness tv series\nmagnitron - electron mapping\ncommand line gpt\nresearch papers to website\n\nlevel 1 - paper to website\nlink knowledge\n\nLaser project\n\nABN\nwebsite\nProducts\n\nSource materials\nMarket\n\nAmazon, facebook marketplace\nScale"
+    "text": "Back to top"
   },
   {
     "objectID": "pypi.html",
@@ -224,27 +210,6 @@
     "text": "For installing fastai\n!mamba install -c nvidia fastai\n!pip list | grep \"fastai\" || pip install -U fastai\nconda install -c nvidia fastai anaconda\n\n!pip list | grep \"fastai\"\n\nfastai                        2.7.12\n\n\nFor installing fastbook\npip list | grep \"fastbook\" || pip install -U fastbook\n\n!pip list | grep \"fastbook\"\n\nfastbook                      0.0.28\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "FastAI",
-    "section": "",
-    "text": "This file will become your README and also the index of your documentation."
-  },
-  {
-    "objectID": "index.html#step-for-git-push",
-    "href": "index.html#step-for-git-push",
-    "title": "FastAI",
-    "section": "Step for git push",
-    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
-  },
-  {
-    "objectID": "index.html#after-changing-dependencies",
-    "href": "index.html#after-changing-dependencies",
-    "title": "FastAI",
-    "section": "After changing dependencies",
-    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'"
-  },
-  {
     "objectID": "fastaiexample.html",
     "href": "fastaiexample.html",
     "title": "FastAI Example",
@@ -292,6 +257,48 @@
     "title": "FastAI Example",
     "section": "Step 5: Use our model",
     "text": "Step 5: Use our model\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nimage= 'elephant.jpg'\n\n\nis_real,_,probs = learn11.predict(PILImage.create(image))\nmax_value, max_index = torch.max(probs, dim=0)\nprint(f\"This is a: {animal_list[max_index]} with probability: {max_value}.\")\n\nImage.open(image).to_thumb(256,256)\n\n\n\n\n\n\n\n\nThis is a: elephant with probability: 0.9999996423721313.\n\n\n\n\n\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nfor index, value in enumerate(animal_list):\n    np.set_printoptions(suppress=True, precision=4)\n    print(f\"Probability of {value} is :{probs[index]:4f}.\")\n\nProbability of chimpanzee is :0.000000.\nProbability of elephant is :1.000000.\nProbability of giraffe is :0.000000.\nProbability of kangaroo is :0.000000.\nProbability of lion is :0.000000.\nProbability of panda is :0.000000.\nProbability of rabbit is :0.000000.\nProbability of rhino is :0.000000.\nProbability of tiger is :0.000000.\nProbability of wolf is :0.000000."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FastAI",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#step-for-git-push",
+    "href": "index.html#step-for-git-push",
+    "title": "FastAI",
+    "section": "Step for git push",
+    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push"
+  },
+  {
+    "objectID": "index.html#after-changing-dependencies",
+    "href": "index.html#after-changing-dependencies",
+    "title": "FastAI",
+    "section": "After changing dependencies",
+    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'"
+  },
+  {
+    "objectID": "todo.html",
+    "href": "todo.html",
+    "title": "To Do:",
+    "section": "",
+    "text": "To Do list\n\n\n\n\nThe Forge\nFASTAI Course, MATLAB Course, CSSE - ML topics\nBlog page, Resume page\nWEBSITE DEVELOPMENT\nVISION APP - 3D\n3D Assignment\nDOCKER\n\nMATH2001 - 8h\nLAWS1100 - 3 weeks\nECON1011 - 8 weeks\nFINM1418 - 2 weeks ACCT1101 - 2 weeks\nELEC3100 - 9h\nmatlab: 61-2-8669-4700\nsolar service-1234567890 solar user-12346578\nTo do: - FASTAI Course - Matlab Course - CSSE ML topics\n\nDocker for fastAI\nFast Pages\noracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&ab_channel=CloudTech\nappen - job\nforage virtual intern\nVision App - 3d reconstruction/ assignment\n\n\n\n\n\n\n\nArduino nano ble sense\ntwo way communication\nuse better sensor\nbuck regulator 5v\ndraw.io\n\n\n\n\n\nresearch project\nIT support\nData entry\nmilitary\nformlabs company\n\n\n\n\n\npredict cycles - FFT\nmachine learning\nsend messages\nTesterStatistics()\ndraw.io\n\n\n\n\n\nnew phone\nusing focus\nmachine learning\nspeed tracking\ndraw.io\n\n\n\n\n\nfacebook\ninsta\n\nKnowledge skillshare masterclass brillant curiosity stream\n\n\n\n\ndecentralised cloud\nkeyboard website\ncustom car\nbuy house\necommerise business\nbenedictine\nsolar farm\ndiamond mining\ngold shop\nshesha\nmathgame - wizard 101\nVR with speed tracking app and hand recognition\nimage net - A.I competition\ndrone business\nelectro and magnetic motor\nnano motor (muscle)\nuni electronics store\n3d metal printer\naquarium monitor/ blood test\ncooling cup\nsmart seat\n3D mapping space\nbusiness tv series\nmagnitron - electron mapping\ncommand line gpt\nresearch papers to website\n\nlevel 1 - paper to website\nlink knowledge\nenglish dictionary for llm - llama\n\nLaser project\n\nABN\nwebsite\nProducts\n\nSource materials\nMarket\n\nAmazon, facebook marketplace\nScale\n\nknots - two plains problem\nDC - line across australia\nFFT using Polyphase\ndigital speaker system\nimage folding and matrix - 3,4D matrix mulitplication\nelectric circuit to group theory\nlight fft"
+  },
+  {
+    "objectID": "todo.html#to-do-1",
+    "href": "todo.html#to-do-1",
+    "title": "To Do:",
+    "section": "",
+    "text": "The Forge\nFASTAI Course, MATLAB Course, CSSE - ML topics\nBlog page, Resume page\nWEBSITE DEVELOPMENT\nVISION APP - 3D\n3D Assignment\nDOCKER\n\nMATH2001 - 8h\nLAWS1100 - 3 weeks\nECON1011 - 8 weeks\nFINM1418 - 2 weeks ACCT1101 - 2 weeks\nELEC3100 - 9h\nmatlab: 61-2-8669-4700\nsolar service-1234567890 solar user-12346578\nTo do: - FASTAI Course - Matlab Course - CSSE ML topics\n\nDocker for fastAI\nFast Pages\noracle - web developement - https://www.youtube.com/watch?v=NKc3k7xceT8&ab_channel=CloudTech\nappen - job\nforage virtual intern\nVision App - 3d reconstruction/ assignment"
+  },
+  {
+    "objectID": "todo.html#plans",
+    "href": "todo.html#plans",
+    "title": "To Do:",
+    "section": "",
+    "text": "Arduino nano ble sense\ntwo way communication\nuse better sensor\nbuck regulator 5v\ndraw.io\n\n\n\n\n\nresearch project\nIT support\nData entry\nmilitary\nformlabs company\n\n\n\n\n\npredict cycles - FFT\nmachine learning\nsend messages\nTesterStatistics()\ndraw.io\n\n\n\n\n\nnew phone\nusing focus\nmachine learning\nspeed tracking\ndraw.io\n\n\n\n\n\nfacebook\ninsta\n\nKnowledge skillshare masterclass brillant curiosity stream\n\n\n\n\ndecentralised cloud\nkeyboard website\ncustom car\nbuy house\necommerise business\nbenedictine\nsolar farm\ndiamond mining\ngold shop\nshesha\nmathgame - wizard 101\nVR with speed tracking app and hand recognition\nimage net - A.I competition\ndrone business\nelectro and magnetic motor\nnano motor (muscle)\nuni electronics store\n3d metal printer\naquarium monitor/ blood test\ncooling cup\nsmart seat\n3D mapping space\nbusiness tv series\nmagnitron - electron mapping\ncommand line gpt\nresearch papers to website\n\nlevel 1 - paper to website\nlink knowledge\nenglish dictionary for llm - llama\n\nLaser project\n\nABN\nwebsite\nProducts\n\nSource materials\nMarket\n\nAmazon, facebook marketplace\nScale\n\nknots - two plains problem\nDC - line across australia\nFFT using Polyphase\ndigital speaker system\nimage folding and matrix - 3,4D matrix mulitplication\nelectric circuit to group theory\nlight fft"
   },
   {
     "objectID": "computersetup.html",

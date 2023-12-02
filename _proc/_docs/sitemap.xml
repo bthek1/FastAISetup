@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bthek1.github.io/newAI/pytorchsetup.html</loc>
-    <lastmod>2023-12-01T15:29:31.866Z</lastmod>
+    <lastmod>2023-12-02T00:39:26.684Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/condasetup.html</loc>
-    <lastmod>2023-12-01T15:29:30.766Z</lastmod>
+    <lastmod>2023-12-02T00:39:25.654Z</lastmod>
   </url>
   <url>
-    <loc>https://bthek1.github.io/newAI/todo.html</loc>
-    <lastmod>2023-12-01T15:29:29.846Z</lastmod>
+    <loc>https://bthek1.github.io/newAI/90_TODO.html</loc>
+    <lastmod>2023-12-02T00:39:24.734Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/pypi.html</loc>
-    <lastmod>2023-12-01T15:29:29.026Z</lastmod>
+    <lastmod>2023-12-02T00:39:24.034Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/jupyterguide.html</loc>
-    <lastmod>2023-12-01T15:29:28.136Z</lastmod>
+    <lastmod>2023-12-02T00:39:23.084Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/fastaisetup.html</loc>
-    <lastmod>2023-12-01T15:29:26.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bthek1.github.io/newAI/index.html</loc>
-    <lastmod>2023-12-01T15:29:26.056Z</lastmod>
+    <lastmod>2023-12-02T00:39:21.834Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/fastaiexample.html</loc>
-    <lastmod>2023-12-01T15:29:26.496Z</lastmod>
+    <lastmod>2023-12-02T00:39:20.974Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/index.html</loc>
+    <lastmod>2023-12-02T00:39:56.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bthek1.github.io/newAI/todo.html</loc>
+    <lastmod>2023-12-02T00:39:21.354Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/computersetup.html</loc>
-    <lastmod>2023-12-01T15:29:27.416Z</lastmod>
+    <lastmod>2023-12-02T00:39:58.284Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/connections.html</loc>
-    <lastmod>2023-12-01T15:29:28.566Z</lastmod>
+    <lastmod>2023-12-02T00:39:23.554Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/quartosetup.html</loc>
-    <lastmod>2023-12-01T15:29:29.466Z</lastmod>
+    <lastmod>2023-12-02T00:39:24.484Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/docker.html</loc>
-    <lastmod>2023-12-01T15:29:30.316Z</lastmod>
+    <lastmod>2023-12-02T00:39:25.204Z</lastmod>
   </url>
   <url>
     <loc>https://bthek1.github.io/newAI/nbdevsetup.html</loc>
-    <lastmod>2023-12-01T15:29:31.346Z</lastmod>
+    <lastmod>2023-12-02T00:39:26.194Z</lastmod>
   </url>
 </urlset>
