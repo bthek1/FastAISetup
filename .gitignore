@@ -160,6 +160,5 @@ cython_debug/
 #.idea/
 
 
-/nbs/animal_pics
-
-/_proc/animal_pics
+/nbs/Data
+/_proc/Data
