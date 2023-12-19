@@ -635,6 +635,71 @@ Try 'ls --help' for more information.</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_nodes(graph, items, colours):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> graph.subgraph(name<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>items[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">'</span>) <span class="im">as</span> c:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        c.attr(style<span class="op">=</span><span class="st">'filled'</span>, fillcolor<span class="op">=</span>colours[<span class="dv">0</span>], label<span class="op">=</span>items[<span class="dv">0</span>][<span class="dv">7</span>:], rank <span class="op">=</span> <span class="st">'same'</span>, fontcolor<span class="op">=</span>colours[<span class="dv">2</span>])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        c.node_attr.update(style<span class="op">=</span><span class="st">'filled'</span>, fillcolor<span class="op">=</span>colours[<span class="dv">1</span>], shape<span class="op">=</span><span class="st">'box'</span>, fontcolor<span class="op">=</span>colours[<span class="dv">2</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> data <span class="kw">in</span> items[<span class="dv">1</span>:]: c.node(<span class="ss">f'</span><span class="sc">{</span>data<span class="sc">}</span><span class="ss">'</span>, <span class="ss">f'</span><span class="sc">{</span>data<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_edges(graph, Begin, End, colour):</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> beginning <span class="kw">in</span> Begin[<span class="dv">1</span>:]: </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> towards <span class="kw">in</span> End[<span class="dv">1</span>:]: graph.edge(<span class="ss">f'</span><span class="sc">{</span>beginning<span class="sc">}</span><span class="ss">'</span>, <span class="ss">f'</span><span class="sc">{</span>towards<span class="sc">}</span><span class="ss">'</span>, <span class="bu">len</span><span class="op">=</span><span class="st">'5.00'</span>, color <span class="op">=</span> colour[<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>primary <span class="op">=</span> <span class="st">'#FFFFFF'</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>secondary <span class="op">=</span> <span class="st">'#F6AE2D'</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>third <span class="op">=</span> <span class="st">'#002855'</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>bg <span class="op">=</span> <span class="st">'#F1FAF0'</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>fifth <span class="op">=</span> <span class="st">'#002855'</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>colours <span class="op">=</span> [primary, secondary, third, bg, fifth]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>Buckets <span class="op">=</span> [<span class="st">'clusterBuckets'</span>, <span class="st">'Energy_1hour_integral'</span>, <span class="st">'Power_5min_avg'</span>, <span class="st">'Weather'</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Process <span class="op">=</span> [<span class="st">'clusterProcess'</span>, <span class="st">'MinMaxScalar'</span>, <span class="st">'Seasonal_decompose'</span>]</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>Stats <span class="op">=</span> [<span class="st">'clusterStats'</span>, <span class="st">'AutoARIMA'</span>, <span class="st">'HaltWinter'</span>, <span class="st">'MSTL'</span>, <span class="st">'FFT'</span>, <span class="st">'SeasonNaive'</span>]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ML <span class="op">=</span> [<span class="st">'clusterML'</span>, <span class="st">'LGBMRegressor'</span>, <span class="st">'XGBRegressor'</span>, <span class="st">'LinearRegression'</span>]</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>Neural <span class="op">=</span> [<span class="st">'clusterNeural'</span>, <span class="st">'NBEATS'</span>, <span class="st">'NHITS'</span>, <span class="st">'MLP'</span>]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>Evaluate <span class="op">=</span> [<span class="st">'clusterEvaluate'</span>, <span class="st">'mase'</span>, <span class="st">'mae'</span>, <span class="st">'mape'</span>, <span class="st">'rmse'</span>, <span class="st">'smape'</span>]</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>Nodes <span class="op">=</span> [Buckets, Process, Stats, ML, Neural, Evaluate]</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a directed graph</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> Digraph(filename <span class="op">=</span> <span class="st">'test'</span>, directory <span class="op">=</span> <span class="st">'./Data'</span>, engine <span class="op">=</span> <span class="st">'dot'</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>graph.attr(<span class="st">'graph'</span>, style<span class="op">=</span><span class="st">'filled'</span>, bgcolor<span class="op">=</span>colours[<span class="dv">3</span>])</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>graph.graph_attr[<span class="st">'rankdir'</span>] <span class="op">=</span> <span class="st">'LR'</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> items <span class="kw">in</span> Nodes:</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    create_nodes(graph, items, colours)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Add edges  </span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>create_edges(graph, Buckets, Process, colours)</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>create_edges(graph, Process, Stats, colours)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>create_edges(graph, Process, ML, colours)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>create_edges(graph, Process, Neural, colours)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>create_edges(graph, Stats, Evaluate, colours)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>create_edges(graph, ML, Evaluate, colours)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>create_edges(graph, Neural, Evaluate, colours)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the graph as a PNG file</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>graph.render( <span class="bu">format</span><span class="op">=</span><span class="st">'svg'</span>, cleanup<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="07_JupyterGuide_files/figure-html/cell-7-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Data/test.svg" class="img-fluid figure-img"></p>
@@ -949,22 +1014,22 @@ Expand To Learn About Collapse
 <section id="code-capabilities" class="level2">
 <h2 class="anchored" data-anchor-id="code-capabilities">Code Capabilities</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> b <span class="op">+</span> a <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> c <span class="op">+</span> b <span class="op">+</span> a <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>a, b, c ,d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> b <span class="op">+</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> c <span class="op">+</span> b <span class="op">+</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>a, b, c ,d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(1, 2, 4, 8)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.plot([a,b,c,d])</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.plot([a,b,c,d])</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="07_JupyterGuide_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+<p><img src="07_JupyterGuide_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -994,7 +1059,7 @@ Expand To Learn About Collapse
 </ul>
 <p>Here’s an example of using <code>?</code> to learn about Python’s <code>print()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"asd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"asd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>asd</code></pre>
 </div>
@@ -1007,12 +1072,12 @@ Expand To Learn About Collapse
 <li><code>%matplotlib inline</code>:: Ensures that all matplotlib plots will be plotted in the output cell within the notebook and will be kept in the notebook when saved.</li>
 </ul>
 <p>This command is always called together at the beginning of every notebook of the fast.ai course.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>%timeit</code>:: Runs a line ten thousand times and displays the average time it took to run.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>22.1 µs ± 461 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)</code></pre>
 </div>
