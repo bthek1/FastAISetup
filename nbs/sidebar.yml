@@ -11,5 +11,5 @@ website:
       - 06_fastAIExample.ipynb
       - 07_JupyterGuide.ipynb
       - 09_Docker.ipynb
-      - 10_Pypi.ipynb
+      - 10_PIP&GIT_release.ipynb
       - 11_Connections.ipynb

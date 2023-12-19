@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="FastAI setting up and development guide">
+<meta name="description" content="Details on setting up Pytorch Setup">
 
-<title>newAI - FastAI</title>
+<title>newAI - Pytorch Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./computersetup.html" rel="next">
+<link href="./fastaisetup.html" rel="next">
+<link href="./quartosetup.html" rel="prev">
 <link href="./bird.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,11 +102,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="newAI - FastAI">
-<meta property="og:description" content="FastAI setting up and development guide">
+<meta property="og:title" content="newAI - Pytorch Setup">
+<meta property="og:description" content="Details on setting up Pytorch Setup">
 <meta property="og:site-name" content="newAI">
-<meta name="twitter:title" content="newAI - FastAI">
-<meta name="twitter:description" content="FastAI setting up and development guide">
+<meta name="twitter:title" content="newAI - Pytorch Setup">
+<meta name="twitter:description" content="Details on setting up Pytorch Setup">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -234,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pytorchsetup.html">Pytorch Setup</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -248,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></span></a>
   </div>
 </li>
@@ -278,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pytorchsetup.html" class="sidebar-item-text sidebar-link">
+  <a href="./pytorchsetup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Pytorch Setup</span></a>
   </div>
 </li>
@@ -328,22 +329,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-for-git-push" id="toc-step-for-git-push" class="nav-link active" data-scroll-target="#step-for-git-push">Step for git push</a></li>
-  <li><a href="#after-changing-dependencies" id="toc-after-changing-dependencies" class="nav-link" data-scroll-target="#after-changing-dependencies">After changing dependencies</a></li>
+  <li><a href="#computer-setup" id="toc-computer-setup" class="nav-link active" data-scroll-target="#computer-setup">Computer Setup</a></li>
+  <li><a href="#program-setup" id="toc-program-setup" class="nav-link" data-scroll-target="#program-setup">Program Setup</a></li>
+  <li><a href="#prerequisites-for-pytorch" id="toc-prerequisites-for-pytorch" class="nav-link" data-scroll-target="#prerequisites-for-pytorch">Prerequisites for pytorch</a></li>
+  <li><a href="#nvtop" id="toc-nvtop" class="nav-link" data-scroll-target="#nvtop">Nvtop</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bthek1/newAI/blob/main/index.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bthek1/newAI/blob/main/04_pytorchSetup.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bthek1/newAI/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><a href="https://bthek1.github.io/FastAISetup/">FastAI</a></h1>
+<h1 class="title">Pytorch Setup</h1>
 </div>
 
 <div>
   <div class="description">
-    FastAI setting up and development guide
+    Details on setting up Pytorch Setup
   </div>
 </div>
 
@@ -359,24 +362,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This file will become your README and also the index of your documentation.</p>
-<section id="step-for-git-push" class="level2">
-<h2 class="anchored" data-anchor-id="step-for-git-push">Step for git push</h2>
+<section id="computer-setup" class="level2">
+<h2 class="anchored" data-anchor-id="computer-setup">Computer Setup</h2>
+<ol type="1">
+<li>Uninstall
 <ul>
-<li>nbdev_prepare</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_prepare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li>Onedrive</li>
+</ul></li>
+<li>Download and Install:
 <ul>
-<li>Git stuff</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"update"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li>Matlab</li>
+<li>Git</li>
+<li>vscode</li>
+<li>docker</li>
+<li>anaconda</li>
+<li>nvidia:
+<ul>
+<li>cuda toolkit</li>
+</ul></li>
+</ul></li>
+</ol>
 </section>
-<section id="after-changing-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="after-changing-dependencies">After changing dependencies</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install newAI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">'.[dev]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="program-setup" class="level2">
+<h2 class="anchored" data-anchor-id="program-setup">Program Setup</h2>
+<ul>
+<li><p>nbdev - see nbdev page</p></li>
+<li><p>quarto - see quarto page</p></li>
+<li><p>jupyter lab - see nbdev page</p></li>
+<li><p>Optional installs</p>
+<ul>
+<li>vim</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge vim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>grep</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge grep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="prerequisites-for-pytorch" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites-for-pytorch">Prerequisites for pytorch</h2>
+<ol type="1">
+<li>Install Anaconda</li>
+<li>Install CUDA, if your machine has a CUDA-enabled GPU.</li>
+<li>If you want to build on Windows, Visual Studio with MSVC toolset, and NVTX are also needed. The exact requirements of those dependencies could be found out here.</li>
+<li>Follow the steps described here: https://github.com/pytorch/pytorch#from-source</li>
+</ol>
+<p>For installing pytorch</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install pytorch torchvision torchaudio pytorch-cuda=11.8 <span class="at">-c</span> pytorch <span class="at">-c</span> nvidia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.rand(<span class="dv">5</span>,<span class="dv">3</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor([[0.9269, 0.1003, 0.0353],
+        [0.4144, 0.8482, 0.3824],
+        [0.1120, 0.7599, 0.8723],
+        [0.0077, 0.7378, 0.8241],
+        [0.3825, 0.3843, 0.2078]])</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>torch.cuda.is_available()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>torch.cuda.device_count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> torch.device(<span class="st">"cuda"</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">"cpu"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>device</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>device(type='cuda')</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>nvcc <span class="op">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/bin/bash: line 1: nvcc: command not found</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>nvidia<span class="op">-</span>smi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Thu Jul 27 01:53:39 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 520.61.03    Driver Version: 522.06       CUDA Version: 11.8     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0  On |                  N/A |
+| N/A   42C    P8     4W /  N/A |    150MiB /  6144MiB |      2%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A        23      G   /Xwayland                       N/A      |
++-----------------------------------------------------------------------------+</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>which python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/ben/mambaforge/envs/fast/bin/python</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.executable)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/ben/mambaforge/envs/fast/bin/python3.11
+3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]</code></pre>
+</div>
+</div>
+</section>
+<section id="nvtop" class="level2">
+<h2 class="anchored" data-anchor-id="nvtop">Nvtop</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:flexiondotorg/nvtop</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install nvtop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -734,10 +856,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./quartosetup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Quarto Setup</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./computersetup.html" class="pagination-link">
-        <span class="nav-page-text">Computer Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./fastaisetup.html" class="pagination-link">
+        <span class="nav-page-text">FastAI Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
