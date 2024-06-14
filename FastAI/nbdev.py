@@ -4,7 +4,7 @@
 __all__ = ['say_hello']
 
 # %% ../nbs/02_nbdevSetup.ipynb 35
-#|code-fold: <true>
+#|code-fold: true
 def say_hello(to):
     "Say hello to somebody"
     return f'Hello {to}!'
