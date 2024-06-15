@@ -5,4 +5,4 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://bthek1.github.io/Computer_Setup/',
                 'git_url': 'https://bthek1.github.io/Computer_Setup/',
                 'lib_path': 'Computer_Setup'},
-  'syms': {'Computer_Setup.nbdev': {'Computer_Setup.nbdev.say_hello': ('nbdevsetup.html#say_hello', 'Computer_Setup/nbdev.py')}}}
+  'syms': {'Computer_Setup.nbdev': {'Computer_Setup.nbdev.say_hello': ('nbdev_setup.html#say_hello', 'Computer_Setup/nbdev.py')}}}

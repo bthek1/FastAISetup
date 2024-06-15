@@ -46,18 +46,6 @@ wsl --install -d <Distribution Name>
 wsl --unregister <Distribution Name>
 ```
 
-## WSL to Windows port forwarding
-
-> In powershell as administrator
-
-``` sh
-netsh interface portproxy add v4tov4 listenport=80 listenaddress=0.0.0.0 connectport=80 connectaddress=$($(wsl hostname -I).Trim());
-```
-
-``` sh
-New-NetFirewallRule -DisplayName "WSL2 Port Bridge" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80
-```
-
 ## Install Git
 
 ``` sh
