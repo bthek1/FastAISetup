@@ -13,7 +13,7 @@ Learning](https://bthek1.github.io/Computer_Setup/)
 Turn on: - Virtual Machine Platform - Windows Hypervisor Platform -
 Windows Subsystem for Linux
 
-## Download WSL - Linux environment for Windows
+## Download WSL - Windows Subsystem for Linux
 
 - goto powershell
 
