@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="FastAI setting up and development guide">
+<meta name="description" content="Details on setting up FASTAI">
 
-<title>Setup - Computer Setup for Deep Learning</title>
+<title>Setup - FastAI Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./wsl_setup.html" rel="next">
+<link href="./fastaiexample.html" rel="next">
+<link href="./pytorch_setup.html" rel="prev">
 <link href="./favi.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -107,12 +108,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Setup - Computer Setup for Deep Learning">
-<meta property="og:description" content="FastAI setting up and development guide">
+<meta property="og:title" content="Setup - FastAI Setup">
+<meta property="og:description" content="Details on setting up FASTAI">
 <meta property="og:image" content="https://bthek1.github.io/Computer_Setup//bthek1/Logo.svg">
 <meta property="og:site_name" content="Setup">
-<meta name="twitter:title" content="Setup - Computer Setup for Deep Learning">
-<meta name="twitter:description" content="FastAI setting up and development guide">
+<meta name="twitter:title" content="Setup - FastAI Setup">
+<meta name="twitter:description" content="Details on setting up FASTAI">
 <meta name="twitter:image" content="https://bthek1.github.io/Computer_Setup//bthek1/Logo.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -225,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><a href="https://bthek1.github.io/Computer_Setup/">Computer Setup for Deep Learning</a></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fastai_setup.html">FastAI Setup</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -239,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><a href="https://bthek1.github.io/Computer_Setup/">Computer Setup for Deep Learning</a></span></a>
   </div>
 </li>
@@ -275,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fastai_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./fastai_setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">FastAI Setup</span></a>
   </div>
 </li>
@@ -343,18 +344,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#uninstalls" id="toc-uninstalls" class="nav-link active" data-scroll-target="#uninstalls">Uninstalls</a></li>
-  <li><a href="#change-settings-in-turn-windows-features-on-or-off" id="toc-change-settings-in-turn-windows-features-on-or-off" class="nav-link" data-scroll-target="#change-settings-in-turn-windows-features-on-or-off">Change Settings in <code>Turn Windows features on or off</code></a></li>
-  <li><a href="#download-wsl---windows-subsystem-for-linux" id="toc-download-wsl---windows-subsystem-for-linux" class="nav-link" data-scroll-target="#download-wsl---windows-subsystem-for-linux">Download WSL - Windows Subsystem for Linux</a></li>
-  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">Install Git</a></li>
-  <li><a href="#run-fastsetup-in-linux-file" id="toc-run-fastsetup-in-linux-file" class="nav-link" data-scroll-target="#run-fastsetup-in-linux-file">Run Fastsetup in linux file</a></li>
-  <li><a href="#resource-monitoring" id="toc-resource-monitoring" class="nav-link" data-scroll-target="#resource-monitoring">Resource monitoring</a></li>
-  <li><a href="#gpu-monitoring" id="toc-gpu-monitoring" class="nav-link" data-scroll-target="#gpu-monitoring">GPU monitoring</a></li>
-  <li><a href="#nvtop" id="toc-nvtop" class="nav-link" data-scroll-target="#nvtop">Nvtop</a></li>
-  <li><a href="#bash-terminal-customisation" id="toc-bash-terminal-customisation" class="nav-link" data-scroll-target="#bash-terminal-customisation">Bash terminal customisation</a></li>
-  <li><a href="#font-customisation" id="toc-font-customisation" class="nav-link" data-scroll-target="#font-customisation">Font customisation</a></li>
-  <li><a href="#step-for-git-push" id="toc-step-for-git-push" class="nav-link" data-scroll-target="#step-for-git-push">Step for git push</a></li>
-  <li><a href="#after-changing-dependencies" id="toc-after-changing-dependencies" class="nav-link" data-scroll-target="#after-changing-dependencies">After changing dependencies</a></li>
+  <li><a href="#installs" id="toc-installs" class="nav-link active" data-scroll-target="#installs">Installs</a>
+  <ul class="collapse">
+  <li><a href="#for-installing-fastai" id="toc-for-installing-fastai" class="nav-link" data-scroll-target="#for-installing-fastai">For installing fastai</a></li>
+  <li><a href="#for-installing-fastbook" id="toc-for-installing-fastbook" class="nav-link" data-scroll-target="#for-installing-fastbook">For installing fastbook</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://bthek1.github.io/Computer_Setup/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -363,12 +357,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><a href="https://bthek1.github.io/Computer_Setup/">Computer Setup for Deep Learning</a></h1>
+<h1 class="title">FastAI Setup</h1>
 </div>
 
 <div>
   <div class="description">
-    FastAI setting up and development guide
+    Details on setting up FASTAI
   </div>
 </div>
 
@@ -386,120 +380,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<section id="uninstalls" class="level2">
-<h2 class="anchored" data-anchor-id="uninstalls">Uninstalls</h2>
-<ul>
-<li>OneDrive</li>
-</ul>
+<section id="installs" class="level2">
+<h2 class="anchored" data-anchor-id="installs">Installs</h2>
+<section id="for-installing-fastai" class="level3">
+<h3 class="anchored" data-anchor-id="for-installing-fastai">For installing fastai</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install fastai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="269fd483-3d0d-4ff4-b0d1-fe1376c285d8" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip <span class="bu">list</span> <span class="op">|</span> grep <span class="st">"fastai"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fastai                    2.7.15</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">!mamba</span> install <span class="at">-c</span> nvidia fastai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> nvidia fastai anaconda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="change-settings-in-turn-windows-features-on-or-off" class="level2">
-<h2 class="anchored" data-anchor-id="change-settings-in-turn-windows-features-on-or-off">Change Settings in <code>Turn Windows features on or off</code></h2>
-<p>Turn on: - Virtual Machine Platform - Windows Hypervisor Platform - Windows Subsystem for Linux</p>
-</section>
-<section id="download-wsl---windows-subsystem-for-linux" class="level2">
-<h2 class="anchored" data-anchor-id="download-wsl---windows-subsystem-for-linux">Download WSL - Windows Subsystem for Linux</h2>
-<ul>
-<li>goto powershell</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If there is error with wsl</p>
-<pre><code>Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/WSL/master/triage/install-latest-wsl.ps1" -OutFile install-latest-wsl.ps1
-Set-ExecutionPolicy Bypass -Scope Process -Force
-.\install-latest-wsl.ps1</code></pre>
-<ul>
-<li>o see a list of available Linux distributions available for download through the online store</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">-l</span> <span class="at">-o</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>to download a Linux distribution</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span> <span class="at">-d</span> <span class="op">&lt;</span>Distribution Name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>to remove a distribution</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--unregister</span> <span class="op">&lt;</span>Distribution Name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="install-git" class="level2">
-<h2 class="anchored" data-anchor-id="install-git">Install Git</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt <span class="at">-y</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>generate ssh key</li>
-<li>add it to github SSH keys in settings</li>
-</ul>
-</section>
-<section id="run-fastsetup-in-linux-file" class="level2">
-<h2 class="anchored" data-anchor-id="run-fastsetup-in-linux-file">Run Fastsetup in linux file</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:fastai/fastsetup.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>Read README.txt</p>
-</blockquote>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> fastsetup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>give files permission to run</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ./ubuntu-wsl.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> dotfiles.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> setup-conda.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-yq</span> mamba</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="resource-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="resource-monitoring">Resource monitoring</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:bashtop-monitor/bashtop</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install bashtop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bashtop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="gpu-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="gpu-monitoring">GPU monitoring</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:flexiondotorg/nvtop</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install nvtop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="nvtop" class="level2">
-<h2 class="anchored" data-anchor-id="nvtop">Nvtop</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:flexiondotorg/nvtop</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install nvtop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="bash-terminal-customisation" class="level2">
-<h2 class="anchored" data-anchor-id="bash-terminal-customisation">Bash terminal customisation</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_git_branch()</span> <span class="kw">{</span> <span class="va">b</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">${b</span><span class="op">:+</span><span class="st">" (</span><span class="va">$b</span><span class="st">)"</span><span class="va">}</span><span class="kw">;</span> <span class="kw">}</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">'\[\e[38;5;214m\]\A\[\e[0m\] \[\e[38;5;108;1m\]\u\[\e[0;38;5;114;2m\]@\[\e[0;38;5;119m\]\h\[\e[0m\] \[\e[38;5;117m\]\w'</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">'${debian_chroot:+($debian_chroot)}'</span><span class="va">$PS1</span><span class="st">'\[\e[38;5;204;1m\]$(parse_git_branch)\[\033[00m\]\$ '</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="va">PS2</span><span class="op">=</span><span class="st">'${debian_chroot:+($debian_chroot)}\[\e[38;5;214m\]\A \[\033[00m\]\$ '</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="font-customisation" class="level2">
-<h2 class="anchored" data-anchor-id="font-customisation">Font customisation</h2>
-<ul>
-<li>Add firacode to windows settings</li>
-</ul>
-<p>In powershell</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Set-ExecutionPolicy</span> RemoteSigned <span class="at">-Scope</span> CurrentUser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">iwr</span> <span class="at">-useb</span> get.scoop.sh <span class="kw">|</span> <span class="ex">iex</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scoop</span> bucket add nerd-fonts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scoop</span> install firacode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">iwr</span> <span class="at">-useb</span> get.scoop.sh <span class="kw">|</span> <span class="ex">iex</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-for-git-push" class="level2">
-<h2 class="anchored" data-anchor-id="step-for-git-push">Step for git push</h2>
-<ul>
-<li>nbdev_prepare</li>
-</ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_prepare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Git stuff</li>
-</ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"update"</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="after-changing-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="after-changing-dependencies">After changing dependencies</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install newAI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">'.[dev]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="for-installing-fastbook" class="level3">
+<h3 class="anchored" data-anchor-id="for-installing-fastbook">For installing fastbook</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install fastbook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fd754451-b08e-4ed3-a2ed-569cfa19db8e" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip <span class="bu">list</span> <span class="op">|</span> grep <span class="st">"fastbook"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fastbook                  0.0.29</code></pre>
+</div>
+</div>
+<div id="3388a896-88d7-49fe-a24d-704da4bf773d" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a2c1352c-9b01-4711-84fc-2247fa13964b" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> torch.cuda.is_available():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"GPU is available."</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    num_gpu <span class="op">=</span> torch.cuda.device_count()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_gpu):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        gpu_name <span class="op">=</span> torch.cuda.get_device_name(i)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        gpu_memory <span class="op">=</span> torch.cuda.get_device_properties(i).total_memory <span class="op">/</span> (<span class="dv">1024</span> <span class="op">**</span> <span class="dv">3</span>)  <span class="co"># Convert bytes to GB</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"GPU </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>gpu_name<span class="sc">}</span><span class="ss">, Memory: </span><span class="sc">{</span>gpu_memory<span class="sc">:.2f}</span><span class="ss"> GB"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"GPU is not available."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GPU is available.
+GPU 0: NVIDIA GeForce RTX 2060, Memory: 6.00 GB</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1060,10 +984,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./pytorch_setup.html" class="pagination-link" aria-label="OLD: Pytorch Setup">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">OLD: Pytorch Setup</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./wsl_setup.html" class="pagination-link" aria-label="WSL Setup Instructions">
-        <span class="nav-page-text">WSL Setup Instructions</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./fastaiexample.html" class="pagination-link" aria-label="FastAI Example">
+        <span class="nav-page-text">FastAI Example</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

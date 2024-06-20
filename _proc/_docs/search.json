@@ -1,0 +1,673 @@
+[
+  {
+    "objectID": "nbdev_setup.html",
+    "href": "nbdev_setup.html",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nmamba install -c conda-forge jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\nmamba install -c fastai nbdev\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "nbdev_setup.html#installation",
+    "href": "nbdev_setup.html#installation",
+    "title": "Nbdev Setup",
+    "section": "",
+    "text": "Python\nA Python package manager: we recommend conda or pip - download anaconda\nJupyter Notebook - see below\nnbdev - see below\nQuarto - see quarto setup\n\n\n\npip install jupyterlab\nmamba install -c conda-forge jupyterlab\nTo launch jupyter labs\njupyter lab\nTo install nbdev\npip install nbdev\nmamba install -c fastai nbdev\n\nget instructin for quarto with\n\nnbdev_install_quarto\nInstall the extension by entering:\npip install jupyterlab-quarto",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "nbdev_setup.html#create-an-empty-github-repo",
+    "href": "nbdev_setup.html#create-an-empty-github-repo",
+    "title": "Nbdev Setup",
+    "section": "Create an empty GitHub repo",
+    "text": "Create an empty GitHub repo\n\nmake it public\nadd a gitignore file\nclone it into project location\n\ngit clone https://github.com/PROEJECT_NAME.git",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "nbdev_setup.html#run-nbdev",
+    "href": "nbdev_setup.html#run-nbdev",
+    "title": "Nbdev Setup",
+    "section": "RUN Nbdev",
+    "text": "RUN Nbdev\nInitialise your nbdev repo by entering:\nnbdev_new\nIt may ask you to enter information that it couldn’t infer from git or GitHub.\n\nDo a git push to make sure everything is working\n\ngit add .\ngit commit -m'Initial commit'\ngit push\n\nGo to settings on Github, go to pages, Change Branch to gh-pages\n\n\nThen check on Actions",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "nbdev_setup.html#useful-commands",
+    "href": "nbdev_setup.html#useful-commands",
+    "title": "Nbdev Setup",
+    "section": "Useful commands",
+    "text": "Useful commands\nThe next step is to install your package by entering this into your terminal:\npip install -e '.[dev]'\nThis is the recommended way to make a Python package importable from anywhere in your current environment:\n\n-e – short for “editable”, lets you immediately use changes made to your package without having to reinstall, which is convenient for development.\n. – refers to the current directory.\n[dev] – includes “development” requirements: other packages that your notebooks use solely for documentation or testing.\n\nStart the preview by entering this into your terminal:\nnbdev_preview\nBefore every git push, run :\nnbdev_prepare\nWhich is the combination of:\nnbdev_export\nBuilds the .py modules from Jupyter notebooks\nnbdev_test\nTests your notebooks\nnbdev_clean\nCleans your notebooks to get rid of extreanous output for git\nnbdev_readme\nUpdates your repo’s README.md file from your index notebook.",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "nbdev_setup.html#directives-for-documentation",
+    "href": "nbdev_setup.html#directives-for-documentation",
+    "title": "Nbdev Setup",
+    "section": "Directives for documentation:",
+    "text": "Directives for documentation:\n#|hide\n\nHide cell input and output.\n\n#|echo: &lt;true|false&gt;\n\nToggle the visibility of code-cell inputs.\n\n#|output: &lt;true|false|asis&gt;\n\nSetting this to false hides the output of a cell. Setting this to asis renders the output as raw markdown.\n\n#|hide_line\n\nHide a specific line of code in an input cell.\n\n#|code-fold: &lt;show|true&gt;\n\nThe #|code-fold directive allows you to collapse code cells. When set to true, the element is collapsed by default, when set to show show the element is shown by default.\n\n\nExports\n#|default_exp &lt;name&gt;\n\nNames the module where cells with the #|export directive will be exported to by default.\n\n#|export\n\nExports the items in the cell into the generated module and documentation.\n\n#|exports\n\nA source export. Like #|export but in addition to showing docs via showdoc.show_doc, it also shows the source code.\n\n#|exec_doc\n\nEnsures that a cell is executed each time before generating docs. When a cell does not have this annotation, it is run according to the default rules described here.\n\n#|eval: &lt;true|false&gt;\n\nWhen set to false, the cell is ignored during testing.",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "nbdev_setup.html#testing",
+    "href": "nbdev_setup.html#testing",
+    "title": "Nbdev Setup",
+    "section": "Testing",
+    "text": "Testing\n\n\nsay_hello\n\n say_hello (to)\n\nSay hello to somebody\n\n\nExported source\ndef say_hello(to):\n    \"Say hello to somebody\"\n    return f'Hello {to}!'\n\n\n\nsay_hello(\"Isaac\")\n\n'Hello Isaac!'\n\n\nThis is a test too! When you run nbdev_test it will execute this cell (and all other test cells) and fail if they raise any exceptions.\nFor tests, it’s preferred to use more explicit asserts:\n\nassert say_hello(\"Hamel\") == \"Hello Hamel!\"\n\n\nfrom fastcore.test import *\n\n\ntest_eq(say_hello(\"Hamel\"), \"Hello Hamel!\")\n\nUsing\n$$\\sum_{i=1}^{k+1}i$$\nWhich is rendered as: \\[\\sum_{i=1}^{k+1}i\\]\nThis version is displayed inline: $\\sum_{i=1}^{k+1}i$ . You can include text before and after.\n\nBecomes: This version is displayed inline: \\(\\sum_{i=1}^{k+1}i\\) . You can include text before and after.",
+    "crumbs": [
+      "Blog",
+      "Nbdev Setup"
+    ]
+  },
+  {
+    "objectID": "quarto_setup.html",
+    "href": "quarto_setup.html",
+    "title": "Quarto Setup",
+    "section": "",
+    "text": "Downlaod quarto : quarto-1.3.433-win\n\n\n\nRemember to restart the computer\n\n\n\n\nwget https://quarto.org/download/latest/quarto-linux-amd64.deb\nNext use:\nsudo apt install ./&lt;name&gt;.deb\nExample:\nsudo apt install quarto-linux-amd64.deb",
+    "crumbs": [
+      "Blog",
+      "Quarto Setup"
+    ]
+  },
+  {
+    "objectID": "quarto_setup.html#download",
+    "href": "quarto_setup.html#download",
+    "title": "Quarto Setup",
+    "section": "",
+    "text": "Downlaod quarto : quarto-1.3.433-win\n\n\n\nRemember to restart the computer\n\n\n\n\nwget https://quarto.org/download/latest/quarto-linux-amd64.deb\nNext use:\nsudo apt install ./&lt;name&gt;.deb\nExample:\nsudo apt install quarto-linux-amd64.deb",
+    "crumbs": [
+      "Blog",
+      "Quarto Setup"
+    ]
+  },
+  {
+    "objectID": "quarto_setup.html#installs",
+    "href": "quarto_setup.html#installs",
+    "title": "Quarto Setup",
+    "section": "Installs",
+    "text": "Installs\npip install jupyter jupyterlab\npip install matplotlib plotly",
+    "crumbs": [
+      "Blog",
+      "Quarto Setup"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html",
+    "href": "fastaiexample.html",
+    "title": "FastAI Example",
+    "section": "",
+    "text": "!pip list | grep \"torch\"\n\ntorch                     2.3.1\ntorchvision               0.18.1\n\n\n\n!nvcc --version\n\n/bin/bash: line 1: nvcc: command not found\n\n\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.15\n\n\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html#check-for-all-installs-and-versions",
+    "href": "fastaiexample.html#check-for-all-installs-and-versions",
+    "title": "FastAI Example",
+    "section": "",
+    "text": "!pip list | grep \"torch\"\n\ntorch                     2.3.1\ntorchvision               0.18.1\n\n\n\n!nvcc --version\n\n/bin/bash: line 1: nvcc: command not found\n\n\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.15\n\n\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\ntorch.cuda.is_available()\n\nTrue",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html#generate-data-images",
+    "href": "fastaiexample.html#generate-data-images",
+    "title": "FastAI Example",
+    "section": "Generate Data Images",
+    "text": "Generate Data Images\n\nfrom fastbook import search_images_ddg\n\n\nfrom fastdownload import download_url\nfrom fastai.vision.all import *\n\n\ndownload_url(search_images_ddg('elephant', max_images=2)[0], 'Data/elephant.jpg', show_progress=False)\n\nim = Image.open('Data/elephant.jpg')\nim.to_thumb(256,256)\n\n\n\n\n\n\n\n\n\ndownload_url(search_images_ddg('tiger', max_images=1)[0], 'Data/tiger.jpg', show_progress=False)\nImage.open('Data/tiger.jpg').to_thumb(256,256)\n\n\n\n\n\n\n\n\n\ndownload_url(search_images_ddg('panda', max_images=2)[1], 'Data/panda.jpg', show_progress=False)\nImage.open('Data/panda.jpg').to_thumb(256,256)\n\n\n\n\n\n\n\n\n\nimport os\nfrom nbdevAuto import functions\n\n\n!pip list | grep nbdevAuto\n\nnbdevAuto                 0.0.130\n\n\n\npath = Path('Data/animal_pics') #Replace with folder path\n\nanimals = ('chimpanzee', 'elephant', 'giraffe',\n                    'kangaroo','lion','panda','rabbit',\n                    'rhino', 'tiger', 'wolf')   \n\nfunctions.create_data_folder(\n    path,\n    animals,\n)\n\nFolder already exists: Data/animal_pics",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html#step-2-train-our-model",
+    "href": "fastaiexample.html#step-2-train-our-model",
+    "title": "FastAI Example",
+    "section": "Step 2: Train our model",
+    "text": "Step 2: Train our model\n\nfrom fastai.metrics import accuracy, error_rate\n\ndls = DataBlock(\n    blocks=(ImageBlock, CategoryBlock), \n    get_items=get_image_files, \n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=[Resize(192, method='squish')]\n).dataloaders(path)\n\ndls.show_batch(max_n=6)\n\n\n\n\n\n\n\n\n\n# Define your metrics\nmetrics = [accuracy, error_rate]\n\n\nlearn11 = vision_learner(dls, resnet18, metrics=metrics)\nlearn11.fine_tune(1)\n\nDownloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /home/ben/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n100%|██████████████████████████████████████████████████████████████████████████████| 44.7M/44.7M [00:21&lt;00:00, 2.14MB/s]\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\nerror_rate\ntime\n\n\n\n\n0\n1.895889\n0.352051\n0.891599\n0.108401\n00:08\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\nerror_rate\ntime\n\n\n\n\n0\n0.396649\n0.310530\n0.905149\n0.094851\n00:05",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html#step-3-display-results-confusion-matrix",
+    "href": "fastaiexample.html#step-3-display-results-confusion-matrix",
+    "title": "FastAI Example",
+    "section": "Step 3: Display Results: Confusion Matrix",
+    "text": "Step 3: Display Results: Confusion Matrix\n\ninterp11 = ClassificationInterpretation.from_learner(learn11)\ninterp11.plot_confusion_matrix()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ninterp11.plot_top_losses(5,nrows = 2, figsize=(17,4))",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html#step-4-display-results-t-sne",
+    "href": "fastaiexample.html#step-4-display-results-t-sne",
+    "title": "FastAI Example",
+    "section": "Step 4: Display Results: t-SNE",
+    "text": "Step 4: Display Results: t-SNE\n\nfrom fastai.vision.all import *\nfrom sklearn.manifold import TSNE\nimport matplotlib.pyplot as plt\nfrom sklearn.manifold import TSNE\n\n\nfeatures, labels = learn11.get_preds(dl=dls.valid)\n\n# Replace 'val_features' with your extracted features\ntsne = TSNE(n_components=2)\nreduced_features = tsne.fit_transform(features)\n\n# Replace 'labels' with your image labels if available\nplt.scatter(reduced_features[:, 0], reduced_features[:, 1])\nplt.xlabel('t-SNE Dimension 1')\nplt.ylabel('t-SNE Dimension 2')\nplt.title('t-SNE Visualization')\nplt.show()",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "fastaiexample.html#step-5-use-our-model",
+    "href": "fastaiexample.html#step-5-use-our-model",
+    "title": "FastAI Example",
+    "section": "Step 5: Use our model",
+    "text": "Step 5: Use our model\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nimage= 'Data/panda.jpg'\n\n\nis_real,_,probs = learn11.predict(PILImage.create(image))\nmax_value, max_index = torch.max(probs, dim=0)\nprint(f\"This is a: {animal_list[max_index]} with probability: {max_value}.\")\n\nImage.open(image).to_thumb(256,256)\n\n\n\n\n\n\n\n\nThis is a: panda with probability: 0.9999809265136719.\n\n\n\n\n\n\n\n\n\n\nanimal_list =  ('chimpanzee','elephant','giraffe',\n                'kangaroo', 'lion','panda', 'rabbit',\n                'rhino','tiger','wolf')\nfor index, value in enumerate(animal_list):\n    np.set_printoptions(suppress=True, precision=4)\n    print(f\"Probability of {value} is :{probs[index]:4f}.\")\n\nProbability of chimpanzee is :0.000004.\nProbability of elephant is :0.000002.\nProbability of giraffe is :0.000002.\nProbability of kangaroo is :0.000001.\nProbability of lion is :0.000001.\nProbability of panda is :0.999981.\nProbability of rabbit is :0.000001.\nProbability of rhino is :0.000001.\nProbability of tiger is :0.000004.\nProbability of wolf is :0.000004.",
+    "crumbs": [
+      "Blog",
+      "FastAI Example"
+    ]
+  },
+  {
+    "objectID": "pytorch_setup.html#computer-setup",
+    "href": "pytorch_setup.html#computer-setup",
+    "title": "OLD: Pytorch Setup",
+    "section": "Computer Setup",
+    "text": "Computer Setup\n\nUninstall\n\nOnedrive\n\nDownload and Install:\n\nMatlab\nGit\nvscode\ndocker\nanaconda\nnvidia:\n\ncuda toolkit",
+    "crumbs": [
+      "Blog",
+      "OLD: Pytorch Setup"
+    ]
+  },
+  {
+    "objectID": "pytorch_setup.html#program-setup",
+    "href": "pytorch_setup.html#program-setup",
+    "title": "OLD: Pytorch Setup",
+    "section": "Program Setup",
+    "text": "Program Setup\n\nnbdev - see nbdev page\nquarto - see quarto page\njupyter lab - see nbdev page\nOptional installs\n\nvim\n\nconda install -c conda-forge vim\n\ngrep\n\nconda install -c conda-forge grep",
+    "crumbs": [
+      "Blog",
+      "OLD: Pytorch Setup"
+    ]
+  },
+  {
+    "objectID": "pytorch_setup.html#prerequisites-for-pytorch",
+    "href": "pytorch_setup.html#prerequisites-for-pytorch",
+    "title": "OLD: Pytorch Setup",
+    "section": "Prerequisites for pytorch",
+    "text": "Prerequisites for pytorch\n\nInstall Anaconda\nInstall CUDA, if your machine has a CUDA-enabled GPU.\nIf you want to build on Windows, Visual Studio with MSVC toolset, and NVTX are also needed. The exact requirements of those dependencies could be found out here.\nFollow the steps described here: https://github.com/pytorch/pytorch#from-source\n\nFor installing pytorch\nmamba install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia\npip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121\n\n\nCode\nimport torch\n\n\n\nx = torch.rand(5,3)\nprint(x)\n\ntensor([[0.9269, 0.1003, 0.0353],\n        [0.4144, 0.8482, 0.3824],\n        [0.1120, 0.7599, 0.8723],\n        [0.0077, 0.7378, 0.8241],\n        [0.3825, 0.3843, 0.2078]])\n\n\n\ntorch.cuda.is_available()\n\nTrue\n\n\n\ntorch.cuda.device_count()\n\n2\n\n\n\ndevice = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\ndevice\n\ndevice(type='cuda')\n\n\n\n!nvcc --version\n\n/bin/bash: line 1: nvcc: command not found\n\n\n\n!nvidia-smi\n\nThu Jul 27 01:53:39 2023       \n+-----------------------------------------------------------------------------+\n| NVIDIA-SMI 520.61.03    Driver Version: 522.06       CUDA Version: 11.8     |\n|-------------------------------+----------------------+----------------------+\n| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |\n|                               |                      |               MIG M. |\n|===============================+======================+======================|\n|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0  On |                  N/A |\n| N/A   42C    P8     4W /  N/A |    150MiB /  6144MiB |      2%      Default |\n|                               |                      |                  N/A |\n+-------------------------------+----------------------+----------------------+\n                                                                               \n+-----------------------------------------------------------------------------+\n| Processes:                                                                  |\n|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |\n|        ID   ID                                                   Usage      |\n|=============================================================================|\n|    0   N/A  N/A        23      G   /Xwayland                       N/A      |\n+-----------------------------------------------------------------------------+\n\n\n\n!which python\n\n/home/ben/mambaforge/envs/fast/bin/python\n\n\n\nimport sys\n\n\nprint(sys.executable)\nprint(sys.version)\n\n/home/ben/mambaforge/envs/fast/bin/python3.11\n3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]",
+    "crumbs": [
+      "Blog",
+      "OLD: Pytorch Setup"
+    ]
+  },
+  {
+    "objectID": "fastai_setup.html",
+    "href": "fastai_setup.html",
+    "title": "FastAI Setup",
+    "section": "",
+    "text": "pip install fastai\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.15\n\n\n!mamba install -c nvidia fastai\nconda install -c nvidia fastai anaconda\n\n\n\npip install fastbook\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\nif torch.cuda.is_available():\n    print(\"GPU is available.\")\n    num_gpu = torch.cuda.device_count()\n    for i in range(num_gpu):\n        gpu_name = torch.cuda.get_device_name(i)\n        gpu_memory = torch.cuda.get_device_properties(i).total_memory / (1024 ** 3)  # Convert bytes to GB\n        print(f\"GPU {i}: {gpu_name}, Memory: {gpu_memory:.2f} GB\")\nelse:\n    print(\"GPU is not available.\")\n\nGPU is available.\nGPU 0: NVIDIA GeForce RTX 2060, Memory: 6.00 GB",
+    "crumbs": [
+      "Blog",
+      "FastAI Setup"
+    ]
+  },
+  {
+    "objectID": "fastai_setup.html#installs",
+    "href": "fastai_setup.html#installs",
+    "title": "FastAI Setup",
+    "section": "",
+    "text": "pip install fastai\n\n!pip list | grep \"fastai\"\n\nfastai                    2.7.15\n\n\n!mamba install -c nvidia fastai\nconda install -c nvidia fastai anaconda\n\n\n\npip install fastbook\n\n!pip list | grep \"fastbook\"\n\nfastbook                  0.0.29\n\n\n\nimport torch\n\n\nif torch.cuda.is_available():\n    print(\"GPU is available.\")\n    num_gpu = torch.cuda.device_count()\n    for i in range(num_gpu):\n        gpu_name = torch.cuda.get_device_name(i)\n        gpu_memory = torch.cuda.get_device_properties(i).total_memory / (1024 ** 3)  # Convert bytes to GB\n        print(f\"GPU {i}: {gpu_name}, Memory: {gpu_memory:.2f} GB\")\nelse:\n    print(\"GPU is not available.\")\n\nGPU is available.\nGPU 0: NVIDIA GeForce RTX 2060, Memory: 6.00 GB",
+    "crumbs": [
+      "Blog",
+      "FastAI Setup"
+    ]
+  },
+  {
+    "objectID": "latex_setup.html",
+    "href": "latex_setup.html",
+    "title": "Latex",
+    "section": "",
+    "text": "sudo apt install texlive\nsudo apt install texlive-latex-extra\n\n\nTexmaker: A popular LaTeX editor.\nsudo apt install texmaker\nPandoc: A universal document converter.\nsudo apt install pandoc",
+    "crumbs": [
+      "Blog",
+      "Latex"
+    ]
+  },
+  {
+    "objectID": "latex_setup.html#installation",
+    "href": "latex_setup.html#installation",
+    "title": "Latex",
+    "section": "",
+    "text": "sudo apt install texlive\nsudo apt install texlive-latex-extra\n\n\nTexmaker: A popular LaTeX editor.\nsudo apt install texmaker\nPandoc: A universal document converter.\nsudo apt install pandoc",
+    "crumbs": [
+      "Blog",
+      "Latex"
+    ]
+  },
+  {
+    "objectID": "latex_setup.html#for-vscode-latex",
+    "href": "latex_setup.html#for-vscode-latex",
+    "title": "Latex",
+    "section": "For VScode latex",
+    "text": "For VScode latex\nsudo apt install latexmk\nsudo apt install chktex",
+    "crumbs": [
+      "Blog",
+      "Latex"
+    ]
+  },
+  {
+    "objectID": "latex_setup.html#old-non-interactive-default-installation-on-anything-but-windows",
+    "href": "latex_setup.html#old-non-interactive-default-installation-on-anything-but-windows",
+    "title": "Latex",
+    "section": "OLD: Non-interactive default installation on anything but Windows:",
+    "text": "OLD: Non-interactive default installation on anything but Windows:\ncd /tmp # working directory of your choice\n\nDownload: wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz\n           or: curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz    \n           (or via whatever other method you like)\n\nzcat &lt; install-tl-unx.tar.gz | tar xf -\n\ncd install-tl-*\n\nperl ./install-tl --no-interaction # as root or with writable destination\n\nFinally, prepend /usr/local/texlive/YYYY/bin/PLATFORM to your PATH,\ne.g., /usr/local/texlive/2024/bin/x86_64-linux",
+    "crumbs": [
+      "Blog",
+      "Latex"
+    ]
+  },
+  {
+    "objectID": "latex_setup.html#changing-defaults",
+    "href": "latex_setup.html#changing-defaults",
+    "title": "Latex",
+    "section": "Changing defaults:",
+    "text": "Changing defaults:\n\nThe default paper size is a4. If you want the default to be letter, add –paper=letter to the install-tl command.\nBy default, everything is installed (7+GB).\n\nTo install a smaller scheme, pass –scheme=scheme to install-tl. For example, –scheme=small corresponds to the BasicTeX variant of MacTeX.\nTo omit installation of the documentation resp. source files, pass –no-doc-install –no-src-install to install-tl.\n\nTo change the main installation directories (rarely needed), add –texdir=/install/dir to the install-tl command. To change the location of the per-user directories (where TEXMFHOME and others will be found), specify –texuserdir=/your/dir.\nTo change anything and everything else, omit the –no-interaction. Then you are dropped into an interactive installation menu.",
+    "crumbs": [
+      "Blog",
+      "Latex"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html",
+    "href": "conda_setup.html",
+    "title": "Conda Setup",
+    "section": "",
+    "text": "gh repo clone fastai/fastsetup\n\nto list conda envs\n\nconda env list",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#fast-setup",
+    "href": "conda_setup.html#fast-setup",
+    "title": "Conda Setup",
+    "section": "",
+    "text": "gh repo clone fastai/fastsetup\n\nto list conda envs\n\nconda env list",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#to-create-basic-conda-env",
+    "href": "conda_setup.html#to-create-basic-conda-env",
+    "title": "Conda Setup",
+    "section": "To create basic conda env",
+    "text": "To create basic conda env\nAfter running ./setup-conda.sh, create conda environment\nconda create -n &lt;name&gt; python",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#to-remove-conda-env",
+    "href": "conda_setup.html#to-remove-conda-env",
+    "title": "Conda Setup",
+    "section": "To remove conda env",
+    "text": "To remove conda env\nconda remove --name myenv --all",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#to-build-conda-env-with-environment-file",
+    "href": "conda_setup.html#to-build-conda-env-with-environment-file",
+    "title": "Conda Setup",
+    "section": "To build conda env with environment file",
+    "text": "To build conda env with environment file\nconda env create -n &lt;name&gt; -f environment.yml\nmamba env create -n cfast -f cfast.yml\n\nfor creating environment files\n\nconda env export &gt; environment.yml",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#to-clone-an-env",
+    "href": "conda_setup.html#to-clone-an-env",
+    "title": "Conda Setup",
+    "section": "To clone an env",
+    "text": "To clone an env\nconda create --name &lt;clone name&gt; --clone &lt;env name&gt;",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#to-create-a-spec-list-file",
+    "href": "conda_setup.html#to-create-a-spec-list-file",
+    "title": "Conda Setup",
+    "section": "To create a spec list file",
+    "text": "To create a spec list file\nconda list --explicit &gt; spec-file.txt\nTo use the spec file to install its listed packages into an existing environment:\nconda install --name myenv --file spec-file.txt",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "conda_setup.html#to-clean-mamba-cache",
+    "href": "conda_setup.html#to-clean-mamba-cache",
+    "title": "Conda Setup",
+    "section": "To clean Mamba cache",
+    "text": "To clean Mamba cache\nmamba clean --yes --all",
+    "crumbs": [
+      "Blog",
+      "Conda Setup"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html",
+    "href": "jupyter_guide.html",
+    "title": "Jupyter Guide",
+    "section": "",
+    "text": "pip install jupyterthemes\n\n!jt -l\n\nAvailable Themes: \n   chesterish\n   grade3\n   gruvboxd\n   gruvboxl\n   monokai\n   oceans16\n   onedork\n   solarizedd\n   solarizedl\n\n\n\n\njupyter notebook --generate-config\n\nTo view jupyter config\ncat ~/.jupyter/jupyter_notebook_config.py\nsudo vim ~/.jupyter/jupyter_notebook_config.py\nc.NotebookApp.ip = '0.0.0.0'\nc.NotebookApp.port = 8888\nc.NotebookApp.open_browser = False",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#customize-jupyter-labs",
+    "href": "jupyter_guide.html#customize-jupyter-labs",
+    "title": "Jupyter Guide",
+    "section": "",
+    "text": "pip install jupyterthemes\n\n!jt -l\n\nAvailable Themes: \n   chesterish\n   grade3\n   gruvboxd\n   gruvboxl\n   monokai\n   oceans16\n   onedork\n   solarizedd\n   solarizedl\n\n\n\n\njupyter notebook --generate-config\n\nTo view jupyter config\ncat ~/.jupyter/jupyter_notebook_config.py\nsudo vim ~/.jupyter/jupyter_notebook_config.py\nc.NotebookApp.ip = '0.0.0.0'\nc.NotebookApp.port = 8888\nc.NotebookApp.open_browser = False",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#other-important-considerations",
+    "href": "jupyter_guide.html#other-important-considerations",
+    "title": "Jupyter Guide",
+    "section": "Other Important Considerations",
+    "text": "Other Important Considerations\nThere are a couple of shortcuts you must know about which we use all the time (always in Command Mode). These are:\n\nShift+Enter: Run the code or markdown on a cell\nUp Arrow / Down Arrow: Toggle across cells\nb: Create new cell underneath this one\n0+0: Reset Kernel\n\nYou can find more shortcuts by typing h (for help).\nYou may need to use shell commands, like ls or cat in a Jupyter Notebook environment. That is very easy to do: just type ! before you shell command, like so:\n\nls -hidden\n\nls: invalid option -- 'e'\nTry 'ls --help' for more information.",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#markdown-formatting",
+    "href": "jupyter_guide.html#markdown-formatting",
+    "title": "Jupyter Guide",
+    "section": "Markdown Formatting",
+    "text": "Markdown Formatting\n\nImages\n![title](panda.jpg)\n\n\n\ntitle\n\n\n\n\nItalics, Bold, Strikethrough, Inline, Blockquotes and Links\nThe five most important concepts to format your code appropriately when using Markdown are:\n\nItalics:: Surround your text with _ or *.\nBold:: Surround your text with __ or **.\ninline:: Surround your text with `.\nblockquote:: Place &gt; before your text.\nsuperscript2 / subscript2\nLinks:: Surround the text you want to link with [] and place the link adjacent to the text, surrounded with ().\n\n\n\nHeadings\n(# is level one, ## is level two, ### is level three and #### is level four)\n\n\nLists\nThere are three types of lists in markdown.\nOrdered list:\n\nStep 1\n\nStep 1B\n\nStep 3\n\nUnordered list\n\nlearning rate\ncycle length\nweight decay\n\nTask list\n\nLearn Jupyter Notebooks\n\nWriting\nModes\nOther Considerations\n\nChange the world\n\nIn the notebook, double click on them to see how they are built!",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#tables",
+    "href": "jupyter_guide.html#tables",
+    "title": "Jupyter Guide",
+    "section": "Tables",
+    "text": "Tables\n\n\n\nTable 1: Main Caption\n\n\n\n\n\n\n\n(a) First Table\n\n\n\n\n\nCol1\nCol2\nCol3\n\n\n\n\nA\nB\nC\n\n\nE\nF\nG\n\n\nA\nG\nG\n\n\n\n\n\n\n\n\n\n\n\n(b) Second Table\n\n\n\n\n\nCol1\nCol2\nCol3\n\n\n\n\nA\nB\nC\n\n\nE\nF\nG\n\n\nA\nG\nG\n\n\n\n\n\n\n\n\n\n\n\n\nSample grid table.\n\n\n\n\n\n\n\nFruit\nPrice\nAdvantages\n\n\n\n\nBananas\n$1.34\n\nbuilt-in wrapper\nbright color\n\n\n\nOranges\n$2.10\n\ncures scurvy\ntasty\n\n\n\n\n\nFruit prices\n\n\nRight\nLeft\nDefault\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\nFruit prices\n\n\n\n\n\n\nfruit\nprice\n\n\n\n\napple\n2.05\n\n\npear\n1.37\n\n\norange\n3.09\n\n\n\n\n\nCode\nfrom graphviz import Digraph\n\ndef create_nodes(graph, items, colours):\n    with graph.subgraph(name=f'{items[0]}') as c:\n        c.attr(style='filled', fillcolor=colours[0], label=items[0][7:], rank = 'same', fontcolor=colours[2])\n        c.node_attr.update(style='filled', fillcolor=colours[1], shape='box', fontcolor=colours[2])\n        for data in items[1:]: c.node(f'{data}', f'{data}')\n        \ndef create_edges(graph, Begin, End, colour):\n    for beginning in Begin[1:]: \n        for towards in End[1:]: graph.edge(f'{beginning}', f'{towards}', len='5.00', color = colour[4])\n\n\n\n\nCode\nprimary = '#FFFFFF'\nsecondary = '#F6AE2D'\nthird = '#002855'\nbg = '#F1FAF0'\nfifth = '#002855'\n\ncolours = [primary, secondary, third, bg, fifth]\n\nBuckets = ['clusterBuckets', 'Energy_1hour_integral', 'Power_5min_avg', 'Weather']\n\nProcess = ['clusterProcess', 'MinMaxScalar', 'Seasonal_decompose']\n\nStats = ['clusterStats', 'AutoARIMA', 'HaltWinter', 'MSTL', 'FFT', 'SeasonNaive']\n\nML = ['clusterML', 'LGBMRegressor', 'XGBRegressor', 'LinearRegression']\n\nNeural = ['clusterNeural', 'NBEATS', 'NHITS', 'MLP']\n          \nEvaluate = ['clusterEvaluate', 'mase', 'mae', 'mape', 'rmse', 'smape']\n\nNodes = [Buckets, Process, Stats, ML, Neural, Evaluate]\n# Create a directed graph\ngraph = Digraph(filename = 'test', directory = './Data', engine = 'dot')\ngraph.attr('graph', style='filled', bgcolor=colours[3])\ngraph.graph_attr['rankdir'] = 'LR'\n\n\nfor items in Nodes:\n    create_nodes(graph, items, colours)\n\n\n# Add edges  \ncreate_edges(graph, Buckets, Process, colours)\n\ncreate_edges(graph, Process, Stats, colours)\ncreate_edges(graph, Process, ML, colours)\ncreate_edges(graph, Process, Neural, colours)\n\ncreate_edges(graph, Stats, Evaluate, colours)\ncreate_edges(graph, ML, Evaluate, colours)\ncreate_edges(graph, Neural, Evaluate, colours)\n\n# Save the graph as a PNG file\ngraph.render( format='svg', cleanup=False)\n\n\n'Data/test.svg'\n\n\n\n\n\ntitle\n\n\n\n\nCode\nfrom graphviz import Digraph\nimport graphviz\n\n\n\n\nCode\nfrom nbdevAuto.functions import graph\n\ng = graph('A', filename='Data/plan', engine = 'dot')\n    \n\n\nbuc = 'buc'\n\ng.node('Buckets',\n        f'''&lt;&lt;TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"10\" CELLPADDING=\"10\" STYLE = \"rounded\"&gt;\n          &lt;TR&gt;&lt;TD PORT=\"{buc}\" BORDER=\"0\" STYLE = \"rounded\" WIDTH=\"50\" &gt;Buckets&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Weather\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;Weather&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Energy\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;Energy 1hour integral&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Power\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;Power 5 min avg&lt;/TD&gt;&lt;/TR&gt;\n        &lt;/TABLE&gt;&gt;''',\n        fillcolor=g.primary,\n        penwidth = '0')\n\n\n\ng.node('Process',\n        f'''&lt;&lt;TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"10\" CELLPADDING=\"10\" STYLE = \"rounded\"&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Pro\" BORDER=\"0\" STYLE = \"rounded\" WIDTH=\"50\" &gt;Process&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"MinMax\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;MinMaxScalar&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Seasonal\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;Seasonal_decompose&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"FFT\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;FFT&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Correlation\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;Variable Correlation&lt;/TD&gt;&lt;/TR&gt;\n        &lt;/TABLE&gt;&gt;''',\n        fillcolor=g.primary,\n        penwidth = '0')\n\n\ng.node('Stats',\n        f'''&lt;&lt;TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"10\" CELLPADDING=\"10\" STYLE = \"rounded\"&gt;\n          &lt;TR&gt;&lt;TD PORT=\"sta\" BORDER=\"0\" STYLE = \"rounded\" WIDTH=\"50\" &gt;Stats&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"FFT\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;FFT&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Naive\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;SeasonNaive&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"ARIMA\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;AutoARIMA&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"HaltWinter\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;HaltWinter&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"MSTL\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;MSTL&lt;/TD&gt;&lt;/TR&gt;\n        &lt;/TABLE&gt;&gt;''',\n        fillcolor=g.primary,\n        penwidth = '0')\n\ng.node('ML',\n        f'''&lt;&lt;TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"10\" CELLPADDING=\"10\" STYLE = \"rounded\"&gt;\n          &lt;TR&gt;&lt;TD PORT=\"M\" BORDER=\"0\" STYLE = \"rounded\" WIDTH=\"50\" &gt;ML&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"LinearRegression\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;Linear Regressor&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"LGBM\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;LGBM Regressor&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"XGB\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;XGB Regressor&lt;/TD&gt;&lt;/TR&gt;\n        &lt;/TABLE&gt;&gt;''',\n        fillcolor=g.primary,\n        penwidth = '0')\n\n\ng.node('Neural',\n        f'''&lt;&lt;TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"10\" CELLPADDING=\"10\" STYLE = \"rounded\"&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Neu\" BORDER=\"0\" STYLE = \"rounded\" WIDTH=\"50\" &gt;Neural&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"MLP\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;MLP&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"NBEATS\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;NBEATS&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"NHITS\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;NHITS&lt;/TD&gt;&lt;/TR&gt;\n        &lt;/TABLE&gt;&gt;''',\n        fillcolor=g.primary,\n        penwidth = '0')\n\ng.node('Evaluate',\n        f'''&lt;&lt;TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"10\" CELLPADDING=\"10\" STYLE = \"rounded\"&gt;\n          &lt;TR&gt;&lt;TD PORT=\"Eval\" BORDER=\"0\" STYLE = \"rounded\" WIDTH=\"50\" &gt;Evaluate&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"mape\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;mape&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"rmse\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;rmse&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"smape\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;smape&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"mase\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;mase&lt;/TD&gt;&lt;/TR&gt;\n          &lt;TR&gt;&lt;TD PORT=\"mae\" STYLE = \"rounded\" BGCOLOR=\"{g.secondary}\" &gt;mae&lt;/TD&gt;&lt;/TR&gt;\n          \n        &lt;/TABLE&gt;&gt;''',\n        fillcolor=g.primary,\n        penwidth = '0')\n\n\ng.edge('Buckets', 'Process')\n\ng.edge('Process', 'Stats')\ng.edge('Process', 'ML')\ng.edge('Process', 'Neural')\n\n\ng.edge('Stats', 'Evaluate')\ng.edge('ML', 'Evaluate')\ng.edge('Neural', 'Evaluate')\n\n\n\ng.render(format='svg', cleanup=False)\n\n\ng\n\n\n\n\n\n\n\n\n\n\nAs described in the section above, Quarto tables are great.\n\n\nHeader 1\nHeader 2\n\n\n\n\n\nRegular output",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#diagrams",
+    "href": "jupyter_guide.html#diagrams",
+    "title": "Jupyter Guide",
+    "section": "Diagrams",
+    "text": "Diagrams\n\n\n\n\n\n\n\n\n\n\nA\n\nA\n\n\n\nB\n\nB\n\n\n\nA-&gt;B\n\n\n\n\n\nC\n\nC\n\n\n\nA-&gt;C\n\n\n\n\n\nD\n\nD\n\n\n\nB-&gt;D\n\n\n\n\n\nC-&gt;D\n\n\n\n\n\n\n\n\n\n\nimport graphviz dot_data = ’’’ digraph { A -&gt; B; A -&gt; C; B -&gt; D; C -&gt; D; } ’’’ graph = graphviz.Source(dot_data) graph\n\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\n\n\n\n\n\n\n\nsequenceDiagram\n  participant Alice\n  participant Bob\n  Alice-&gt;&gt;John: Hello John, how are you?\n  loop Healthcheck\n    John-&gt;&gt;John: Fight against hypochondria\n  end\n  Note right of John: Rational thoughts &lt;br/&gt;prevail!\n  John--&gt;&gt;Alice: Great!\n  John-&gt;&gt;Bob: How about you?\n  Bob--&gt;&gt;John: Jolly good!\n\n\n\n\n\n\n\n\n\n\n\n---\ntitle: Animal example\n---\nclassDiagram\n    note \"From Duck till Zebra\"\n    Animal &lt;|-- Duck\n    note for Duck \"can fly\\ncan swim\\ncan dive\\ncan help in debugging\"\n    Animal &lt;|-- Fish\n    Animal &lt;|-- Zebra\n    Animal : +int age\n    Animal : +String gender\n    Animal: +isMammal()\n    Animal: +mate()\n    class Duck{\n        +String beakColor\n        +swim()\n        +quack()\n    }\n    class Fish{\n        -int sizeInFeet\n        -canEat()\n    }\n    class Zebra{\n        +bool is_wild\n        +run()\n    }\n\n\n\n\n\n\n\n\n\n\n\nstateDiagram\n    [*] --&gt; Still\n    Still --&gt; [*]\n\n    Still --&gt; Moving\n    Moving --&gt; Still\n    Moving --&gt; Crash\n    Crash --&gt; [*]\n\n\n\n\n\n\n\n\n\n\n\n\n---\ntitle: Order example\n---\nerDiagram\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--|{ LINE-ITEM : contains\n    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses\n\n\n\n\n\n\n\n\n\n\n\n\njourney\n    title My working day\n    section Go to work\n      Make tea: 5: Me\n      Go upstairs: 3: Me\n      Do work: 1: Me, Cat\n    section Go home\n      Go downstairs: 5: Me\n      Sit down: 5: Me\n\n\n\n\n\n\n\n\n\n\n\ngantt\n    dateFormat HH:mm\n    axisFormat %H:%M\n    Initial milestone : milestone, m1, 17:49, 2m\n    Task A : 10m\n    Task B : 5m\n    Final milestone : milestone, m2, 18:08, 4m\n\n\n\n\n\n\n\n\n\n\n\npie title Pets adopted by volunteers\n    \"Dogs\" : 386\n    \"Cats\" : 85\n    \"Rats\" : 15\n\n\n\n\n\n\n\n\n\n\n\n---\ntitle: Example Git diagram\n---\ngitGraph\n   commit\n   commit\n   branch develop\n   checkout develop\n   commit\n   commit\n   checkout main\n   merge develop\n   commit\n   commit\n\n\n\n\n\n\n\n\n\n\n\ntimeline\n        title History of Social Media Platform\n          2002 : LinkedIn\n          2004 : Facebook : Google\n          2005 : Youtube\n          2006 : Twitter",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#callouts",
+    "href": "jupyter_guide.html#callouts",
+    "title": "Jupyter Guide",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip with Title\n\n\n\nThis is an example of a callout with a title.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default.",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#videos",
+    "href": "jupyter_guide.html#videos",
+    "title": "Jupyter Guide",
+    "section": "Videos",
+    "text": "Videos",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#code-capabilities",
+    "href": "jupyter_guide.html#code-capabilities",
+    "title": "Jupyter Guide",
+    "section": "Code Capabilities",
+    "text": "Code Capabilities\n\na = 1\nb = a + 1\nc = b + a + 1\nd = c + b + a + 1\na, b, c ,d\n\n(1, 2, 4, 8)\n\n\n\nimport matplotlib.pyplot as plt\n\nplt.plot([a,b,c,d])\nplt.show()",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "jupyter_guide.html#shortcuts-and-tricks",
+    "href": "jupyter_guide.html#shortcuts-and-tricks",
+    "title": "Jupyter Guide",
+    "section": "Shortcuts and Tricks",
+    "text": "Shortcuts and Tricks\n\nCommand Mode Shortcuts\nThere are a couple of useful keyboard shortcuts in Command Mode that you can leverage to make Jupyter Notebook faster to use. Remember that you can switch back and forth between Command Mode and Edit Mode with Esc and Enter.\n\nm:: Convert cell to Markdown\ny:: Convert cell to Code\nd+d:: Delete cell\no:: Toggle between hide or show output\nShift+Arrow up/Arrow down:: Select multiple cells. Once you have selected them you can operate on them like a batch (run, copy, paste etc).\nShift+M:: Merge selected cells\n\n\n\nCell Tricks\nThere are also some tricks that you can code into a cell:\n\n?function-name:: Shows the definition and docstring for that function\n??function-name:: Shows the source code for that function\ndoc(function-name):: Shows the definition, docstring and links to the documentation of the function (only works with fastai library imported)\nShift+Tab (press once):: See which parameters to pass to a function\nShift+Tab (press three times):: Get additional information on the method\n\nHere’s an example of using ? to learn about Python’s print() function:\n\nprint(\"asd\")\n\nasd\n\n\n\n\nLine Magics\nLine magics are functions that you can run on cells. They should be at the beginning of a line and take as an argument the rest of the line from where they are called. You call them by placing a ‘%’ sign before the command. The most useful ones are:\n\n%matplotlib inline:: Ensures that all matplotlib plots will be plotted in the output cell within the notebook and will be kept in the notebook when saved.\n\nThis command is always called together at the beginning of every notebook of the fast.ai course.\n%matplotlib inline\n\n%timeit:: Runs a line ten thousand times and displays the average time it took to run.\n\n\n\n\n41.8 µs ± 3.17 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)\n\n\n%debug: Inspects a function which is showing an error using the Python debugger. If you type this in a cell just after an error, you will be directed to a console where you can inspect the values of all the variables.",
+    "crumbs": [
+      "Blog",
+      "Jupyter Guide"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Computer Setup for Deep Learning",
+    "section": "",
+    "text": "OneDrive",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#uninstalls",
+    "href": "index.html#uninstalls",
+    "title": "Computer Setup for Deep Learning",
+    "section": "",
+    "text": "OneDrive",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#change-settings-in-turn-windows-features-on-or-off",
+    "href": "index.html#change-settings-in-turn-windows-features-on-or-off",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Change Settings in Turn Windows features on or off",
+    "text": "Change Settings in Turn Windows features on or off\nTurn on: - Virtual Machine Platform - Windows Hypervisor Platform - Windows Subsystem for Linux",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#download-wsl---windows-subsystem-for-linux",
+    "href": "index.html#download-wsl---windows-subsystem-for-linux",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Download WSL - Windows Subsystem for Linux",
+    "text": "Download WSL - Windows Subsystem for Linux\n\ngoto powershell\n\nwsl --install\nIf there is error with wsl\nInvoke-WebRequest -UseBasicParsing \"https://raw.githubusercontent.com/microsoft/WSL/master/triage/install-latest-wsl.ps1\" -OutFile install-latest-wsl.ps1\nSet-ExecutionPolicy Bypass -Scope Process -Force\n.\\install-latest-wsl.ps1\n\no see a list of available Linux distributions available for download through the online store\n\nwsl -l -o\n\nto download a Linux distribution\n\nwsl --install -d &lt;Distribution Name&gt;\n\nto remove a distribution\n\nwsl --unregister &lt;Distribution Name&gt;",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#install-git",
+    "href": "index.html#install-git",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Install Git",
+    "text": "Install Git\nsudo apt -y install git\n\ngenerate ssh key\nadd it to github SSH keys in settings",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#run-fastsetup-in-linux-file",
+    "href": "index.html#run-fastsetup-in-linux-file",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Run Fastsetup in linux file",
+    "text": "Run Fastsetup in linux file\ngit clone git@github.com:fastai/fastsetup.git\n\nRead README.txt\n\ncd fastsetup\ngive files permission to run\nchmod +x *\nsudo ./ubuntu-wsl.sh\nsource dotfiles.sh\nsource setup-conda.sh\n. ~/.bashrc\nconda install -yq mamba",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#resource-monitoring",
+    "href": "index.html#resource-monitoring",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Resource monitoring",
+    "text": "Resource monitoring\nsudo add-apt-repository ppa:bashtop-monitor/bashtop\nsudo apt update\nsudo apt install bashtop\nbashtop",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#gpu-monitoring",
+    "href": "index.html#gpu-monitoring",
+    "title": "Computer Setup for Deep Learning",
+    "section": "GPU monitoring",
+    "text": "GPU monitoring\nsudo add-apt-repository ppa:flexiondotorg/nvtop\nsudo apt install nvtop",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#nvtop",
+    "href": "index.html#nvtop",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Nvtop",
+    "text": "Nvtop\nsudo add-apt-repository ppa:flexiondotorg/nvtop\nsudo apt install nvtop",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#bash-terminal-customisation",
+    "href": "index.html#bash-terminal-customisation",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Bash terminal customisation",
+    "text": "Bash terminal customisation\nparse_git_branch() { b=$(git branch --show-current 2&gt; /dev/null); echo ${b:+\" ($b)\"}; }\n\nPS1='\\[\\e[38;5;214m\\]\\A\\[\\e[0m\\] \\[\\e[38;5;108;1m\\]\\u\\[\\e[0;38;5;114;2m\\]@\\[\\e[0;38;5;119m\\]\\h\\[\\e[0m\\] \\[\\e[38;5;117m\\]\\w'\n\nPS1='${debian_chroot:+($debian_chroot)}'$PS1'\\[\\e[38;5;204;1m\\]$(parse_git_branch)\\[\\033[00m\\]\\$ '\n\nPS2='${debian_chroot:+($debian_chroot)}\\[\\e[38;5;214m\\]\\A \\[\\033[00m\\]\\$ '",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#font-customisation",
+    "href": "index.html#font-customisation",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Font customisation",
+    "text": "Font customisation\n\nAdd firacode to windows settings\n\nIn powershell\nSet-ExecutionPolicy RemoteSigned -Scope CurrentUser\niwr -useb get.scoop.sh | iex\nscoop bucket add nerd-fonts\nscoop install firacode\niwr -useb get.scoop.sh | iex",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#step-for-git-push",
+    "href": "index.html#step-for-git-push",
+    "title": "Computer Setup for Deep Learning",
+    "section": "Step for git push",
+    "text": "Step for git push\n\nnbdev_prepare\n\nnbdev_prepare\n\nGit stuff\n\ngit add .\ngit commit -m \"update\"\ngit push",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "index.html#after-changing-dependencies",
+    "href": "index.html#after-changing-dependencies",
+    "title": "Computer Setup for Deep Learning",
+    "section": "After changing dependencies",
+    "text": "After changing dependencies\npip install newAI\npip install -e '.[dev]'",
+    "crumbs": [
+      "Blog",
+      "[Computer Setup for Deep Learning](https://bthek1.github.io/Computer_Setup/)"
+    ]
+  },
+  {
+    "objectID": "wsl_setup.html",
+    "href": "wsl_setup.html",
+    "title": "WSL Setup Instructions",
+    "section": "",
+    "text": ".wslconfig to configure global settings across all installed distributions running on WSL 2.\n\n # Settings apply across all Linux distros running on WSL 2\n[wsl2]\n\n# Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB\nmemory=30GB \nswap=32GB\n\n# Sets the VM to use two virtual processors\nprocessors=12\n\n\nnetworkingMode = NAT\n\n\n[experimental]\nautoMemoryReclaim = dropcache\n\n\n\n\nwsl.conf to configure local settings per-distribution for each Linux distribution running on WSL 1 or WSL 2.\n\n\nLocation: /etc/wsl.conf\n\n\nThe wsl.conf file supports four sections: automount, network, interop, and user.\n\n\n!cat /etc/wsl.conf\n\n\n[boot]\nsystemd=true\n\n[network]\n# hostname = DemoHost\ngenerateHosts = true\ngenerateResolvConf = true\n\n# [user]\n# default = DemoUser\n\n\n\n\n\n\n\nrule: allow all traffic from port 8888 to pass through\n\nnetsh interface portproxy add v4tov4 listenport=8888 listenaddress=0.0.0.0 connectport=8888 connectaddress=172.22.253.143\n\ndelete rule:\n\nnetsh interface portproxy delete v4tov4 listenport=8888 listenaddress=0.0.0.0\n\nview rules:\n\nnetsh interface portproxy show all\n\nsudo apt install firefox",
+    "crumbs": [
+      "Blog",
+      "WSL Setup Instructions"
+    ]
+  },
+  {
+    "objectID": "wsl_setup.html#wsl-config-files",
+    "href": "wsl_setup.html#wsl-config-files",
+    "title": "WSL Setup Instructions",
+    "section": "",
+    "text": ".wslconfig to configure global settings across all installed distributions running on WSL 2.\n\n # Settings apply across all Linux distros running on WSL 2\n[wsl2]\n\n# Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB\nmemory=30GB \nswap=32GB\n\n# Sets the VM to use two virtual processors\nprocessors=12\n\n\nnetworkingMode = NAT\n\n\n[experimental]\nautoMemoryReclaim = dropcache\n\n\n\n\nwsl.conf to configure local settings per-distribution for each Linux distribution running on WSL 1 or WSL 2.\n\n\nLocation: /etc/wsl.conf\n\n\nThe wsl.conf file supports four sections: automount, network, interop, and user.\n\n\n!cat /etc/wsl.conf\n\n\n[boot]\nsystemd=true\n\n[network]\n# hostname = DemoHost\ngenerateHosts = true\ngenerateResolvConf = true\n\n# [user]\n# default = DemoUser\n\n\n\n\n\n\n\nrule: allow all traffic from port 8888 to pass through\n\nnetsh interface portproxy add v4tov4 listenport=8888 listenaddress=0.0.0.0 connectport=8888 connectaddress=172.22.253.143\n\ndelete rule:\n\nnetsh interface portproxy delete v4tov4 listenport=8888 listenaddress=0.0.0.0\n\nview rules:\n\nnetsh interface portproxy show all\n\nsudo apt install firefox",
+    "crumbs": [
+      "Blog",
+      "WSL Setup Instructions"
+    ]
+  },
+  {
+    "objectID": "wsl_setup.html#wsl-to-windows-port-forwarding",
+    "href": "wsl_setup.html#wsl-to-windows-port-forwarding",
+    "title": "WSL Setup Instructions",
+    "section": "WSL to Windows port forwarding",
+    "text": "WSL to Windows port forwarding\n\nIn powershell as administrator\n\nnetsh interface portproxy add v4tov4 listenport=80 listenaddress=0.0.0.0 connectport=80 connectaddress=$($(wsl hostname -I).Trim());\nNew-NetFirewallRule -DisplayName \"WSL2 Port Bridge\" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80",
+    "crumbs": [
+      "Blog",
+      "WSL Setup Instructions"
+    ]
+  }
+]

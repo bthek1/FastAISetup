@@ -2,7 +2,7 @@ project:
   output-dir: _docs
 
 website:
-  title: "newAI"
+  title: "Setup"
   site-url: "https://bthek1.github.io/Computer_Setup//bthek1"
   description: "Computer_Setup"
   repo-branch: main
